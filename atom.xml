@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Moo</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <icon>http://example.com/images/favicon_200x200.png</icon>
+  <id>http://example.com/</id>
+  <link href="http://example.com/" rel="alternate"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Moo</rights>
+  <subtitle>learn or earn</subtitle>
+  <title>Moo's Blog</title>
+  <updated>2025-07-09T13:47:52.000Z</updated>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <id>http://example.com/2025/07/09/%E7%BE%A4%E6%99%96failed%20to%20initialize%20logging%20driver%20database%20is%20locked%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</id>
+    <link href="http://example.com/2025/07/09/%E7%BE%A4%E6%99%96failed%20to%20initialize%20logging%20driver%20database%20is%20locked%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/"/>
+    <published>2025-07-09T13:47:52.000Z</published>
+    <summary>
+      <![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p>]]>
+    </summary>
+    <title>群晖Docker容器&quot;failed to initialize logging driver database is locked&quot;解决办法</title>
+    <updated>2025-07-09T13:47:52.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="RSS" scheme="http://example.com/tags/RSS/"/>
+    <id>http://example.com/2023/05/25/Blurbird%E7%9A%84Flexget%E9%85%8D%E7%BD%AE%E5%86%99%E6%B3%95/</id>
+    <link href="http://example.com/2023/05/25/Blurbird%E7%9A%84Flexget%E9%85%8D%E7%BD%AE%E5%86%99%E6%B3%95/"/>
+    <published>2023-05-25T03:35:39.000Z</published>
+    <summary>
+      <![CDATA[<p>菜佬提供的配置，还没验证过，因为长时间不登陆，号已经扬了…有兴趣的可以尝试一下</p>]]>
+    </summary>
+    <title>Blurbird的Flexget配置写法</title>
+    <updated>2023-05-25T03:35:39.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="seedbox" scheme="http://example.com/tags/seedbox/"/>
+    <id>http://example.com/2023/03/09/%E6%98%9F%E5%A4%A7%E8%84%9A%E6%9C%AC%E5%8D%95%E7%8B%AC%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E3%80%81%E5%88%B6%E7%A7%8D%E5%8A%9F%E8%83%BD/</id>
+    <link href="http://example.com/2023/03/09/%E6%98%9F%E5%A4%A7%E8%84%9A%E6%9C%AC%E5%8D%95%E7%8B%AC%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E3%80%81%E5%88%B6%E7%A7%8D%E5%8A%9F%E8%83%BD/"/>
+    <published>2023-03-09T05:25:13.000Z</published>
+    <summary>
+      <![CDATA[<p>星大脚本对于老玩家来说，应该是第一个在盒子上集合了全套功能的脚本，<br>项目地址 <a href="https://github.com/Aniverse/inexistence">https://github.com/Aniverse/inexistence</a><br>由于项目过于久远，早已不再更新，但是其中截图，制种，扫描 bdinfo，mediainfo，挂载ISO等这几个非常便捷的功能还是可以单独安装使用，下面详细介绍一下；</p>]]>
+    </summary>
+    <title>星大脚本单独安装截图、制种功能</title>
+    <updated>2023-03-09T05:25:13.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="IRC" scheme="http://example.com/tags/IRC/"/>
+    <category term="VPS" scheme="http://example.com/tags/VPS/"/>
+    <id>http://example.com/2022/05/01/thelounge-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
+    <link href="http://example.com/2022/05/01/thelounge-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <published>2022-05-01T13:44:43.000Z</published>
+    <summary>
+      <![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge是一个全平台的IRC客户端，下面是在linux下通过的Docker的方式安装：</p>]]>
+    </summary>
+    <title>thelounge 安装教程</title>
+    <updated>2022-05-01T13:44:43.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="Usenet" scheme="http://example.com/tags/Usenet/"/>
+    <id>http://example.com/2021/09/27/nzbget%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</id>
+    <link href="http://example.com/2021/09/27/nzbget%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
+    <published>2021-09-27T05:15:51.000Z</published>
+    <summary>
+      <![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p>]]>
+    </summary>
+    <title>nzbget的安装使用</title>
+    <updated>2021-09-27T05:15:51.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="RSS" scheme="http://example.com/tags/RSS/"/>
+    <id>http://example.com/2021/08/21/Flexget%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/</id>
+    <link href="http://example.com/2021/08/21/Flexget%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/"/>
+    <published>2021-08-21T12:23:25.000Z</published>
+    <summary>
+      <![CDATA[<p>自动筛选种子插件nexusphp，内站部分站点可用到，在flexget里建立plugins文件夹放nexusphp.py，<br>具体用法参见<a href="https://github.com/Juszoe/flexget-nexusphp">https://github.com/Juszoe/flexget-nexusphp</a></p>]]>
+    </summary>
+    <title>Flexget配置模板</title>
+    <updated>2021-08-21T12:23:25.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <id>http://example.com/2020/09/06/hello-world/</id>
+    <link href="http://example.com/2020/09/06/hello-world/"/>
+    <published>2020-09-06T11:36:01.000Z</published>
+    <summary>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
+    </summary>
+    <title>Hello World</title>
+    <updated>2026-05-03T15:35:57.145Z</updated>
+  </entry>
+</feed>

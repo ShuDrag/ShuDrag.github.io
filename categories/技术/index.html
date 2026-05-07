@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="learn or earn">
@@ -74,6 +74,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Moo's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -101,6 +102,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -135,11 +137,38 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -173,6 +202,29 @@
 
       
     <div class="collection-year">
+      <span class="collection-header">2025</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2025-07-09T21:47:52+08:00"
+              content="2025-07-09">
+          07-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2025/07/09/%E7%BE%A4%E6%99%96failed%20to%20initialize%20logging%20driver%20database%20is%20locked%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/" itemprop="url">
+            <span itemprop="name">群晖Docker容器"failed to initialize logging driver database is locked"解决办法</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+    <div class="collection-year">
       <span class="collection-header">2023</span>
     </div>
 
@@ -190,6 +242,92 @@
       <div class="post-title">
           <a class="post-title-link" href="/2023/05/25/Blurbird%E7%9A%84Flexget%E9%85%8D%E7%BD%AE%E5%86%99%E6%B3%95/" itemprop="url">
             <span itemprop="name">Blurbird的Flexget配置写法</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2023-03-09T13:25:13+08:00"
+              content="2023-03-09">
+          03-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/03/09/%E6%98%9F%E5%A4%A7%E8%84%9A%E6%9C%AC%E5%8D%95%E7%8B%AC%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E3%80%81%E5%88%B6%E7%A7%8D%E5%8A%9F%E8%83%BD/" itemprop="url">
+            <span itemprop="name">星大脚本单独安装截图、制种功能</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-05-01T21:44:43+08:00"
+              content="2022-05-01">
+          05-01
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/05/01/thelounge-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" itemprop="url">
+            <span itemprop="name">thelounge 安装教程</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-09-27T13:15:51+08:00"
+              content="2021-09-27">
+          09-27
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/09/27/nzbget%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" itemprop="url">
+            <span itemprop="name">nzbget的安装使用</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-08-21T20:23:25+08:00"
+              content="2021-08-21">
+          08-21
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/08/21/Flexget%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/" itemprop="url">
+            <span itemprop="name">Flexget配置模板</span>
           </a>
       </div>
 
@@ -269,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -282,7 +420,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -290,6 +428,9 @@
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <a href="mailto:awesomeptik@gmail.com" title="E-Mail → mailto:awesomeptik@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
       </span>
   </div>
 
@@ -375,6 +516,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
