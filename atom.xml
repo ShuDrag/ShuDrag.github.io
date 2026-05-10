@@ -11,16 +11,46 @@
   <rights>All rights reserved 2026, Moo</rights>
   <subtitle>learn or earn</subtitle>
   <title>Moo's Blog</title>
-  <updated>2025-07-09T13:47:52.000Z</updated>
+  <updated>2026-05-09T15:44:05.000Z</updated>
   <entry>
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="http://example.com/tags/hexo/"/>
+    <id>http://example.com/Hexo/1af79f27.html</id>
+    <link href="http://example.com/Hexo/1af79f27.html"/>
+    <published>2026-05-09T15:44:05.000Z</published>
+    <summary>
+      <![CDATA[<p>Hexo 开启链接永久化（固定链接）的核心好处  </p>]]>
+    </summary>
+    <title>Hexo 链接永久化</title>
+    <updated>2026-05-09T15:44:05.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="http://example.com/tags/hexo/"/>
+    <id>http://example.com/Hexo/e5f19e6d.html</id>
+    <link href="http://example.com/Hexo/e5f19e6d.html"/>
+    <published>2026-05-09T14:02:28.000Z</published>
+    <summary>
+      <![CDATA[<p>Next 7.0+ 主题可以对标签进行自定义设置，在此基础上，可以使用球形标签云的 <mark>tagcanvas.js </mark> 插件进行样式修改，具体修改步骤如下</p>]]>
+    </summary>
+    <title>Next 7.0+TagCanvas 标签云</title>
+    <updated>2026-05-09T14:02:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
     <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
-    <id>http://example.com/2025/07/09/%E7%BE%A4%E6%99%96failed%20to%20initialize%20logging%20driver%20database%20is%20locked%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</id>
-    <link href="http://example.com/2025/07/09/%E7%BE%A4%E6%99%96failed%20to%20initialize%20logging%20driver%20database%20is%20locked%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/"/>
+    <id>http://example.com/note/5bc9b443.html</id>
+    <link href="http://example.com/note/5bc9b443.html"/>
     <published>2025-07-09T13:47:52.000Z</published>
     <summary>
       <![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p>]]>
@@ -32,10 +62,163 @@
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    <category term="RSS" scheme="http://example.com/tags/RSS/"/>
-    <id>http://example.com/2023/05/25/Blurbird%E7%9A%84Flexget%E9%85%8D%E7%BD%AE%E5%86%99%E6%B3%95/</id>
-    <link href="http://example.com/2023/05/25/Blurbird%E7%9A%84Flexget%E9%85%8D%E7%BD%AE%E5%86%99%E6%B3%95/"/>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="密码管理器" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    <id>http://example.com/note/bf47d139.html</id>
+    <link href="http://example.com/note/bf47d139.html"/>
+    <published>2025-04-15T15:46:39.000Z</published>
+    <summary>
+      <![CDATA[<p>Vaultwarden（原名 bitwarden_rs）兼容 Bitwarden 全客户端的自托管密码管理服务器，用来替代官方 Bitwarden 云端服务</p>]]>
+    </summary>
+    <title>自用的群晖vaultwarden docker-compose配置文件</title>
+    <updated>2025-04-15T15:46:39.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="代理" scheme="http://example.com/tags/%E4%BB%A3%E7%90%86/"/>
+    <category term="clash" scheme="http://example.com/tags/clash/"/>
+    <id>http://example.com/note/61914325.html</id>
+    <link href="http://example.com/note/61914325.html"/>
+    <published>2025-04-15T15:44:39.000Z</published>
+    <summary>
+      <![CDATA[<p>由于特殊原因，Moviepilot 用到的刮削，通知等功能，需要配合代理才能使用  </p>]]>
+    </summary>
+    <title>自用的群晖clash docker-compose配置文件</title>
+    <updated>2025-04-15T15:44:39.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="Moviepilot" scheme="http://example.com/tags/Moviepilot/"/>
+    <id>http://example.com/note/81d88d66.html</id>
+    <link href="http://example.com/note/81d88d66.html"/>
+    <published>2025-04-15T14:44:39.000Z</published>
+    <summary>
+      <![CDATA[<p>Moviepilot升级到V2版本之后，新增了蛮多功能，重装了几次，这里备份一下docker-compose配置文件</p>]]>
+    </summary>
+    <title>自用的群晖Moviepilot-V2 docker-compose配置文件</title>
+    <updated>2025-04-15T14:44:39.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="教程" scheme="http://example.com/categories/tutorial/"/>
+    <category term="内网穿透" scheme="http://example.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <category term="VPS" scheme="http://example.com/tags/vps/"/>
+    <category term="linux" scheme="http://example.com/tags/linux/"/>
+    <id>http://example.com/tutorial/b975ddd8.html</id>
+    <link href="http://example.com/tutorial/b975ddd8.html"/>
+    <published>2024-12-03T13:48:28.000Z</published>
+    <summary>
+      <![CDATA[<p>nps项目地址：<a href="https://github.com/ehang-io/nps/releases">https://github.com/ehang-io/nps/releases</a></p>]]>
+    </summary>
+    <title>NPS内网穿透服务搭建</title>
+    <updated>2024-12-03T13:48:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="原盘diy" scheme="http://example.com/tags/%E5%8E%9F%E7%9B%98diy/"/>
+    <category term="Bluray" scheme="http://example.com/tags/Bluray/"/>
+    <id>http://example.com/note/58a2765d.html</id>
+    <link href="http://example.com/note/58a2765d.html"/>
+    <published>2024-05-04T13:35:33.000Z</published>
+    <summary>
+      <![CDATA[<p>BDinfo里面显示*的叫隐藏轨道，轨道是否隐藏，只出现在mpls中，对于clip来说是没有这个的，clip中所有轨道都是可见，而且必须可见</p>]]>
+    </summary>
+    <title>隐藏轨道在SBD中的设置方法</title>
+    <updated>2024-05-04T13:35:33.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="原盘diy" scheme="http://example.com/tags/%E5%8E%9F%E7%9B%98diy/"/>
+    <category term="Bluray" scheme="http://example.com/tags/Bluray/"/>
+    <id>http://example.com/note/edee2d8d.html</id>
+    <link href="http://example.com/note/edee2d8d.html"/>
+    <published>2024-05-04T13:30:24.000Z</published>
+    <summary>
+      <![CDATA[<p>Scenarist BD-J制作IG类的盘，如果忘记添加IG弹出菜单，可以后续利用BDedit添加，具体操作详见下图</p>]]>
+    </summary>
+    <title>用BDedit挂载IG弹出菜单</title>
+    <updated>2024-05-04T13:30:24.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="原盘diy" scheme="http://example.com/tags/%E5%8E%9F%E7%9B%98diy/"/>
+    <category term="Bluray" scheme="http://example.com/tags/Bluray/"/>
+    <id>http://example.com/note/ded8c111.html</id>
+    <link href="http://example.com/note/ded8c111.html"/>
+    <published>2024-04-26T08:24:13.000Z</published>
+    <summary>
+      <![CDATA[<p>这里用的拆盘工具是BD Demuxer Pro 3D UHD v3.2</p>]]>
+    </summary>
+    <title>拆盘后的Dolby TrueHD Audio AC3音轨无法拖进SBD的问题</title>
+    <updated>2024-04-26T08:24:13.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="教程" scheme="http://example.com/categories/tutorial/"/>
+    <category term="原盘diy" scheme="http://example.com/tags/%E5%8E%9F%E7%9B%98diy/"/>
+    <category term="Bluray" scheme="http://example.com/tags/Bluray/"/>
+    <id>http://example.com/tutorial/1adbdb9f.html</id>
+    <link href="http://example.com/tutorial/1adbdb9f.html"/>
+    <published>2024-04-04T08:03:36.000Z</published>
+    <summary>
+      <![CDATA[<p>有时蓝光原盘的音轨或字幕，通过BDinfo扫出来的与实际不一样，</p>]]>
+    </summary>
+    <title>修改Bluray音轨或字幕语言不正确的问题</title>
+    <updated>2024-04-04T08:03:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="Usenet" scheme="http://example.com/tags/Usenet/"/>
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="oracle" scheme="http://example.com/tags/oracle/"/>
+    <id>http://example.com/note/4d240cc4.html</id>
+    <link href="http://example.com/note/4d240cc4.html"/>
+    <published>2024-03-18T06:33:24.000Z</published>
+    <summary>
+      <![CDATA[<p>为方便发种，需要安装些相应的工具</p>]]>
+    </summary>
+    <title>
+      <![CDATA[甲骨文ARM安装荒野无灯FEB & SABnzb]]>
+    </title>
+    <updated>2024-03-18T06:33:24.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="RSS" scheme="http://example.com/tags/rss/"/>
+    <category term="Flexget" scheme="http://example.com/tags/Flexget/"/>
+    <id>http://example.com/note/865bf2c8.html</id>
+    <link href="http://example.com/note/865bf2c8.html"/>
     <published>2023-05-25T03:35:39.000Z</published>
     <summary>
       <![CDATA[<p>菜佬提供的配置，还没验证过，因为长时间不登陆，号已经扬了…有兴趣的可以尝试一下</p>]]>
@@ -47,11 +230,27 @@
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="PT" scheme="http://example.com/tags/pt/"/>
+    <category term="torrent" scheme="http://example.com/tags/torrent/"/>
+    <id>http://example.com/note/a74ad754.html</id>
+    <link href="http://example.com/note/a74ad754.html"/>
+    <published>2023-03-09T13:37:52.000Z</published>
+    <summary>
+      <![CDATA[<p>先放项目地址：<a href="https://github.com/ludoux/qbittorrent-torrents-exporter">https://github.com/ludoux/qbittorrent-torrents-exporter</a></p>]]>
+    </summary>
+    <title>qBittorrent 种子文件导出小工具</title>
+    <updated>2023-03-09T13:37:52.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="PT" scheme="http://example.com/tags/pt/"/>
     <category term="seedbox" scheme="http://example.com/tags/seedbox/"/>
-    <id>http://example.com/2023/03/09/%E6%98%9F%E5%A4%A7%E8%84%9A%E6%9C%AC%E5%8D%95%E7%8B%AC%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E3%80%81%E5%88%B6%E7%A7%8D%E5%8A%9F%E8%83%BD/</id>
-    <link href="http://example.com/2023/03/09/%E6%98%9F%E5%A4%A7%E8%84%9A%E6%9C%AC%E5%8D%95%E7%8B%AC%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E3%80%81%E5%88%B6%E7%A7%8D%E5%8A%9F%E8%83%BD/"/>
+    <id>http://example.com/note/9e5db167.html</id>
+    <link href="http://example.com/note/9e5db167.html"/>
     <published>2023-03-09T05:25:13.000Z</published>
     <summary>
       <![CDATA[<p>星大脚本对于老玩家来说，应该是第一个在盒子上集合了全套功能的脚本，<br>项目地址 <a href="https://github.com/Aniverse/inexistence">https://github.com/Aniverse/inexistence</a><br>由于项目过于久远，早已不再更新，但是其中截图，制种，扫描 bdinfo，mediainfo，挂载ISO等这几个非常便捷的功能还是可以单独安装使用，下面详细介绍一下；</p>]]>
@@ -63,15 +262,15 @@
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="教程" scheme="http://example.com/categories/tutorial/"/>
+    <category term="PT" scheme="http://example.com/tags/pt/"/>
+    <category term="VPS" scheme="http://example.com/tags/vps/"/>
     <category term="IRC" scheme="http://example.com/tags/IRC/"/>
-    <category term="VPS" scheme="http://example.com/tags/VPS/"/>
-    <id>http://example.com/2022/05/01/thelounge-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
-    <link href="http://example.com/2022/05/01/thelounge-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>http://example.com/tutorial/93695209.html</id>
+    <link href="http://example.com/tutorial/93695209.html"/>
     <published>2022-05-01T13:44:43.000Z</published>
     <summary>
-      <![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge是一个全平台的IRC客户端，下面是在linux下通过的Docker的方式安装：</p>]]>
+      <![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge是一个全平台的IRC客户端，对与玩外站的玩家来说，IRC是必须要用到的工具，下面是在linux下通过的Docker的方式安装：</p>]]>
     </summary>
     <title>thelounge 安装教程</title>
     <updated>2022-05-01T13:44:43.000Z</updated>
@@ -80,11 +279,11 @@
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    <category term="PT" scheme="http://example.com/tags/PT/"/>
+    <category term="笔记" scheme="http://example.com/categories/note/"/>
+    <category term="PT" scheme="http://example.com/tags/pt/"/>
     <category term="Usenet" scheme="http://example.com/tags/Usenet/"/>
-    <id>http://example.com/2021/09/27/nzbget%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</id>
-    <link href="http://example.com/2021/09/27/nzbget%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/note/6b58148f.html</id>
+    <link href="http://example.com/note/6b58148f.html"/>
     <published>2021-09-27T05:15:51.000Z</published>
     <summary>
       <![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p>]]>
@@ -96,11 +295,12 @@
     <author>
       <name>Moo</name>
     </author>
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    <category term="PT" scheme="http://example.com/tags/PT/"/>
-    <category term="RSS" scheme="http://example.com/tags/RSS/"/>
-    <id>http://example.com/2021/08/21/Flexget%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/</id>
-    <link href="http://example.com/2021/08/21/Flexget%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/"/>
+    <category term="教程" scheme="http://example.com/categories/tutorial/"/>
+    <category term="RSS" scheme="http://example.com/tags/rss/"/>
+    <category term="Flexget" scheme="http://example.com/tags/Flexget/"/>
+    <category term="PT" scheme="http://example.com/tags/pt/"/>
+    <id>http://example.com/tutorial/f25eb4f7.html</id>
+    <link href="http://example.com/tutorial/f25eb4f7.html"/>
     <published>2021-08-21T12:23:25.000Z</published>
     <summary>
       <![CDATA[<p>自动筛选种子插件nexusphp，内站部分站点可用到，在flexget里建立plugins文件夹放nexusphp.py，<br>具体用法参见<a href="https://github.com/Juszoe/flexget-nexusphp">https://github.com/Juszoe/flexget-nexusphp</a></p>]]>
@@ -112,13 +312,29 @@
     <author>
       <name>Moo</name>
     </author>
-    <id>http://example.com/2020/09/06/hello-world/</id>
-    <link href="http://example.com/2020/09/06/hello-world/"/>
+    <category term="教程" scheme="http://example.com/categories/tutorial/"/>
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    <category term="oracle" scheme="http://example.com/tags/oracle/"/>
+    <id>http://example.com/tutorial/a43721a9.html</id>
+    <link href="http://example.com/tutorial/a43721a9.html"/>
+    <published>2021-08-20T15:35:23.000Z</published>
+    <summary>
+      <![CDATA[<p>在创建实例的时候，在高级设置内，将下列脚本粘贴至cloud-init，在机器创建时会配置root登陆，</p>]]>
+    </summary>
+    <title>甲骨文创建实例时直接开启root登录</title>
+    <updated>2021-08-20T15:35:23.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Moo</name>
+    </author>
+    <id>http://example.com/uncatalog/4a17b156.html</id>
+    <link href="http://example.com/uncatalog/4a17b156.html"/>
     <published>2020-09-06T11:36:01.000Z</published>
     <summary>
-      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]>
     </summary>
     <title>Hello World</title>
-    <updated>2026-05-03T15:35:57.145Z</updated>
+    <updated>2020-09-06T11:36:01.000Z</updated>
   </entry>
 </feed>
