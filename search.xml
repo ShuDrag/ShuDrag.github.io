@@ -1,417 +1,545 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Blurbird的Flexget配置写法</title>
-    <url>/note/865bf2c8.html</url>
-    <content><![CDATA[<p>菜佬提供的配置，还没验证过，因为长时间不登陆，号已经扬了…有兴趣的可以尝试一下</p>
-<span id="more"></span>
-
-<figure class="highlight yml"><figcaption><span>Flexget.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">bluebird:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://bluebird-hd.org/rss.php</span></span><br><span class="line"><span class="attr">urlrewrite:</span></span><br><span class="line"><span class="attr">sitename:</span></span><br><span class="line"><span class="attr">regexp:</span> <span class="string">&#x27;https://bluebird-hd.org/details.php\?id=(?P&lt;id&gt;\d+)&amp;hit=1&#x27;</span></span><br><span class="line"><span class="attr">format:</span> <span class="string">https://bluebird-hd.org/download.php?id=\g&lt;id&gt;</span></span><br><span class="line"><span class="attr">headers:</span></span><br><span class="line"><span class="attr">Cookie:</span> <span class="string">&#x27; 这里写你的 cookies &#x27;</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">bluebird</span></span><br></pre></td></tr></table></figure>]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hexo 链接永久化</title>
+      <link href="/Hexo/1af79f27.html"/>
+      <url>/Hexo/1af79f27.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo 开启链接永久化（固定链接）的核心好处  </p><span id="more"></span><ol><li>链接永久不变，永不失效<br>默认 Hexo 链接是：&#x2F;2026&#x2F;05&#x2F;09&#x2F;文章标题&#x2F;一旦改标题、改发布时间、重新排序文章，URL 就会变<br>开启永久化后用自定义固定别名：&#x2F;posts&#x2F;tagcloud-guide&#x2F;以后随便改文章标题、改时间，链接永远不变  </li><li>利于 SEO 搜索引擎收录<br>链接稳定不跳转、不 404，搜索引擎权重不会丢失<br>简洁英文 &#x2F; 拼音链接比中文、日期链接排名更友好<br>避免同一篇文章产生多个重复链接，防止被判定重复内容  </li><li>外部引用不怕崩<br>你在其他文章内链、公众号、知乎、笔记、社交平台、友链、别人博客引用等<br>一旦发出去永远不用改链接，不会出现点进去 404  </li><li>链接简洁美观，不含中文、日期，去掉 &#x2F;年&#x2F;月&#x2F;日&#x2F; 冗余路径，URL 更短、干净、好记，还避免中文 URL 编码乱码</li><li>更换主题、换博客程序不翻车<br>以后换主题、甚至迁移到其他静态博客（VuePress、Hugo），只要保留固定文章别名，全网链接全部不用改  </li><li>避免分页、归档变动导致链接错乱<br>默认按日期 &#x2F; 标题生成，归档分页一变，部分路径容易乱；永久化自定义路径完全不受影响</li></ol><p>步骤一：下载 addrlink 插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><p>步骤二：在 _config.yml文件中修改 permalink</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:category/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure><p>步骤三：配置 categroy_map 将中文分类映射为英文，从而使得出现中文分类时也不会出现中文乱码</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncatalog</span> <span class="comment">#uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line">  <span class="string">教程:</span> <span class="string">tutorial</span></span><br><span class="line">  <span class="string">技术:</span> <span class="string">technology</span></span><br><span class="line">  <span class="string">笔记:</span> <span class="string">note</span></span><br><span class="line">  <span class="string">前端:</span> <span class="string">frontend</span></span><br><span class="line">  <span class="string">后端:</span> <span class="string">backend</span></span><br><span class="line">  <span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">  <span class="string">标签云:</span> <span class="string">tag-cloud</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>参考：<br>GitHub：<a href="https://github.com/Rozbo/hexo-abbrlink">https://github.com/Rozbo/hexo-abbrlink</a><br><a href="https://alex-mcavoy.github.io/hexo/be6aef5a.html">https://alex-mcavoy.github.io/hexo/be6aef5a.html</a></p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>RSS</tag>
-        <tag>Flexget</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 链接永久化</title>
-    <url>/Hexo/1af79f27.html</url>
-    <content><![CDATA[<p>Hexo 开启链接永久化（固定链接）的核心好处  </p>
-<span id="more"></span>
-<ol>
-<li>链接永久不变，永不失效<br>默认 Hexo 链接是：&#x2F;2026&#x2F;05&#x2F;09&#x2F;文章标题&#x2F;一旦改标题、改发布时间、重新排序文章，URL 就会变<br>开启永久化后用自定义固定别名：&#x2F;posts&#x2F;tagcloud-guide&#x2F;以后随便改文章标题、改时间，链接永远不变  </li>
-<li>利于 SEO 搜索引擎收录<br>链接稳定不跳转、不 404，搜索引擎权重不会丢失<br>简洁英文 &#x2F; 拼音链接比中文、日期链接排名更友好<br>避免同一篇文章产生多个重复链接，防止被判定重复内容  </li>
-<li>外部引用不怕崩<br>你在其他文章内链、公众号、知乎、笔记、社交平台、友链、别人博客引用等<br>一旦发出去永远不用改链接，不会出现点进去 404  </li>
-<li>链接简洁美观，不含中文、日期，去掉 &#x2F;年&#x2F;月&#x2F;日&#x2F; 冗余路径，URL 更短、干净、好记，还避免中文 URL 编码乱码</li>
-<li>更换主题、换博客程序不翻车<br>以后换主题、甚至迁移到其他静态博客（VuePress、Hugo），只要保留固定文章别名，全网链接全部不用改  </li>
-<li>避免分页、归档变动导致链接错乱<br>默认按日期 &#x2F; 标题生成，归档分页一变，部分路径容易乱；永久化自定义路径完全不受影响</li>
-</ol>
-<p>步骤一：下载 addrlink 插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<p>步骤二：在 _config.yml文件中修改 permalink</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:category/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-<p>步骤三：配置 categroy_map 将中文分类映射为英文，从而使得出现中文分类时也不会出现中文乱码</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncatalog</span> <span class="comment">#uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line">  <span class="string">教程:</span> <span class="string">tutorial</span></span><br><span class="line">  <span class="string">技术:</span> <span class="string">technology</span></span><br><span class="line">  <span class="string">笔记:</span> <span class="string">note</span></span><br><span class="line">  <span class="string">前端:</span> <span class="string">frontend</span></span><br><span class="line">  <span class="string">后端:</span> <span class="string">backend</span></span><br><span class="line">  <span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">  <span class="string">标签云:</span> <span class="string">tag-cloud</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>参考：<br>GitHub：<a href="https://github.com/Rozbo/hexo-abbrlink">https://github.com/Rozbo/hexo-abbrlink</a><br><a href="https://alex-mcavoy.github.io/hexo/be6aef5a.html">https://alex-mcavoy.github.io/hexo/be6aef5a.html</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Next 7.0+TagCanvas 标签云</title>
+      <link href="/Hexo/e5f19e6d.html"/>
+      <url>/Hexo/e5f19e6d.html</url>
+      
+        <content type="html"><![CDATA[<p>Next 7.0+ 主题可以对标签进行自定义设置，在此基础上，可以使用球形标签云的 <mark>tagcanvas.js </mark> 插件进行样式修改，具体修改步骤如下</p><span id="more"></span><ul><li>下载插件<br>球形标签云 <mark>tagcanvas.js </mark> 插件的详细介绍：<a href="http://www.goat1000.com/tagcanvas.php">http://www.goat1000.com/tagcanvas.php</a><br>将该插件下载后，放入 <mark>&#x2F;theme&#x2F;next&#x2F;source&#x2F;js</mark> 目录下</li><li>新建标签云 <mark>swig</mark> 文件<br>在 <mark>&#x2F;theme&#x2F;next&#x2F;layout&#x2F;_partials</mark> 目录下，建一个名为 <mark>tagcanvas.swig</mark> 的文件，并写入如下内容：</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myTags&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">id</span>=<span class="string">&quot;my3DTags&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Anything in here will be replaced on browsers that support the canvas element<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">id</span>=<span class="string">&quot;tags&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">&quot;display: none&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123; tagcloud(&#123;</span><br><span class="line">        min_font   : theme.tagcloud.min,</span><br><span class="line">        max_font   : theme.tagcloud.max,</span><br><span class="line">        amount     : theme.tagcloud.amount,</span><br><span class="line">        color      : true,</span><br><span class="line">        start_color: theme.tagcloud.start,</span><br><span class="line">        end_color  : theme.tagcloud.end&#125;)</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> &gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title class_">TagCanvas</span>.<span class="title class_">Start</span>(<span class="string">&#x27;my3DTags&#x27;</span>,<span class="string">&#x27;tags&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">textFont</span>: <span class="string">&#x27;Georgia,Optima&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">textColour</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">outlineColour</span>: <span class="string">&#x27;black&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">weight</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">reverse</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">depth</span>: <span class="number">0.8</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">maxSpeed</span>: <span class="number">0.05</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">bgRadius</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">freezeDecel</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125; <span class="keyword">catch</span>(e) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myTags&#x27;</span>).<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>  <ul><li>修改 <mark>page.swig </mark><br>对 <mark>&#x2F;theme&#x2F;next&#x2F;layout&#x2F;</mark> 中的 <mark>page.swig</mark> 文件进行修改<br>找到如下图所示的部分，在红框内这部分之前加入如下代码，可保留标签页下部原有固定标签<br>如果不需要下部的固定标签，可将红框内的这部分删除<br><img src="https://i.ibb.co/Hpp1Fntc/Screen-Shot-2026-05-09-221335-986.png" alt="图片"></li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;# tagcanvas plugin 球型云标签 #&#125;</span><br><span class="line">&#123;% include &#x27;_partials/tagcanvas.swig&#x27; %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>修改主题 _config.yml<br>打开 <mark>&#x2F;theme&#x2F;config.yml，</mark> 找到 <mark>tagcloud</mark> 字段，根据实际需要进行修改即可：</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 标签云设置页面</span><br><span class="line">tagcloud:</span><br><span class="line">min: 12 # 最小字体尺寸，以px为单位</span><br><span class="line">max: 30 # 最大字体尺寸，以px为单位</span><br><span class="line">start: &quot;#ccc&quot; # 开始颜色 (hex, rgba, hsla or color keywords)</span><br><span class="line">end: &quot;#111&quot; # 结束颜色 (hex, rgba, hsla or color keywords)</span><br><span class="line">amount: 200 # 标签数量，当大于200个后，请进行更改</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>效果如图：<br><img src="https://images4.imagebam.com/51/02/bf/ME1CX9JF_o.png" alt="图片"></p><p>参考资料: <a href="https://alex-mcavoy.github.io/hexo/7be258c0.html">https://alex-mcavoy.github.io/hexo/7be258c0.html</a></p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flexget配置模板</title>
-    <url>/tutorial/f25eb4f7.html</url>
-    <content><![CDATA[<p>自动筛选种子插件nexusphp，内站部分站点可用到，在flexget里建立plugins文件夹放nexusphp.py，<br>具体用法参见<a href="https://github.com/Juszoe/flexget-nexusphp">https://github.com/Juszoe/flexget-nexusphp</a></p>
-<span id="more"></span>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">templates:</span></span><br><span class="line"><span class="attr">standard:</span></span><br><span class="line"><span class="attr">free_space:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd</span></span><br><span class="line"><span class="attr">space:</span> <span class="number">10240</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">de:</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/deluge/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">58846</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">qb:</span></span><br><span class="line"><span class="attr">qbittorrent:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/qbittorrent/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">2017</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">tr:</span></span><br><span class="line"><span class="attr">transmission:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/transmission/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">9099</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">size:</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">6000</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">666666</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">tasks:</span></span><br><span class="line"><span class="attr">UHDBits-movie-remux:</span></span><br><span class="line"><span class="attr">inputs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">limit:</span></span><br><span class="line"><span class="attr">amount:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">from:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://uhdbits.org/rss.php?action=</span></span><br><span class="line"><span class="attr">all_entries:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">if:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;&#x27;Remux&#x27; in title&quot;</span><span class="string">:</span> <span class="string">accept</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;&#x27;Season&#x27; in title&quot;</span><span class="string">:</span> <span class="string">reject</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3000</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">28000</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#  CinemaGeddon:</span></span><br><span class="line">    <span class="attr">rss:</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">http://cinemageddon.net/rss.xml</span></span><br><span class="line">      <span class="attr">ascii:</span> <span class="literal">yes</span></span><br><span class="line">    <span class="attr">headers:</span></span><br><span class="line">      <span class="attr">Cookie:</span> <span class="string">&quot; 这里填写cookie，引号保留 &quot;</span></span><br><span class="line">    <span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line">    <span class="attr">template:</span> <span class="string">qb</span></span><br><span class="line">    <span class="attr">qbittorrent:</span></span><br><span class="line">      <span class="attr">label:</span> <span class="string">CG</span></span><br><span class="line">      <span class="attr">maxdownspeed:</span> <span class="number">30000</span></span><br><span class="line"><span class="attr">HD-Space:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://hd-space.org/rss_torrents.php?feed=</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">regexp:</span></span><br><span class="line"><span class="attr">accept:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">F13@HDSpace</span>          <span class="comment">#此处为你想下载的小组标签，可以添加多个</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">HDSpace</span></span><br><span class="line"><span class="comment">#    content_filter:</span></span><br><span class="line"><span class="comment">#      require:              #过滤关键词</span></span><br><span class="line"><span class="comment">#        - &#x27;*@HDSpace*&#x27;</span></span><br><span class="line">    <span class="attr">template:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">de</span></span><br><span class="line">    <span class="attr">deluge:</span></span><br><span class="line">      <span class="attr">label:</span> <span class="string">HD-Space</span></span><br><span class="line"></span><br><span class="line"><span class="attr">frds:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://pt.keepfrds.com/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">frds</span></span><br><span class="line"><span class="attr">max_up_speed:</span> <span class="number">11776.0</span></span><br><span class="line"><span class="comment">#      max_down_speed: 11.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">discfan:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://discfan.net/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">discfan</span></span><br><span class="line"><span class="comment">#      max_up_speed: 11776.0</span></span><br><span class="line"><span class="attr">ptsbao:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://ptsbao.club/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">ptsbao</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nanyangpt-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://nanyangpt.com/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">nanyangpt</span></span><br><span class="line"></span><br><span class="line"><span class="attr">hd4fans-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://pt.hd4fans.org/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">204800</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">qb</span></span><br><span class="line"><span class="attr">qbittorrent:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">hd4fans</span></span><br><span class="line"></span><br><span class="line"><span class="attr">HDU-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://pt.upxin.net/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">HDU</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">web_server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">6566</span></span><br><span class="line"><span class="attr">web_ui:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">base_url:</span> <span class="string">/flexget</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># schedules is disabled by default, you need to enable it or use cron to RSS</span></span><br><span class="line"><span class="attr">schedules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">tasks:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">  <span class="attr">interval:</span></span><br><span class="line">  <span class="attr">minutes:</span> <span class="number">2</span>  <span class="comment">#设定2分钟自动更新一次RSS，建议不要太频繁。</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>群晖Docker容器&quot;failed to initialize logging driver database is locked&quot;解决办法</title>
+      <link href="/note/5bc9b443.html"/>
+      <url>/note/5bc9b443.html</url>
+      
+        <content type="html"><![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p><span id="more"></span><p>操作如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line"># 切换到root</span><br><span class="line"></span><br><span class="line">docker ps -a</span><br><span class="line"># 查找出问题容器的ID</span><br><span class="line"></span><br><span class="line">docker inspect --format=&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27; &lt;容器ID&gt;</span><br><span class="line"></span><br><span class="line"># 列出容器日志的路径</span><br><span class="line"></span><br><span class="line">rm &lt;返回日志路径&gt;</span><br><span class="line"># 删除路径下的log.db日志</span><br><span class="line">#重启容器即可</span><br><span class="line">  </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>教程</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>RSS</tag>
-        <tag>Flexget</tag>
-        <tag>PT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Next 7.0+TagCanvas 标签云</title>
-    <url>/Hexo/e5f19e6d.html</url>
-    <content><![CDATA[<p>Next 7.0+ 主题可以对标签进行自定义设置，在此基础上，可以使用球形标签云的 <mark>tagcanvas.js </mark> 插件进行样式修改，具体修改步骤如下</p>
-<span id="more"></span>
-<ul>
-<li>下载插件<br>球形标签云 <mark>tagcanvas.js </mark> 插件的详细介绍：<a href="http://www.goat1000.com/tagcanvas.php">http://www.goat1000.com/tagcanvas.php</a><br>将该插件下载后，放入 <mark>&#x2F;theme&#x2F;next&#x2F;source&#x2F;js</mark> 目录下</li>
-<li>新建标签云 <mark>swig</mark> 文件<br>在 <mark>&#x2F;theme&#x2F;next&#x2F;layout&#x2F;_partials</mark> 目录下，建一个名为 <mark>tagcanvas.swig</mark> 的文件，并写入如下内容：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myTags&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">id</span>=<span class="string">&quot;my3DTags&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Anything in here will be replaced on browsers that support the canvas element<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">id</span>=<span class="string">&quot;tags&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">&quot;display: none&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123; tagcloud(&#123;</span><br><span class="line">        min_font   : theme.tagcloud.min,</span><br><span class="line">        max_font   : theme.tagcloud.max,</span><br><span class="line">        amount     : theme.tagcloud.amount,</span><br><span class="line">        color      : true,</span><br><span class="line">        start_color: theme.tagcloud.start,</span><br><span class="line">        end_color  : theme.tagcloud.end&#125;)</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> &gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title class_">TagCanvas</span>.<span class="title class_">Start</span>(<span class="string">&#x27;my3DTags&#x27;</span>,<span class="string">&#x27;tags&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">textFont</span>: <span class="string">&#x27;Georgia,Optima&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">textColour</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">outlineColour</span>: <span class="string">&#x27;black&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">weight</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">reverse</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">depth</span>: <span class="number">0.8</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">maxSpeed</span>: <span class="number">0.05</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">bgRadius</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">freezeDecel</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125; <span class="keyword">catch</span>(e) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myTags&#x27;</span>).<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>  
-
-<ul>
-<li>修改 <mark>page.swig </mark><br>对 <mark>&#x2F;theme&#x2F;next&#x2F;layout&#x2F;</mark> 中的 <mark>page.swig</mark> 文件进行修改<br>找到如下图所示的部分，在红框内这部分之前加入如下代码，可保留标签页下部原有固定标签<br>如果不需要下部的固定标签，可将红框内的这部分删除<br><img src="https://i.ibb.co/Hpp1Fntc/Screen-Shot-2026-05-09-221335-986.png" alt="图片"></li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;# tagcanvas plugin 球型云标签 #&#125;</span><br><span class="line">&#123;% include &#x27;_partials/tagcanvas.swig&#x27; %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改主题 _config.yml<br>打开 <mark>&#x2F;theme&#x2F;config.yml，</mark> 找到 <mark>tagcloud</mark> 字段，根据实际需要进行修改即可：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 标签云设置页面</span><br><span class="line">tagcloud:</span><br><span class="line">min: 12 # 最小字体尺寸，以px为单位</span><br><span class="line">max: 30 # 最大字体尺寸，以px为单位</span><br><span class="line">start: &quot;#ccc&quot; # 开始颜色 (hex, rgba, hsla or color keywords)</span><br><span class="line">end: &quot;#111&quot; # 结束颜色 (hex, rgba, hsla or color keywords)</span><br><span class="line">amount: 200 # 标签数量，当大于200个后，请进行更改</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>效果如图：<br><img src="https://images4.imagebam.com/51/02/bf/ME1CX9JF_o.png" alt="图片"></p>
-<p>参考资料: <a href="https://alex-mcavoy.github.io/hexo/7be258c0.html">https://alex-mcavoy.github.io/hexo/7be258c0.html</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> 群晖 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自用的群晖vaultwarden docker-compose配置文件</title>
+      <link href="/note/bf47d139.html"/>
+      <url>/note/bf47d139.html</url>
+      
+        <content type="html"><![CDATA[<p>Vaultwarden（原名 bitwarden_rs）兼容 Bitwarden 全客户端的自托管密码管理服务器，用来替代官方 Bitwarden 云端服务</p><span id="more"></span><p>建议本地安装，配合cloudflare的隧道服务，可以解决本地无公网及强制使用https</p><ul><li>docker目录下新建 Vaultwarden 文件夹</li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">vaultwarden:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">vaultwarden/server:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">vaultwarden</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/vaultwarden:/data/</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="comment"># 核心配置</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">DOMAIN=</span> <span class="string">域名</span>                         <span class="comment"># 填入绑定的域名</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">SIGNUPS_ALLOWED=false</span>               <span class="comment"># false：禁止注册  true：开启注册 先开启注册，在本地完成注册后禁止该功能</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">INVITATIONS_ALLOWED=false</span>           <span class="comment"># 禁止邀请</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 管理与通知</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ADMIN_TOKEN=TOKEN</span>  <span class="comment"># 访问 /admin 页面需要</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SHOW_PASSWORD_HINT=false</span>            <span class="comment"># 是否显示密码提示</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 性能与功能</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WEBSOCKET_ENABLED=true</span>              <span class="comment"># 开启 WebSocket 实时同步</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_FILE=/data/vaultwarden.log</span>      <span class="comment"># 将日志存入本地文件</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_LEVEL=warn</span>                      <span class="comment"># 日志等级：trace, debug, info, warn, error</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 邮件配置 (可选，用于发送注册验证码或警报)</span></span><br><span class="line">      <span class="comment"># - SMTP_HOST=smtp.gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_FROM=your-email@gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_PORT=587</span></span><br><span class="line">      <span class="comment"># - SMTP_SECURITY=starttls</span></span><br><span class="line">      <span class="comment"># - SMTP_USERNAME=your-email@gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_PASSWORD=your-app-password</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">51513</span><span class="string">:80</span>                             <span class="comment"># 网页端端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">3012</span><span class="string">:3012</span>                            <span class="comment"># WebSocket 端口 (如不需要可不映射)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nzbget的安装使用</title>
-    <url>/note/6b58148f.html</url>
-    <content><![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># wget https://nzbget.net/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">wget https://nzbget.com/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line"># 已经更新，旧版停止维护</span><br><span class="line"></span><br><span class="line">sh nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">cd nzbget &amp;&amp; ./nzbget -D</span><br><span class="line"></span><br><span class="line">登录地址：http://ip-address-of-linux-machine:6789</span><br><span class="line"></span><br><span class="line">默认用户名:nzbget</span><br><span class="line"></span><br><span class="line">密码:tegbzn6789</span><br><span class="line"></span><br><span class="line">#SECURITY那边修改用户名和密码</span><br><span class="line"></span><br><span class="line">#如遇到打不开页面</span><br><span class="line"></span><br><span class="line">cd nzbget</span><br><span class="line"></span><br><span class="line">./nzbget -D</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，先修改web页面登录的用户名与密码<br><img src="https://images4.imagebam.com/72/34/31/MEPK1UK_o.png" alt="图片"><br>再配置服务商的信息<br><img src="https://images4.imagebam.com/22/1b/b5/MEPK1UT_o.png" alt="图片"><br>设置最大连接数（购买的服务商信息内会提供）<br>OK，可以愉快的玩耍了</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> 群晖 </tag>
+            
+            <tag> 密码管理器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自用的群晖clash docker-compose配置文件</title>
+      <link href="/note/61914325.html"/>
+      <url>/note/61914325.html</url>
+      
+        <content type="html"><![CDATA[<p>由于特殊原因，Moviepilot 用到的刮削，通知等功能，需要配合代理才能使用  </p><span id="more"></span><p>这里也把群晖使用的clash做个备份，mihomo之前安装过，规则模式下无法走代理流量，只能用TUN模式走全局，不清楚什么原因<br>后面更换了 clash-premium 可以正常使用</p><ul><li>docker目录下新建 clash 文件夹</li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">clash:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">dreamacro/clash-premium:latest</span> <span class="comment"># 或者使用 mihomo 镜像: metacubex/mihomo:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">clash</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">network_mode:</span> <span class="string">&quot;bridge&quot;</span> <span class="comment"># 如果需要做旁路网关，建议改为 host</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/clash:/root/.config/clash</span> <span class="comment"># 映射配置文件目录</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;7890:7890&quot;</span> <span class="comment"># HTTP(S) 代理端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;7891:7891&quot;</span> <span class="comment"># SOCKS5 代理端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;9090:9090&quot;</span> <span class="comment"># 外部控制 API 端口 (RESTful API)</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="attr">metacubexd:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">ghcr.io/metacubex/metacubexd:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">metacubexd</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;8083:80&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>安装完成后，打开ip+8083的映射端口，访问面板，绑定9090端口的后端</p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>PT</tag>
-        <tag>Usenet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NPS内网穿透服务搭建</title>
-    <url>/tutorial/b975ddd8.html</url>
-    <content><![CDATA[<p>nps项目地址：<a href="https://github.com/ehang-io/nps/releases">https://github.com/ehang-io/nps/releases</a></p>
-<span id="more"></span>
-<p>首先下载linux server端,在具有公网ip的vps上安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf linux_amd64_server.tar.gz  #进行解压</span><br><span class="line"></span><br><span class="line">./nps install  #安装nps</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">完成之后编辑  /etc/nps/conf/nps.conf</span><br><span class="line"></span><br><span class="line">#web下面是web界面的相关设定</span><br><span class="line"></span><br><span class="line">web_username=用户名称</span><br><span class="line"></span><br><span class="line">web_password=用户密码</span><br><span class="line"></span><br><span class="line">web_port =web界面的端口号</span><br><span class="line"></span><br><span class="line">#HTTP(S) proxy port, no startup if empty</span><br><span class="line"></span><br><span class="line">http_proxy_port=80 #端口号随意，不占用所需端口即可</span><br><span class="line"></span><br><span class="line">https_proxy_port=443  #端口号随意，不占用所需端口即可</span><br><span class="line"></span><br><span class="line">##bridge下面是客户端连接服务端的设置，端口号可自定，其他可不动</span><br><span class="line"></span><br><span class="line">bridge_type=tcp</span><br><span class="line"></span><br><span class="line">bridge_port=8024</span><br></pre></td></tr></table></figure>
-<p>打开览器访问 http:&#x2F;&#x2F;服务器IP:端口号，输入配置文件中设置的用户名和密码即可进入web管理端<br>进入面板后，新增一个客户端，将生成的密钥填入OpenWrt客户端的密钥栏<br><img src="https://images4.imagebam.com/1d/7b/37/MEXTXMP_o.jpg" alt="图片"><br><img src="https://images4.imagebam.com/4d/fa/d0/MEXTXMT_o.jpg" alt="图片"><br>客户端与服务端联通后，添加需要穿透的内网IP+端口<br><img src="https://images4.imagebam.com/0f/d2/72/MEXTXO0_o.jpg" alt="图片"><br>此时通过 服务器ip + 服务端端口号即可访问内网地址，内网穿透到此完成</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> 群晖 </tag>
+            
+            <tag> 代理 </tag>
+            
+            <tag> clash </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自用的群晖Moviepilot-V2 docker-compose配置文件</title>
+      <link href="/note/81d88d66.html"/>
+      <url>/note/81d88d66.html</url>
+      
+        <content type="html"><![CDATA[<p>Moviepilot升级到V2版本之后，新增了蛮多功能，重装了几次，这里备份一下docker-compose配置文件</p><span id="more"></span><p>这里配置只适合我自己的本地环境，仅供参考！！！</p><ul><li>docker目录下新建 moviepilot-v2 文件夹，下面再新建 config 和 core 两个文件夹  </li><li>docker目录下新建 redis 文件夹，下面再新建 data 文件夹</li><li>docker目录下新建 postgresql 文件夹</li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.5&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">moviepilot:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">jxxghp/moviepilot-v2:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-v2</span></span><br><span class="line"><span class="attr">hostname:</span> <span class="string">moviepilot-v2</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">network_mode:</span> <span class="string">host</span>          <span class="comment"># 群晖最稳定模式，可直接访问QB/TR/Emby</span></span><br><span class="line"><span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">privileged:</span> <span class="literal">false</span>           <span class="comment"># 群晖默认无需高权限，更安全</span></span><br><span class="line"><span class="attr">extra_hosts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;host.docker.internal:host-gateway&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 依赖数据库启动完成</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="attr">postgresql:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line">      <span class="attr">redis:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 环境变量（群晖优化版，无冗余、无错误）</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Web 端口（固定不冲突）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NGINX_PORT=3000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PORT=3001</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 群晖最高权限，解决 99% 媒体文件读写失败</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PUID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">UMASK=000</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 时区（必须）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 核心登录设置 ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SUPERUSER=admin</span>                 <span class="comment"># 登录用户名（可改）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SUPERUSER_PASSWORD=12345</span>   <span class="comment"># 【强烈建议修改】初始密码</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 网络代理（你原有配置） ==================</span></span><br><span class="line">      <span class="comment">#- HTTP_PROXY=http://host.docker.internal:7880 # 端口按实际修改</span></span><br><span class="line">      <span class="comment">#- HTTPS_PROXY=http://host.docker.internal:7880</span></span><br><span class="line">      <span class="comment">#- PROXY_HOST=192.168.1.1:7880</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTP_PROXY=http://192.168.1.1:7890</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTPS_PROXY=http://192.168.1.1:7890</span></span><br><span class="line">      <span class="comment">#- ALL_PROXY=socks5://192.168.1.1:7881  # 如果 Mihomo 开启了 SOCKS 端口（通常是 mixed+1）建议加上</span></span><br><span class="line">      <span class="comment"># --- 绕过设置 (非常重要) ---</span></span><br><span class="line">      <span class="comment"># 确保访问内网设备、本地回环和 Docker 网桥时不走代理，防止内部通信卡顿</span></span><br><span class="line">      <span class="comment"># - NO_PROXY=localhost,127.0.0.1,192.168.2.0/24 # 确保内网通信不走代理</span></span><br><span class="line">      <span class="comment"># ================== 站点认证（你原有配置） ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_SITE=ttg</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FREEFARM_UID=123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FREEFARM_PASSKEY=PASSKEY</span>    <span class="comment"># 填入你的 PASSKEY</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 数据库 PostgreSQL ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_TYPE=postgresql</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_HOST=127.0.0.1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_PORT=5433</span> <span class="comment"># 对应下面 postgresql 服务映射出来的外部端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_DATABASE=moviepilot</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_USERNAME=moviepilot</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_PASSWORD=pg_password_2025</span>  <span class="comment"># 可自定义</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 缓存 Redis ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CACHE_BACKEND_TYPE=redis</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CACHE_BACKEND_URL=redis://:redis_password_2025@127.0.0.1:6379</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 群晖挂载路径（完全沿用你原有路径，无改动）</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume4/media:/media</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/config:/config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/core:/moviepilot/.cache/ms-playwright</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock:ro</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果你需要挂载下载器的种子目录以供转移，请参考原全功能版将 TR/QB 的映射加在这里</span></span><br><span class="line"><span class="comment"># ================== Redis 缓存服务 ==================</span></span><br><span class="line"><span class="attr">redis:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">redis:alpine</span>  <span class="comment"># 轻量版，群晖更稳定</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-redis</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">6379</span><span class="string">:6379</span>   <span class="comment"># 将端口暴露给宿主机，供 MP 访问</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/redis/data:/data</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">redis-server</span> <span class="string">--save</span> <span class="number">600</span> <span class="number">1</span> <span class="string">--requirepass</span> <span class="string">redis_password_2025</span></span><br><span class="line"><span class="attr">healthcheck:</span></span><br><span class="line"><span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;redis-cli&quot;</span>, <span class="string">&quot;-a&quot;</span>, <span class="string">&quot;redis_password_2025&quot;</span>, <span class="string">&quot;ping&quot;</span>]</span><br><span class="line"><span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line"><span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line"><span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ================== PostgreSQL 数据库 ==================</span></span><br><span class="line"><span class="attr">postgresql:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">postgres:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-postgres</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">5433</span><span class="string">:5432</span>   <span class="comment"># 映射到宿主机的 5433</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_DB=moviepilot</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_USER=moviepilot</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=pg_password_2025</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/postgresql:/var/lib/postgresql</span></span><br><span class="line"><span class="comment"># 此处不再写 command，直接使用镜像默认启动脚本</span></span><br><span class="line"><span class="attr">healthcheck:</span></span><br><span class="line"><span class="attr">test:</span> [<span class="string">&quot;CMD-SHELL&quot;</span>, <span class="string">&quot;pg_isready -U moviepilot -d moviepilot&quot;</span>]</span><br><span class="line"><span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line"><span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line"><span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ================== SQLite 自动迁移到 PostgreSQL ==================</span></span><br><span class="line"><span class="attr">pgloader:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">dimitri/pgloader:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-pgloader</span></span><br><span class="line"><span class="attr">restart:</span> <span class="literal">no</span>  <span class="comment"># 只执行一次迁移，成功后自动退出</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/config:/mp_config</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">&gt;</span></span><br><span class="line"><span class="string">pgloader</span></span><br><span class="line"><span class="string">sqlite:///mp_config/user.db</span></span><br><span class="line"><span class="string">postgresql://moviepilot:pg_password_2025@postgresql:5432/moviepilot</span></span><br><span class="line"><span class="attr">depends_on:</span></span><br><span class="line"><span class="attr">postgresql:</span></span><br><span class="line"><span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 内部网络（隔离安全，不影响 host 模式）</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">mp_backend:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">moviepilot-backend</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>教程</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>内网穿透</tag>
-        <tag>VPS</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/uncatalog/4a17b156.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>qBittorrent 种子文件导出小工具</title>
-    <url>/note/a74ad754.html</url>
-    <content><![CDATA[<p>先放项目地址：<a href="https://github.com/ludoux/qbittorrent-torrents-exporter">https://github.com/ludoux/qbittorrent-torrents-exporter</a></p>
-<span id="more"></span>
-<p>刚好这些天用盒子发了不少种，还在想怎样便捷的在本地进行保种，就用这个来试试；另外该脚本针对4.40+版本会去除种子文件 tracker 地址的 feature，本工具也会读出tracker并写进torrent文件里</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先在盒子上安装脚本</span><br><span class="line"></span><br><span class="line">wget https://github.com/ludoux/qbittorrent-torrents-exporter/releases/download/v0.3.5/qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images4.imagebam.com/18/9b/b1/MEPK2NF_o.png" alt="图片"><br>新建一个文件夹：qbittorrent-torrents-exporter，并将脚本文件拖进去</p>
-<p>切换到该文件夹下，解压脚本文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -xzvf qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz0</span><br></pre></td></tr></table></figure>
-<p><img src="https://images4.imagebam.com/4c/98/25/MEPK2U6_o.png" alt="图片"><br>将BT_backup文件夹复制一份到与脚本相同的文件夹下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -r &quot;/home/用户名/.local/share/data/qBittorrent/BT_backup&quot; /root</span><br></pre></td></tr></table></figure>
-<p>执行脚本命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./qbittorrent-torrents-exporter -qh &quot;http://127.0.0.1:端口号&quot; -qu &quot;qb用户名&quot; -qp &quot;qb登录密码&quot;</span><br></pre></td></tr></table></figure>
-<p>接下来根据提示操作即可<br><img src="https://images4.imagebam.com/05/af/60/MEPK2ZQ_o.png" alt="图片"><br>最后会在export文件夹下存放导出的种子文件<br><img src="https://images4.imagebam.com/a1/49/30/MEPK34B_o.png" alt="图片"><br>在此感谢工具作者！！！</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> 群晖 </tag>
+            
+            <tag> Moviepilot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NPS内网穿透服务搭建</title>
+      <link href="/tutorial/b975ddd8.html"/>
+      <url>/tutorial/b975ddd8.html</url>
+      
+        <content type="html"><![CDATA[<p>nps项目地址：<a href="https://github.com/ehang-io/nps/releases">https://github.com/ehang-io/nps/releases</a></p><span id="more"></span><p>首先下载linux server端,在具有公网ip的vps上安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf linux_amd64_server.tar.gz  #进行解压</span><br><span class="line"></span><br><span class="line">./nps install  #安装nps</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">完成之后编辑  /etc/nps/conf/nps.conf</span><br><span class="line"></span><br><span class="line">#web下面是web界面的相关设定</span><br><span class="line"></span><br><span class="line">web_username=用户名称</span><br><span class="line"></span><br><span class="line">web_password=用户密码</span><br><span class="line"></span><br><span class="line">web_port =web界面的端口号</span><br><span class="line"></span><br><span class="line">#HTTP(S) proxy port, no startup if empty</span><br><span class="line"></span><br><span class="line">http_proxy_port=80 #端口号随意，不占用所需端口即可</span><br><span class="line"></span><br><span class="line">https_proxy_port=443  #端口号随意，不占用所需端口即可</span><br><span class="line"></span><br><span class="line">##bridge下面是客户端连接服务端的设置，端口号可自定，其他可不动</span><br><span class="line"></span><br><span class="line">bridge_type=tcp</span><br><span class="line"></span><br><span class="line">bridge_port=8024</span><br></pre></td></tr></table></figure><p>打开览器访问 http:&#x2F;&#x2F;服务器IP:端口号，输入配置文件中设置的用户名和密码即可进入web管理端<br>进入面板后，新增一个客户端，将生成的密钥填入OpenWrt客户端的密钥栏<br><img src="https://images4.imagebam.com/1d/7b/37/MEXTXMP_o.jpg" alt="图片"><br><img src="https://images4.imagebam.com/4d/fa/d0/MEXTXMT_o.jpg" alt="图片"><br>客户端与服务端联通后，添加需要穿透的内网IP+端口<br><img src="https://images4.imagebam.com/0f/d2/72/MEXTXO0_o.jpg" alt="图片"><br>此时通过 服务器ip + 服务端端口号即可访问内网地址，内网穿透到此完成</p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 教程 </category>
+          
       </categories>
-      <tags>
-        <tag>PT</tag>
-        <tag>torrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>thelounge 安装教程</title>
-    <url>/tutorial/93695209.html</url>
-    <content><![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge是一个全平台的IRC客户端，对与玩外站的玩家来说，IRC是必须要用到的工具，下面是在linux下通过的Docker的方式安装：</p>
-<span id="more"></span>
-<p>首先vps上先安装docker：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)</span><br></pre></td></tr></table></figure>
-<p>按提示进行<br><img src="https://images4.imagebam.com/b9/13/6c/MEPK217_o.png" alt="图片"><br><img src="https://images4.imagebam.com/2f/9c/17/MEPK22S_o.png" alt="图片"><br>docker安装完成后，手动创建容器:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ docker run --detach \</span><br><span class="line">--name thelounge \</span><br><span class="line">--publish 9000:9000 \</span><br><span class="line">--volume ~/.thelounge:/var/opt/thelounge \</span><br><span class="line">--restart always \</span><br><span class="line">thelounge/thelounge:latest</span><br></pre></td></tr></table></figure>
-<p><img src="https://images4.imagebam.com/28/c8/0f/MEPK237_o.png" alt="图片"><br>刚安装完是默认没有用户的，所以需要创建一个用户。进入容器内创建账户</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it thelounge /bin/sh</span><br><span class="line"># 进入容器内部</span><br><span class="line"></span><br><span class="line">thelounge add test</span><br><span class="line"># 按照提示输入密码并回车</span><br><span class="line"># 之后提示是否保存 log 到命令行，默认 yes ，直接回车即可。</span><br><span class="line"></span><br><span class="line"># 如果未来忘记用户 test 的密码，执行以下命令并根据提示操作：</span><br><span class="line">thelounge reset test</span><br><span class="line"></span><br><span class="line"># 如果未来想改用户 test 的密码，执行以下命令并根据提示操作：</span><br><span class="line">thelounge remove test</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images4.imagebam.com/df/30/3f/MEPK23N_o.png" alt="图片"><br>到此命令行安装过程结束，浏览器打开网址：</p>
-<p><a href="http://localhost:9000/">http://localhost:9000</a></p>
-<p>登录进去打开后，点击左下角齿轮标志进入设置，勾选第一行 Advanced settings 以展开所有设置<br><img src="https://images4.imagebam.com/c1/41/a7/MEPK240_o.png" alt="图片"><br><img src="https://images4.imagebam.com/4c/2c/b1/MEPK2D6_o.png" alt="图片"><br>设置项是即时生效的，无需保存。</p>
-<p>站点设置</p>
-<p>具体设置看图：<br><img src="https://images4.imagebam.com/b3/ef/c2/MEPK2EV_o.png" alt="图片"></p>
-<p>参考资料:<br><a href="https://mylovesaber.gitee.io/pthelp/2020/irc-enhanced/">https://mylovesaber.gitee.io/pthelp/2020/irc-enhanced/</a><br><a href="https://hub.docker.com/r/thelounge/thelounge/">https://hub.docker.com/r/thelounge/thelounge/</a><br><a href="https://hub.docker.com/r/linuxserver/thelounge/">https://hub.docker.com/r/linuxserver/thelounge/</a><br><a href="https://hostloc.com/thread-1010038-1-1.html">https://hostloc.com/thread-1010038-1-1.html</a><br><a href="https://pterclub.com/forums.php?action=viewtopic&forumid=25&topicid=5834">https://pterclub.com/forums.php?action=viewtopic&amp;forumid=25&amp;topicid=5834</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 内网穿透 </tag>
+            
+            <tag> VPS </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>隐藏轨道在SBD中的设置方法</title>
+      <link href="/note/58a2765d.html"/>
+      <url>/note/58a2765d.html</url>
+      
+        <content type="html"><![CDATA[<p>BDinfo里面显示*的叫隐藏轨道，轨道是否隐藏，只出现在mpls中，对于clip来说是没有这个的，clip中所有轨道都是可见，而且必须可见</p><span id="more"></span><p>首先选择mpls，然后在Stream Editor里点击clip那个地方，不要点击到PlayItem，右键选择Select Es并在里面勾选，不需要的轨道去掉勾，对于这个mpls来说不需要出现，就变成隐藏轨道，然后bdinfo中就会*号</p><p><img src="https://i.ibb.co/6Z4zCDp/3212933.jpg" alt="图片"><br><img src="https://i.ibb.co/mDBcWk2/3212953.jpg" alt="图片"></p>]]></content>
+      
+      
       <categories>
-        <category>教程</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>PT</tag>
-        <tag>VPS</tag>
-        <tag>IRC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>拆盘后的Dolby TrueHD Audio AC3音轨无法拖进SBD的问题</title>
-    <url>/note/ded8c111.html</url>
-    <content><![CDATA[<p>这里用的拆盘工具是BD Demuxer Pro 3D UHD v3.2</p>
-<span id="more"></span>
-<p>BD Demuxer Pro 3D UHD v3.2-&gt;Operations-&gt;divide AC3-MLP 指向你要拆分的AC3(也就是之前你拆出的最大的那个ac3文件)…分离内核和壳…把*.ac3.ac3拖放到SBD&#x2F;SUHD里的Data 窗口即可;<br>无核心的thd.ac3需要用TCT 加上核再分离，然后放到scenarist里</p>
-<p>参见：<a href="https://cnlang.org/thread-55135-1-1.html">https://cnlang.org/thread-55135-1-1.html</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 原盘diy </tag>
+            
+            <tag> Bluray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用BDedit挂载IG弹出菜单</title>
+      <link href="/note/edee2d8d.html"/>
+      <url>/note/edee2d8d.html</url>
+      
+        <content type="html"><![CDATA[<p>Scenarist BD-J制作IG类的盘，如果忘记添加IG弹出菜单，可以后续利用BDedit添加，具体操作详见下图</p><span id="more"></span><p>BDedit里选择正确mpls，点击IG，添加 IG menu，对比之前的原盘，填写正确的文件名保存即可<br><img src="https://i.ibb.co/hsxTZrh/0504002857.jpg" alt="图片"></p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修改Bluray音轨或字幕语言不正确的问题</title>
-    <url>/tutorial/1adbdb9f.html</url>
-    <content><![CDATA[<p>有时蓝光原盘的音轨或字幕，通过BDinfo扫出来的与实际不一样，</p>
-<span id="more"></span>
-<p>可以通过字节码工具（HxD64）修改clpi文件来恢复其实际语言</p>
-<p><img src="https://i.ibb.co/KLfr0LH/40404154934.jpg" alt="图片"><br>用字节码工具打开原盘\BDMV\CLIPINF文件夹，找出与主视频对应的clpi文件，打开后找到如图所示，“l”是语言，一般指音轨，后面跟的是语言代码，把这个语言代码改为实际语言存盘即可，DONE</p>
-<ul>
-<li><p>clpi和m2ts是一一对应，但mpls也对应m2ts，但不是一一对应，我们想要那一条轨道(每一条音轨、字幕都称作为一个轨道)在这个mpls中出现，就是我们控制的. Play键调用的是mpls 至于调用哪一个，得根据盘来分析</p>
-</li>
-<li><p>mpls就是一个数据库，clpi就好比一个索引简介文件，m2ts就是实际的文件</p>
-</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 原盘diy </tag>
+            
+            <tag> Bluray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>拆盘后的Dolby TrueHD Audio AC3音轨无法拖进SBD的问题</title>
+      <link href="/note/ded8c111.html"/>
+      <url>/note/ded8c111.html</url>
+      
+        <content type="html"><![CDATA[<p>这里用的拆盘工具是BD Demuxer Pro 3D UHD v3.2</p><span id="more"></span><p>BD Demuxer Pro 3D UHD v3.2-&gt;Operations-&gt;divide AC3-MLP 指向你要拆分的AC3(也就是之前你拆出的最大的那个ac3文件)…分离内核和壳…把*.ac3.ac3拖放到SBD&#x2F;SUHD里的Data 窗口即可;<br>无核心的thd.ac3需要用TCT 加上核再分离，然后放到scenarist里</p><p>参见：<a href="https://cnlang.org/thread-55135-1-1.html">https://cnlang.org/thread-55135-1-1.html</a></p>]]></content>
+      
+      
       <categories>
-        <category>教程</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>星大脚本单独安装截图、制种功能</title>
-    <url>/note/9e5db167.html</url>
-    <content><![CDATA[<p>星大脚本对于老玩家来说，应该是第一个在盒子上集合了全套功能的脚本，<br>项目地址 <a href="https://github.com/Aniverse/inexistence">https://github.com/Aniverse/inexistence</a><br>由于项目过于久远，早已不再更新，但是其中截图，制种，扫描 bdinfo，mediainfo，挂载ISO等这几个非常便捷的功能还是可以单独安装使用，下面详细介绍一下；</p>
-<span id="more"></span>
-<p>先在root模式下安装</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">list</span>=<span class="string">&quot;jietu bdinfo bluray guazai jiegua zuozhong&quot;</span></span><br><span class="line"><span class="keyword">for</span> JIAOBEN in <span class="variable">$list</span> ; <span class="keyword">do</span></span><br><span class="line">wget -qO /usr/local/bin/<span class="variable">$JIAOBEN</span> https:<span class="comment">//github.com/Aniverse/inexistence/raw/master/00.Installation/script/$JIAOBEN</span></span><br><span class="line">chmod +x /usr/local/bin/<span class="variable">$JIAOBEN</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p>这段运行完 输入bluray 安装  然后缺什么就运行相应的</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">apt-get -y install ffmpeg</span><br><span class="line">apt-get -y install mono-devel</span><br><span class="line">apt-get install -y imagemagick</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>制种命令区块大小不写的情况下，默认是 24，也就是 2 的 24 次方（16,777,216&#x3D;16M） </li>
-<li>你要用 4M 区块，就输入 22，也就是 zuozhong 目标文件 22</li>
-<li>你要用 8M 区块，就输入 23，也就是 zuozhong 目标文件 23</li>
-<li>在&#x2F;usr&#x2F;local&#x2F;bin&#x2F;jietu可以更改截图默认张数，pics&#x3D;10 改为想要的张数即可</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 原盘diy </tag>
+            
+            <tag> Bluray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修改Bluray音轨或字幕语言不正确的问题</title>
+      <link href="/tutorial/1adbdb9f.html"/>
+      <url>/tutorial/1adbdb9f.html</url>
+      
+        <content type="html"><![CDATA[<p>有时蓝光原盘的音轨或字幕，通过BDinfo扫出来的与实际不一样，</p><span id="more"></span><p>可以通过字节码工具（HxD64）修改clpi文件来恢复其实际语言</p><p><img src="https://i.ibb.co/KLfr0LH/40404154934.jpg" alt="图片"><br>用字节码工具打开原盘\BDMV\CLIPINF文件夹，找出与主视频对应的clpi文件，打开后找到如图所示，“l”是语言，一般指音轨，后面跟的是语言代码，把这个语言代码改为实际语言存盘即可，DONE</p><ul><li><p>clpi和m2ts是一一对应，但mpls也对应m2ts，但不是一一对应，我们想要那一条轨道(每一条音轨、字幕都称作为一个轨道)在这个mpls中出现，就是我们控制的. Play键调用的是mpls 至于调用哪一个，得根据盘来分析</p></li><li><p>mpls就是一个数据库，clpi就好比一个索引简介文件，m2ts就是实际的文件</p></li></ul>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 教程 </category>
+          
       </categories>
-      <tags>
-        <tag>PT</tag>
-        <tag>seedbox</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用BDedit挂载IG弹出菜单</title>
-    <url>/note/edee2d8d.html</url>
-    <content><![CDATA[<p>Scenarist BD-J制作IG类的盘，如果忘记添加IG弹出菜单，可以后续利用BDedit添加，具体操作详见下图</p>
-<span id="more"></span>
-<p>BDedit里选择正确mpls，点击IG，添加 IG menu，对比之前的原盘，填写正确的文件名保存即可<br><img src="https://i.ibb.co/hsxTZrh/0504002857.jpg" alt="图片"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 原盘diy </tag>
+            
+            <tag> Bluray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>甲骨文ARM安装荒野无灯FEB &amp; SABnzb</title>
+      <link href="/note/4d240cc4.html"/>
+      <url>/note/4d240cc4.html</url>
+      
+        <content type="html"><![CDATA[<p>为方便发种，需要安装些相应的工具</p><span id="more"></span><p>注意选择tag，有些tag虽然标的arm，但实际还是amd</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/docker/fb/config ~/docker/fb/myfiles</span><br><span class="line"></span><br><span class="line">docker run -d --name fb \</span><br><span class="line">--restart=unless-stopped \</span><br><span class="line">-e PUID=$UID \</span><br><span class="line">-e PGID=$GID \</span><br><span class="line">-e WEB_PORT=8082 \</span><br><span class="line">-e FB_AUTH_SERVER_ADDR=&quot;127.0.0.1&quot; \</span><br><span class="line">-p 8082:8082 \</span><br><span class="line">-v ~/docker/fb/config:/config \</span><br><span class="line">-v /:/myfiles \</span><br><span class="line">--mount type=tmpfs,destination=/tmp \</span><br><span class="line">80x86/filebrowser:2.9.0-arm64</span><br></pre></td></tr></table></figure><p>安装Usenet下载器sabnzbd</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name=sabnzbd \</span><br><span class="line">-p 8384:8080 \</span><br><span class="line">-e PUID=1000 \</span><br><span class="line">-e PGID=1000 \</span><br><span class="line">-v /home/你的用户名/sabnzbd/config:/config \</span><br><span class="line">-v /home/你的用户名/sabnzbd/downloads:/downloads \</span><br><span class="line">-v /home/你的用户名/sabnzbd/incomplete:/incomplete-downloads \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">linuxserver/sabnzbd</span><br></pre></td></tr></table></figure><p>vim &#x2F;home&#x2F;你的用户名&#x2F;sabnzbd&#x2F;config&#x2F;sabnzbd.ini<br>把–inet_exposure从0修改到5才能正常访问</p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>甲骨文ARM安装荒野无灯FEB &amp; SABnzb</title>
-    <url>/note/4d240cc4.html</url>
-    <content><![CDATA[<p>为方便发种，需要安装些相应的工具</p>
-<span id="more"></span>
-<p>注意选择tag，有些tag虽然标的arm，但实际还是amd</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/docker/fb/config ~/docker/fb/myfiles</span><br><span class="line"></span><br><span class="line">docker run -d --name fb \</span><br><span class="line">--restart=unless-stopped \</span><br><span class="line">-e PUID=$UID \</span><br><span class="line">-e PGID=$GID \</span><br><span class="line">-e WEB_PORT=8082 \</span><br><span class="line">-e FB_AUTH_SERVER_ADDR=&quot;127.0.0.1&quot; \</span><br><span class="line">-p 8082:8082 \</span><br><span class="line">-v ~/docker/fb/config:/config \</span><br><span class="line">-v /:/myfiles \</span><br><span class="line">--mount type=tmpfs,destination=/tmp \</span><br><span class="line">80x86/filebrowser:2.9.0-arm64</span><br></pre></td></tr></table></figure>
-
-<p>安装Usenet下载器sabnzbd</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name=sabnzbd \</span><br><span class="line">-p 8384:8080 \</span><br><span class="line">-e PUID=1000 \</span><br><span class="line">-e PGID=1000 \</span><br><span class="line">-v /home/你的用户名/sabnzbd/config:/config \</span><br><span class="line">-v /home/你的用户名/sabnzbd/downloads:/downloads \</span><br><span class="line">-v /home/你的用户名/sabnzbd/incomplete:/incomplete-downloads \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">linuxserver/sabnzbd</span><br></pre></td></tr></table></figure>
-<p>vim &#x2F;home&#x2F;你的用户名&#x2F;sabnzbd&#x2F;config&#x2F;sabnzbd.ini<br>把–inet_exposure从0修改到5才能正常访问</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Usenet </tag>
+            
+            <tag> vps </tag>
+            
+            <tag> oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Blurbird的Flexget配置写法</title>
+      <link href="/note/865bf2c8.html"/>
+      <url>/note/865bf2c8.html</url>
+      
+        <content type="html"><![CDATA[<p>菜佬提供的配置，还没验证过，因为长时间不登陆，号已经扬了…有兴趣的可以尝试一下</p><span id="more"></span><figure class="highlight yml"><figcaption><span>Flexget.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bluebird:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://bluebird-hd.org/rss.php</span></span><br><span class="line"><span class="attr">urlrewrite:</span></span><br><span class="line"><span class="attr">sitename:</span></span><br><span class="line"><span class="attr">regexp:</span> <span class="string">&#x27;https://bluebird-hd.org/details.php\?id=(?P&lt;id&gt;\d+)&amp;hit=1&#x27;</span></span><br><span class="line"><span class="attr">format:</span> <span class="string">https://bluebird-hd.org/download.php?id=\g&lt;id&gt;</span></span><br><span class="line"><span class="attr">headers:</span></span><br><span class="line"><span class="attr">Cookie:</span> <span class="string">&#x27; 这里写你的 cookies &#x27;</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">bluebird</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>Usenet</tag>
-        <tag>vps</tag>
-        <tag>oracle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>群晖Docker容器&quot;failed to initialize logging driver database is locked&quot;解决办法</title>
-    <url>/note/5bc9b443.html</url>
-    <content><![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p>
-<span id="more"></span>
-<p>操作如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -i</span><br><span class="line"># 切换到root</span><br><span class="line"></span><br><span class="line">docker ps -a</span><br><span class="line"># 查找出问题容器的ID</span><br><span class="line"></span><br><span class="line">docker inspect --format=&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27; &lt;容器ID&gt;</span><br><span class="line"></span><br><span class="line"># 列出容器日志的路径</span><br><span class="line"></span><br><span class="line">rm &lt;返回日志路径&gt;</span><br><span class="line"># 删除路径下的log.db日志</span><br><span class="line">#重启容器即可</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> RSS </tag>
+            
+            <tag> Flexget </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>qBittorrent 种子文件导出小工具</title>
+      <link href="/note/a74ad754.html"/>
+      <url>/note/a74ad754.html</url>
+      
+        <content type="html"><![CDATA[<p>先放项目地址：<a href="https://github.com/ludoux/qbittorrent-torrents-exporter">https://github.com/ludoux/qbittorrent-torrents-exporter</a></p><span id="more"></span><p>刚好这些天用盒子发了不少种，还在想怎样便捷的在本地进行保种，就用这个来试试；另外该脚本针对4.40+版本会去除种子文件 tracker 地址的 feature，本工具也会读出tracker并写进torrent文件里</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#先在盒子上安装脚本</span><br><span class="line"></span><br><span class="line">wget https://github.com/ludoux/qbittorrent-torrents-exporter/releases/download/v0.3.5/qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz</span><br></pre></td></tr></table></figure><p><img src="https://images4.imagebam.com/18/9b/b1/MEPK2NF_o.png" alt="图片"><br>新建一个文件夹：qbittorrent-torrents-exporter，并将脚本文件拖进去</p><p>切换到该文件夹下，解压脚本文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz0</span><br></pre></td></tr></table></figure><p><img src="https://images4.imagebam.com/4c/98/25/MEPK2U6_o.png" alt="图片"><br>将BT_backup文件夹复制一份到与脚本相同的文件夹下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r &quot;/home/用户名/.local/share/data/qBittorrent/BT_backup&quot; /root</span><br></pre></td></tr></table></figure><p>执行脚本命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./qbittorrent-torrents-exporter -qh &quot;http://127.0.0.1:端口号&quot; -qu &quot;qb用户名&quot; -qp &quot;qb登录密码&quot;</span><br></pre></td></tr></table></figure><p>接下来根据提示操作即可<br><img src="https://images4.imagebam.com/05/af/60/MEPK2ZQ_o.png" alt="图片"><br>最后会在export文件夹下存放导出的种子文件<br><img src="https://images4.imagebam.com/a1/49/30/MEPK34B_o.png" alt="图片"><br>在此感谢工具作者！！！</p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>群晖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>甲骨文创建实例时直接开启root登录</title>
-    <url>/tutorial/a43721a9.html</url>
-    <content><![CDATA[<p>在创建实例的时候，在高级设置内，将下列脚本粘贴至cloud-init，在机器创建时会配置root登陆，</p>
-<span id="more"></span>
-<p>修改脚本中的”密码”为你想要设置的即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo root:密码 |sudo chpasswd root</span><br><span class="line">sudo sed -i &#x27;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#x27; /etc/ssh/sshd_config;</span><br><span class="line">sudo sed -i &#x27;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#x27; /etc/ssh/sshd_config;</span><br><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images4.imagebam.com/69/dd/c0/MEPK1D5_o.png" alt="图片"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PT </tag>
+            
+            <tag> torrent </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>星大脚本单独安装截图、制种功能</title>
+      <link href="/note/9e5db167.html"/>
+      <url>/note/9e5db167.html</url>
+      
+        <content type="html"><![CDATA[<p>星大脚本对于老玩家来说，应该是第一个在盒子上集合了全套功能的脚本，<br>项目地址 <a href="https://github.com/Aniverse/inexistence">https://github.com/Aniverse/inexistence</a><br>由于项目过于久远，早已不再更新，但是其中截图，制种，扫描 bdinfo，mediainfo，挂载ISO等这几个非常便捷的功能还是可以单独安装使用，下面详细介绍一下；</p><span id="more"></span><p>先在root模式下安装</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">list</span>=<span class="string">&quot;jietu bdinfo bluray guazai jiegua zuozhong&quot;</span></span><br><span class="line"><span class="keyword">for</span> JIAOBEN in <span class="variable">$list</span> ; <span class="keyword">do</span></span><br><span class="line">wget -qO /usr/local/bin/<span class="variable">$JIAOBEN</span> https:<span class="comment">//github.com/Aniverse/inexistence/raw/master/00.Installation/script/$JIAOBEN</span></span><br><span class="line">chmod +x /usr/local/bin/<span class="variable">$JIAOBEN</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure><p>这段运行完 输入bluray 安装  然后缺什么就运行相应的</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install ffmpeg</span><br><span class="line">apt-get -y install mono-devel</span><br><span class="line">apt-get install -y imagemagick</span><br></pre></td></tr></table></figure><ul><li>制种命令区块大小不写的情况下，默认是 24，也就是 2 的 24 次方（16,777,216&#x3D;16M） </li><li>你要用 4M 区块，就输入 22，也就是 zuozhong 目标文件 22</li><li>你要用 8M 区块，就输入 23，也就是 zuozhong 目标文件 23</li><li>在&#x2F;usr&#x2F;local&#x2F;bin&#x2F;jietu可以更改截图默认张数，pics&#x3D;10 改为想要的张数即可</li></ul>]]></content>
+      
+      
       <categories>
-        <category>教程</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>vps</tag>
-        <tag>oracle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自用的群晖Moviepilot-V2 docker-compose配置文件</title>
-    <url>/note/81d88d66.html</url>
-    <content><![CDATA[<p>Moviepilot升级到V2版本之后，新增了蛮多功能，重装了几次，这里备份一下docker-compose配置文件</p>
-<span id="more"></span>
-<p>这里配置只适合我自己的本地环境，仅供参考！！！</p>
-<ul>
-<li>docker目录下新建 moviepilot-v2 文件夹，下面再新建 config 和 core 两个文件夹  </li>
-<li>docker目录下新建 redis 文件夹，下面再新建 data 文件夹</li>
-<li>docker目录下新建 postgresql 文件夹</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.5&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">moviepilot:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">jxxghp/moviepilot-v2:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-v2</span></span><br><span class="line"><span class="attr">hostname:</span> <span class="string">moviepilot-v2</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">network_mode:</span> <span class="string">host</span>          <span class="comment"># 群晖最稳定模式，可直接访问QB/TR/Emby</span></span><br><span class="line"><span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">privileged:</span> <span class="literal">false</span>           <span class="comment"># 群晖默认无需高权限，更安全</span></span><br><span class="line"><span class="attr">extra_hosts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;host.docker.internal:host-gateway&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 依赖数据库启动完成</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="attr">postgresql:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line">      <span class="attr">redis:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 环境变量（群晖优化版，无冗余、无错误）</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Web 端口（固定不冲突）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NGINX_PORT=3000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PORT=3001</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 群晖最高权限，解决 99% 媒体文件读写失败</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PUID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">UMASK=000</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 时区（必须）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 核心登录设置 ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SUPERUSER=admin</span>                 <span class="comment"># 登录用户名（可改）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SUPERUSER_PASSWORD=12345</span>   <span class="comment"># 【强烈建议修改】初始密码</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 网络代理（你原有配置） ==================</span></span><br><span class="line">      <span class="comment">#- HTTP_PROXY=http://host.docker.internal:7880 # 端口按实际修改</span></span><br><span class="line">      <span class="comment">#- HTTPS_PROXY=http://host.docker.internal:7880</span></span><br><span class="line">      <span class="comment">#- PROXY_HOST=192.168.1.1:7880</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTP_PROXY=http://192.168.1.1:7890</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTPS_PROXY=http://192.168.1.1:7890</span></span><br><span class="line">      <span class="comment">#- ALL_PROXY=socks5://192.168.1.1:7881  # 如果 Mihomo 开启了 SOCKS 端口（通常是 mixed+1）建议加上</span></span><br><span class="line">      <span class="comment"># --- 绕过设置 (非常重要) ---</span></span><br><span class="line">      <span class="comment"># 确保访问内网设备、本地回环和 Docker 网桥时不走代理，防止内部通信卡顿</span></span><br><span class="line">      <span class="comment"># - NO_PROXY=localhost,127.0.0.1,192.168.2.0/24 # 确保内网通信不走代理</span></span><br><span class="line">      <span class="comment"># ================== 站点认证（你原有配置） ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_SITE=ttg</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FREEFARM_UID=123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FREEFARM_PASSKEY=PASSKEY</span>    <span class="comment"># 填入你的 PASSKEY</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 数据库 PostgreSQL ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_TYPE=postgresql</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_HOST=127.0.0.1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_PORT=5433</span> <span class="comment"># 对应下面 postgresql 服务映射出来的外部端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_DATABASE=moviepilot</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_USERNAME=moviepilot</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_POSTGRESQL_PASSWORD=pg_password_2025</span>  <span class="comment"># 可自定义</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># ================== 缓存 Redis ==================</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CACHE_BACKEND_TYPE=redis</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CACHE_BACKEND_URL=redis://:redis_password_2025@127.0.0.1:6379</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 群晖挂载路径（完全沿用你原有路径，无改动）</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume4/media:/media</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/config:/config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/core:/moviepilot/.cache/ms-playwright</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock:ro</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果你需要挂载下载器的种子目录以供转移，请参考原全功能版将 TR/QB 的映射加在这里</span></span><br><span class="line"><span class="comment"># ================== Redis 缓存服务 ==================</span></span><br><span class="line"><span class="attr">redis:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">redis:alpine</span>  <span class="comment"># 轻量版，群晖更稳定</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-redis</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">6379</span><span class="string">:6379</span>   <span class="comment"># 将端口暴露给宿主机，供 MP 访问</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/redis/data:/data</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">redis-server</span> <span class="string">--save</span> <span class="number">600</span> <span class="number">1</span> <span class="string">--requirepass</span> <span class="string">redis_password_2025</span></span><br><span class="line"><span class="attr">healthcheck:</span></span><br><span class="line"><span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;redis-cli&quot;</span>, <span class="string">&quot;-a&quot;</span>, <span class="string">&quot;redis_password_2025&quot;</span>, <span class="string">&quot;ping&quot;</span>]</span><br><span class="line"><span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line"><span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line"><span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ================== PostgreSQL 数据库 ==================</span></span><br><span class="line"><span class="attr">postgresql:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">postgres:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-postgres</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">5433</span><span class="string">:5432</span>   <span class="comment"># 映射到宿主机的 5433</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_DB=moviepilot</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_USER=moviepilot</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=pg_password_2025</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/postgresql:/var/lib/postgresql</span></span><br><span class="line"><span class="comment"># 此处不再写 command，直接使用镜像默认启动脚本</span></span><br><span class="line"><span class="attr">healthcheck:</span></span><br><span class="line"><span class="attr">test:</span> [<span class="string">&quot;CMD-SHELL&quot;</span>, <span class="string">&quot;pg_isready -U moviepilot -d moviepilot&quot;</span>]</span><br><span class="line"><span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line"><span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line"><span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ================== SQLite 自动迁移到 PostgreSQL ==================</span></span><br><span class="line"><span class="attr">pgloader:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">dimitri/pgloader:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">moviepilot-pgloader</span></span><br><span class="line"><span class="attr">restart:</span> <span class="literal">no</span>  <span class="comment"># 只执行一次迁移，成功后自动退出</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/moviepilot-v2/config:/mp_config</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">&gt;</span></span><br><span class="line"><span class="string">pgloader</span></span><br><span class="line"><span class="string">sqlite:///mp_config/user.db</span></span><br><span class="line"><span class="string">postgresql://moviepilot:pg_password_2025@postgresql:5432/moviepilot</span></span><br><span class="line"><span class="attr">depends_on:</span></span><br><span class="line"><span class="attr">postgresql:</span></span><br><span class="line"><span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">mp_backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 内部网络（隔离安全，不影响 host 模式）</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">mp_backend:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">moviepilot-backend</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PT </tag>
+            
+            <tag> seedbox </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>thelounge 安装教程</title>
+      <link href="/tutorial/93695209.html"/>
+      <url>/tutorial/93695209.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge是一个全平台的IRC客户端，对与玩外站的玩家来说，IRC是必须要用到的工具，下面是在linux下通过的Docker的方式安装：</p><span id="more"></span><p>首先vps上先安装docker：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)</span><br></pre></td></tr></table></figure><p>按提示进行<br><img src="https://images4.imagebam.com/b9/13/6c/MEPK217_o.png" alt="图片"><br><img src="https://images4.imagebam.com/2f/9c/17/MEPK22S_o.png" alt="图片"><br>docker安装完成后，手动创建容器:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --detach \</span><br><span class="line">--name thelounge \</span><br><span class="line">--publish 9000:9000 \</span><br><span class="line">--volume ~/.thelounge:/var/opt/thelounge \</span><br><span class="line">--restart always \</span><br><span class="line">thelounge/thelounge:latest</span><br></pre></td></tr></table></figure><p><img src="https://images4.imagebam.com/28/c8/0f/MEPK237_o.png" alt="图片"><br>刚安装完是默认没有用户的，所以需要创建一个用户。进入容器内创建账户</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it thelounge /bin/sh</span><br><span class="line"># 进入容器内部</span><br><span class="line"></span><br><span class="line">thelounge add test</span><br><span class="line"># 按照提示输入密码并回车</span><br><span class="line"># 之后提示是否保存 log 到命令行，默认 yes ，直接回车即可。</span><br><span class="line"></span><br><span class="line"># 如果未来忘记用户 test 的密码，执行以下命令并根据提示操作：</span><br><span class="line">thelounge reset test</span><br><span class="line"></span><br><span class="line"># 如果未来想改用户 test 的密码，执行以下命令并根据提示操作：</span><br><span class="line">thelounge remove test</span><br></pre></td></tr></table></figure><p><img src="https://images4.imagebam.com/df/30/3f/MEPK23N_o.png" alt="图片"><br>到此命令行安装过程结束，浏览器打开网址：</p><p><a href="http://localhost:9000/">http://localhost:9000</a></p><p>登录进去打开后，点击左下角齿轮标志进入设置，勾选第一行 Advanced settings 以展开所有设置<br><img src="https://images4.imagebam.com/c1/41/a7/MEPK240_o.png" alt="图片"><br><img src="https://images4.imagebam.com/4c/2c/b1/MEPK2D6_o.png" alt="图片"><br>设置项是即时生效的，无需保存。</p><p>站点设置</p><p>具体设置看图：<br><img src="https://images4.imagebam.com/b3/ef/c2/MEPK2EV_o.png" alt="图片"></p><p>参考资料:<br><a href="https://mylovesaber.gitee.io/pthelp/2020/irc-enhanced/">https://mylovesaber.gitee.io/pthelp/2020/irc-enhanced/</a><br><a href="https://hub.docker.com/r/thelounge/thelounge/">https://hub.docker.com/r/thelounge/thelounge/</a><br><a href="https://hub.docker.com/r/linuxserver/thelounge/">https://hub.docker.com/r/linuxserver/thelounge/</a><br><a href="https://hostloc.com/thread-1010038-1-1.html">https://hostloc.com/thread-1010038-1-1.html</a><br><a href="https://pterclub.com/forums.php?action=viewtopic&forumid=25&topicid=5834">https://pterclub.com/forums.php?action=viewtopic&amp;forumid=25&amp;topicid=5834</a></p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 教程 </category>
+          
       </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>群晖</tag>
-        <tag>Moviepilot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自用的群晖clash docker-compose配置文件</title>
-    <url>/note/61914325.html</url>
-    <content><![CDATA[<p>由于特殊原因，Moviepilot 用到的刮削，通知等功能，需要配合代理才能使用  </p>
-<span id="more"></span>
-<p>这里也把群晖使用的clash做个备份，mihomo之前安装过，规则模式下无法走代理流量，只能用TUN模式走全局，不清楚什么原因<br>后面更换了 clash-premium 可以正常使用</p>
-<ul>
-<li>docker目录下新建 clash 文件夹</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">clash:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">dreamacro/clash-premium:latest</span> <span class="comment"># 或者使用 mihomo 镜像: metacubex/mihomo:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">clash</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">network_mode:</span> <span class="string">&quot;bridge&quot;</span> <span class="comment"># 如果需要做旁路网关，建议改为 host</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/clash:/root/.config/clash</span> <span class="comment"># 映射配置文件目录</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;7890:7890&quot;</span> <span class="comment"># HTTP(S) 代理端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;7891:7891&quot;</span> <span class="comment"># SOCKS5 代理端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;9090:9090&quot;</span> <span class="comment"># 外部控制 API 端口 (RESTful API)</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="attr">metacubexd:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">ghcr.io/metacubex/metacubexd:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">metacubexd</span></span><br><span class="line"><span class="attr">ports:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;8083:80&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>安装完成后，打开ip+8083的映射端口，访问面板，绑定9090端口的后端</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PT </tag>
+            
+            <tag> VPS </tag>
+            
+            <tag> IRC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nzbget的安装使用</title>
+      <link href="/note/6b58148f.html"/>
+      <url>/note/6b58148f.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># wget https://nzbget.net/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">wget https://nzbget.com/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line"># 已经更新，旧版停止维护</span><br><span class="line"></span><br><span class="line">sh nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">cd nzbget &amp;&amp; ./nzbget -D</span><br><span class="line"></span><br><span class="line">登录地址：http://ip-address-of-linux-machine:6789</span><br><span class="line"></span><br><span class="line">默认用户名:nzbget</span><br><span class="line"></span><br><span class="line">密码:tegbzn6789</span><br><span class="line"></span><br><span class="line">#SECURITY那边修改用户名和密码</span><br><span class="line"></span><br><span class="line">#如遇到打不开页面</span><br><span class="line"></span><br><span class="line">cd nzbget</span><br><span class="line"></span><br><span class="line">./nzbget -D</span><br><span class="line">  </span><br></pre></td></tr></table></figure><p>安装完成后，先修改web页面登录的用户名与密码<br><img src="https://images4.imagebam.com/72/34/31/MEPK1UK_o.png" alt="图片"><br>再配置服务商的信息<br><img src="https://images4.imagebam.com/22/1b/b5/MEPK1UT_o.png" alt="图片"><br>设置最大连接数（购买的服务商信息内会提供）<br>OK，可以愉快的玩耍了</p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>群晖</tag>
-        <tag>代理</tag>
-        <tag>clash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>隐藏轨道在SBD中的设置方法</title>
-    <url>/note/58a2765d.html</url>
-    <content><![CDATA[<p>BDinfo里面显示*的叫隐藏轨道，轨道是否隐藏，只出现在mpls中，对于clip来说是没有这个的，clip中所有轨道都是可见，而且必须可见</p>
-<span id="more"></span>
-<p>首先选择mpls，然后在Stream Editor里点击clip那个地方，不要点击到PlayItem，右键选择Select Es并在里面勾选，不需要的轨道去掉勾，对于这个mpls来说不需要出现，就变成隐藏轨道，然后bdinfo中就会*号</p>
-<p><img src="https://i.ibb.co/6Z4zCDp/3212933.jpg" alt="图片"><br><img src="https://i.ibb.co/mDBcWk2/3212953.jpg" alt="图片"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> PT </tag>
+            
+            <tag> Usenet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Flexget配置模板</title>
+      <link href="/tutorial/f25eb4f7.html"/>
+      <url>/tutorial/f25eb4f7.html</url>
+      
+        <content type="html"><![CDATA[<p>自动筛选种子插件nexusphp，内站部分站点可用到，在flexget里建立plugins文件夹放nexusphp.py，<br>具体用法参见<a href="https://github.com/Juszoe/flexget-nexusphp">https://github.com/Juszoe/flexget-nexusphp</a></p><span id="more"></span><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">templates:</span></span><br><span class="line"><span class="attr">standard:</span></span><br><span class="line"><span class="attr">free_space:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd</span></span><br><span class="line"><span class="attr">space:</span> <span class="number">10240</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">de:</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/deluge/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">58846</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">qb:</span></span><br><span class="line"><span class="attr">qbittorrent:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/qbittorrent/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">2017</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">tr:</span></span><br><span class="line"><span class="attr">transmission:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">/home/abcd/transmission/download/</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">9099</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">abcd</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">size:</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">6000</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">666666</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">tasks:</span></span><br><span class="line"><span class="attr">UHDBits-movie-remux:</span></span><br><span class="line"><span class="attr">inputs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">limit:</span></span><br><span class="line"><span class="attr">amount:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">from:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://uhdbits.org/rss.php?action=</span></span><br><span class="line"><span class="attr">all_entries:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">if:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;&#x27;Remux&#x27; in title&quot;</span><span class="string">:</span> <span class="string">accept</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;&#x27;Season&#x27; in title&quot;</span><span class="string">:</span> <span class="string">reject</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3000</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">28000</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#  CinemaGeddon:</span></span><br><span class="line">    <span class="attr">rss:</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">http://cinemageddon.net/rss.xml</span></span><br><span class="line">      <span class="attr">ascii:</span> <span class="literal">yes</span></span><br><span class="line">    <span class="attr">headers:</span></span><br><span class="line">      <span class="attr">Cookie:</span> <span class="string">&quot; 这里填写cookie，引号保留 &quot;</span></span><br><span class="line">    <span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line">    <span class="attr">template:</span> <span class="string">qb</span></span><br><span class="line">    <span class="attr">qbittorrent:</span></span><br><span class="line">      <span class="attr">label:</span> <span class="string">CG</span></span><br><span class="line">      <span class="attr">maxdownspeed:</span> <span class="number">30000</span></span><br><span class="line"><span class="attr">HD-Space:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://hd-space.org/rss_torrents.php?feed=</span></span><br><span class="line"><span class="attr">seen:</span></span><br><span class="line"><span class="attr">fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">url</span></span><br><span class="line"><span class="attr">regexp:</span></span><br><span class="line"><span class="attr">accept:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">F13@HDSpace</span>          <span class="comment">#此处为你想下载的小组标签，可以添加多个</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">HDSpace</span></span><br><span class="line"><span class="comment">#    content_filter:</span></span><br><span class="line"><span class="comment">#      require:              #过滤关键词</span></span><br><span class="line"><span class="comment">#        - &#x27;*@HDSpace*&#x27;</span></span><br><span class="line">    <span class="attr">template:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">de</span></span><br><span class="line">    <span class="attr">deluge:</span></span><br><span class="line">      <span class="attr">label:</span> <span class="string">HD-Space</span></span><br><span class="line"></span><br><span class="line"><span class="attr">frds:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://pt.keepfrds.com/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">frds</span></span><br><span class="line"><span class="attr">max_up_speed:</span> <span class="number">11776.0</span></span><br><span class="line"><span class="comment">#      max_down_speed: 11.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">discfan:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://discfan.net/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">discfan</span></span><br><span class="line"><span class="comment">#      max_up_speed: 11776.0</span></span><br><span class="line"><span class="attr">ptsbao:</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">https://ptsbao.club/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">accept_all:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">ptsbao</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nanyangpt-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://nanyangpt.com/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">nanyangpt</span></span><br><span class="line"></span><br><span class="line"><span class="attr">hd4fans-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://pt.hd4fans.org/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">content_size:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">204800</span></span><br><span class="line"><span class="attr">strict:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">qb</span></span><br><span class="line"><span class="attr">qbittorrent:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">hd4fans</span></span><br><span class="line"></span><br><span class="line"><span class="attr">HDU-free:</span></span><br><span class="line"><span class="attr">rss:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://pt.upxin.net/torrentrss.php?rows=</span></span><br><span class="line"><span class="attr">other_fields:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">link</span></span><br><span class="line"><span class="attr">nexusphp:</span></span><br><span class="line"><span class="attr">cookie:</span> <span class="string">&#x27;这里填写cookie，引号保留&#x27;</span></span><br><span class="line"><span class="attr">discount:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">free</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">2xfree</span></span><br><span class="line"><span class="attr">seeders:</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">leechers:</span>  <span class="comment"># 下载情况 选填</span></span><br><span class="line"><span class="attr">min:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">max:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">max_complete:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">hr:</span> <span class="literal">no</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">standard</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">de</span></span><br><span class="line"><span class="attr">deluge:</span></span><br><span class="line"><span class="attr">label:</span> <span class="string">HDU</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">web_server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">6566</span></span><br><span class="line"><span class="attr">web_ui:</span> <span class="literal">yes</span></span><br><span class="line"><span class="attr">base_url:</span> <span class="string">/flexget</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># schedules is disabled by default, you need to enable it or use cron to RSS</span></span><br><span class="line"><span class="attr">schedules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">tasks:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">  <span class="attr">interval:</span></span><br><span class="line">  <span class="attr">minutes:</span> <span class="number">2</span>  <span class="comment">#设定2分钟自动更新一次RSS，建议不要太频繁。</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 教程 </category>
+          
       </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自用的群晖vaultwarden docker-compose配置文件</title>
-    <url>/note/bf47d139.html</url>
-    <content><![CDATA[<p>Vaultwarden（原名 bitwarden_rs）兼容 Bitwarden 全客户端的自托管密码管理服务器，用来替代官方 Bitwarden 云端服务</p>
-<span id="more"></span>
-<p>建议本地安装，配合cloudflare的隧道服务，可以解决本地无公网及强制使用https</p>
-<ul>
-<li>docker目录下新建 Vaultwarden 文件夹</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">vaultwarden:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">vaultwarden/server:latest</span></span><br><span class="line"><span class="attr">container_name:</span> <span class="string">vaultwarden</span></span><br><span class="line"><span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/volume1/docker/vaultwarden:/data/</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line"><span class="comment"># 核心配置</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">DOMAIN=</span> <span class="string">域名</span>                         <span class="comment"># 填入绑定的域名</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">SIGNUPS_ALLOWED=false</span>               <span class="comment"># false：禁止注册  true：开启注册 先开启注册，在本地完成注册后禁止该功能</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">INVITATIONS_ALLOWED=false</span>           <span class="comment"># 禁止邀请</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 管理与通知</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ADMIN_TOKEN=TOKEN</span>  <span class="comment"># 访问 /admin 页面需要</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SHOW_PASSWORD_HINT=false</span>            <span class="comment"># 是否显示密码提示</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 性能与功能</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WEBSOCKET_ENABLED=true</span>              <span class="comment"># 开启 WebSocket 实时同步</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_FILE=/data/vaultwarden.log</span>      <span class="comment"># 将日志存入本地文件</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_LEVEL=warn</span>                      <span class="comment"># 日志等级：trace, debug, info, warn, error</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 邮件配置 (可选，用于发送注册验证码或警报)</span></span><br><span class="line">      <span class="comment"># - SMTP_HOST=smtp.gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_FROM=your-email@gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_PORT=587</span></span><br><span class="line">      <span class="comment"># - SMTP_SECURITY=starttls</span></span><br><span class="line">      <span class="comment"># - SMTP_USERNAME=your-email@gmail.com</span></span><br><span class="line">      <span class="comment"># - SMTP_PASSWORD=your-app-password</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">51513</span><span class="string">:80</span>                             <span class="comment"># 网页端端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">3012</span><span class="string">:3012</span>                            <span class="comment"># WebSocket 端口 (如不需要可不映射)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> RSS </tag>
+            
+            <tag> Flexget </tag>
+            
+            <tag> PT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>甲骨文创建实例时直接开启root登录</title>
+      <link href="/tutorial/a43721a9.html"/>
+      <url>/tutorial/a43721a9.html</url>
+      
+        <content type="html"><![CDATA[<p>在创建实例的时候，在高级设置内，将下列脚本粘贴至cloud-init，在机器创建时会配置root登陆，</p><span id="more"></span><p>修改脚本中的”密码”为你想要设置的即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo root:密码 |sudo chpasswd root</span><br><span class="line">sudo sed -i &#x27;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#x27; /etc/ssh/sshd_config;</span><br><span class="line">sudo sed -i &#x27;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#x27; /etc/ssh/sshd_config;</span><br><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure><p><img src="https://images4.imagebam.com/69/dd/c0/MEPK1D5_o.png" alt="图片"></p>]]></content>
+      
+      
       <categories>
-        <category>笔记</category>
+          
+          <category> 教程 </category>
+          
       </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>群晖</tag>
-        <tag>密码管理器</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> vps </tag>
+            
+            <tag> oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/uncatalog/4a17b156.html"/>
+      <url>/uncatalog/4a17b156.html</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
