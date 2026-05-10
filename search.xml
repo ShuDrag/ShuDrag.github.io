@@ -92,23 +92,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/uncatalog/4a17b156.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <title>nzbget的安装使用</title>
+    <url>/note/6b58148f.html</url>
+    <content><![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p>
 <span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># wget https://nzbget.net/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">wget https://nzbget.com/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line"># 已经更新，旧版停止维护</span><br><span class="line"></span><br><span class="line">sh nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">cd nzbget &amp;&amp; ./nzbget -D</span><br><span class="line"></span><br><span class="line">登录地址：http://ip-address-of-linux-machine:6789</span><br><span class="line"></span><br><span class="line">默认用户名:nzbget</span><br><span class="line"></span><br><span class="line">密码:tegbzn6789</span><br><span class="line"></span><br><span class="line">#SECURITY那边修改用户名和密码</span><br><span class="line"></span><br><span class="line">#如遇到打不开页面</span><br><span class="line"></span><br><span class="line">cd nzbget</span><br><span class="line"></span><br><span class="line">./nzbget -D</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>安装完成后，先修改web页面登录的用户名与密码<br><img src="https://images4.imagebam.com/72/34/31/MEPK1UK_o.png" alt="图片"><br>再配置服务商的信息<br><img src="https://images4.imagebam.com/22/1b/b5/MEPK1UT_o.png" alt="图片"><br>设置最大连接数（购买的服务商信息内会提供）<br>OK，可以愉快的玩耍了</p>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>PT</tag>
+        <tag>Usenet</tag>
+      </tags>
   </entry>
   <entry>
     <title>NPS内网穿透服务搭建</title>
@@ -130,20 +128,47 @@
       </tags>
   </entry>
   <entry>
-    <title>nzbget的安装使用</title>
-    <url>/note/6b58148f.html</url>
-    <content><![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet新闻组的下载工具，需配合provider服务商，推荐newshosting、EWEKA、ninja这三家</p>
+    <title>Hello World</title>
+    <url>/uncatalog/4a17b156.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># wget https://nzbget.net/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">wget https://nzbget.com/download/nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line"># 已经更新，旧版停止维护</span><br><span class="line"></span><br><span class="line">sh nzbget-latest-bin-linux.run</span><br><span class="line"></span><br><span class="line">cd nzbget &amp;&amp; ./nzbget -D</span><br><span class="line"></span><br><span class="line">登录地址：http://ip-address-of-linux-machine:6789</span><br><span class="line"></span><br><span class="line">默认用户名:nzbget</span><br><span class="line"></span><br><span class="line">密码:tegbzn6789</span><br><span class="line"></span><br><span class="line">#SECURITY那边修改用户名和密码</span><br><span class="line"></span><br><span class="line">#如遇到打不开页面</span><br><span class="line"></span><br><span class="line">cd nzbget</span><br><span class="line"></span><br><span class="line">./nzbget -D</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>安装完成后，先修改web页面登录的用户名与密码<br><img src="https://images4.imagebam.com/72/34/31/MEPK1UK_o.png" alt="图片"><br>再配置服务商的信息<br><img src="https://images4.imagebam.com/22/1b/b5/MEPK1UT_o.png" alt="图片"><br>设置最大连接数（购买的服务商信息内会提供）<br>OK，可以愉快的玩耍了</p>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>qBittorrent 种子文件导出小工具</title>
+    <url>/note/a74ad754.html</url>
+    <content><![CDATA[<p>先放项目地址：<a href="https://github.com/ludoux/qbittorrent-torrents-exporter">https://github.com/ludoux/qbittorrent-torrents-exporter</a></p>
+<span id="more"></span>
+<p>刚好这些天用盒子发了不少种，还在想怎样便捷的在本地进行保种，就用这个来试试；另外该脚本针对4.40+版本会去除种子文件 tracker 地址的 feature，本工具也会读出tracker并写进torrent文件里</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先在盒子上安装脚本</span><br><span class="line"></span><br><span class="line">wget https://github.com/ludoux/qbittorrent-torrents-exporter/releases/download/v0.3.5/qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images4.imagebam.com/18/9b/b1/MEPK2NF_o.png" alt="图片"><br>新建一个文件夹：qbittorrent-torrents-exporter，并将脚本文件拖进去</p>
+<p>切换到该文件夹下，解压脚本文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -xzvf qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz0</span><br></pre></td></tr></table></figure>
+<p><img src="https://images4.imagebam.com/4c/98/25/MEPK2U6_o.png" alt="图片"><br>将BT_backup文件夹复制一份到与脚本相同的文件夹下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -r &quot;/home/用户名/.local/share/data/qBittorrent/BT_backup&quot; /root</span><br></pre></td></tr></table></figure>
+<p>执行脚本命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./qbittorrent-torrents-exporter -qh &quot;http://127.0.0.1:端口号&quot; -qu &quot;qb用户名&quot; -qp &quot;qb登录密码&quot;</span><br></pre></td></tr></table></figure>
+<p>接下来根据提示操作即可<br><img src="https://images4.imagebam.com/05/af/60/MEPK2ZQ_o.png" alt="图片"><br>最后会在export文件夹下存放导出的种子文件<br><img src="https://images4.imagebam.com/a1/49/30/MEPK34B_o.png" alt="图片"><br>在此感谢工具作者！！！</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>PT</tag>
-        <tag>Usenet</tag>
+        <tag>torrent</tag>
       </tags>
   </entry>
   <entry>
@@ -175,6 +200,22 @@
       </tags>
   </entry>
   <entry>
+    <title>拆盘后的Dolby TrueHD Audio AC3音轨无法拖进SBD的问题</title>
+    <url>/note/ded8c111.html</url>
+    <content><![CDATA[<p>这里用的拆盘工具是BD Demuxer Pro 3D UHD v3.2</p>
+<span id="more"></span>
+<p>BD Demuxer Pro 3D UHD v3.2-&gt;Operations-&gt;divide AC3-MLP 指向你要拆分的AC3(也就是之前你拆出的最大的那个ac3文件)…分离内核和壳…把*.ac3.ac3拖放到SBD&#x2F;SUHD里的Data 窗口即可;<br>无核心的thd.ac3需要用TCT 加上核再分离，然后放到scenarist里</p>
+<p>参见：<a href="https://cnlang.org/thread-55135-1-1.html">https://cnlang.org/thread-55135-1-1.html</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>原盘diy</tag>
+        <tag>Bluray</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改Bluray音轨或字幕语言不正确的问题</title>
     <url>/tutorial/1adbdb9f.html</url>
     <content><![CDATA[<p>有时蓝光原盘的音轨或字幕，通过BDinfo扫出来的与实际不一样，</p>
@@ -190,22 +231,6 @@
 ]]></content>
       <categories>
         <category>教程</category>
-      </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>拆盘后的Dolby TrueHD Audio AC3音轨无法拖进SBD的问题</title>
-    <url>/note/ded8c111.html</url>
-    <content><![CDATA[<p>这里用的拆盘工具是BD Demuxer Pro 3D UHD v3.2</p>
-<span id="more"></span>
-<p>BD Demuxer Pro 3D UHD v3.2-&gt;Operations-&gt;divide AC3-MLP 指向你要拆分的AC3(也就是之前你拆出的最大的那个ac3文件)…分离内核和壳…把*.ac3.ac3拖放到SBD&#x2F;SUHD里的Data 窗口即可;<br>无核心的thd.ac3需要用TCT 加上核再分离，然后放到scenarist里</p>
-<p>参见：<a href="https://cnlang.org/thread-55135-1-1.html">https://cnlang.org/thread-55135-1-1.html</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
       </categories>
       <tags>
         <tag>原盘diy</tag>
@@ -239,6 +264,21 @@
       </tags>
   </entry>
   <entry>
+    <title>用BDedit挂载IG弹出菜单</title>
+    <url>/note/edee2d8d.html</url>
+    <content><![CDATA[<p>Scenarist BD-J制作IG类的盘，如果忘记添加IG弹出菜单，可以后续利用BDedit添加，具体操作详见下图</p>
+<span id="more"></span>
+<p>BDedit里选择正确mpls，点击IG，添加 IG menu，对比之前的原盘，填写正确的文件名保存即可<br><img src="https://i.ibb.co/hsxTZrh/0504002857.jpg" alt="图片"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>原盘diy</tag>
+        <tag>Bluray</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>甲骨文ARM安装荒野无灯FEB &amp; SABnzb</title>
     <url>/note/4d240cc4.html</url>
     <content><![CDATA[<p>为方便发种，需要安装些相应的工具</p>
@@ -260,43 +300,19 @@
       </tags>
   </entry>
   <entry>
-    <title>qBittorrent 种子文件导出小工具</title>
-    <url>/note/a74ad754.html</url>
-    <content><![CDATA[<p>先放项目地址：<a href="https://github.com/ludoux/qbittorrent-torrents-exporter">https://github.com/ludoux/qbittorrent-torrents-exporter</a></p>
+    <title>群晖Docker容器&quot;failed to initialize logging driver database is locked&quot;解决办法</title>
+    <url>/note/5bc9b443.html</url>
+    <content><![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p>
 <span id="more"></span>
-<p>刚好这些天用盒子发了不少种，还在想怎样便捷的在本地进行保种，就用这个来试试；另外该脚本针对4.40+版本会去除种子文件 tracker 地址的 feature，本工具也会读出tracker并写进torrent文件里</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#先在盒子上安装脚本</span><br><span class="line"></span><br><span class="line">wget https://github.com/ludoux/qbittorrent-torrents-exporter/releases/download/v0.3.5/qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://images4.imagebam.com/18/9b/b1/MEPK2NF_o.png" alt="图片"><br>新建一个文件夹：qbittorrent-torrents-exporter，并将脚本文件拖进去</p>
-<p>切换到该文件夹下，解压脚本文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -xzvf qbittorrent-torrents-exporter-v0.3.5-linux-amd64.tar.gz0</span><br></pre></td></tr></table></figure>
-<p><img src="https://images4.imagebam.com/4c/98/25/MEPK2U6_o.png" alt="图片"><br>将BT_backup文件夹复制一份到与脚本相同的文件夹下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -r &quot;/home/用户名/.local/share/data/qBittorrent/BT_backup&quot; /root</span><br></pre></td></tr></table></figure>
-<p>执行脚本命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./qbittorrent-torrents-exporter -qh &quot;http://127.0.0.1:端口号&quot; -qu &quot;qb用户名&quot; -qp &quot;qb登录密码&quot;</span><br></pre></td></tr></table></figure>
-<p>接下来根据提示操作即可<br><img src="https://images4.imagebam.com/05/af/60/MEPK2ZQ_o.png" alt="图片"><br>最后会在export文件夹下存放导出的种子文件<br><img src="https://images4.imagebam.com/a1/49/30/MEPK34B_o.png" alt="图片"><br>在此感谢工具作者！！！</p>
+<p>操作如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -i</span><br><span class="line"># 切换到root</span><br><span class="line"></span><br><span class="line">docker ps -a</span><br><span class="line"># 查找出问题容器的ID</span><br><span class="line"></span><br><span class="line">docker inspect --format=&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27; &lt;容器ID&gt;</span><br><span class="line"></span><br><span class="line"># 列出容器日志的路径</span><br><span class="line"></span><br><span class="line">rm &lt;返回日志路径&gt;</span><br><span class="line"># 删除路径下的log.db日志</span><br><span class="line">#重启容器即可</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>PT</tag>
-        <tag>torrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用BDedit挂载IG弹出菜单</title>
-    <url>/note/edee2d8d.html</url>
-    <content><![CDATA[<p>Scenarist BD-J制作IG类的盘，如果忘记添加IG弹出菜单，可以后续利用BDedit添加，具体操作详见下图</p>
-<span id="more"></span>
-<p>BDedit里选择正确mpls，点击IG，添加 IG menu，对比之前的原盘，填写正确的文件名保存即可<br><img src="https://i.ibb.co/hsxTZrh/0504002857.jpg" alt="图片"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
+        <tag>docker</tag>
+        <tag>群晖</tag>
       </tags>
   </entry>
   <entry>
@@ -315,22 +331,6 @@
       <tags>
         <tag>vps</tag>
         <tag>oracle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>群晖Docker容器&quot;failed to initialize logging driver database is locked&quot;解决办法</title>
-    <url>/note/5bc9b443.html</url>
-    <content><![CDATA[<p>今天docker容器clash出现“failed to initialize logging driver database is locked“错误，查了一下，删除log.db文件即可，</p>
-<span id="more"></span>
-<p>操作如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -i</span><br><span class="line"># 切换到root</span><br><span class="line"></span><br><span class="line">docker ps -a</span><br><span class="line"># 查找出问题容器的ID</span><br><span class="line"></span><br><span class="line">docker inspect --format=&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27; &lt;容器ID&gt;</span><br><span class="line"></span><br><span class="line"># 列出容器日志的路径</span><br><span class="line"></span><br><span class="line">rm &lt;返回日志路径&gt;</span><br><span class="line"># 删除路径下的log.db日志</span><br><span class="line">#重启容器即可</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>群晖</tag>
       </tags>
   </entry>
   <entry>
@@ -379,6 +379,22 @@
       </tags>
   </entry>
   <entry>
+    <title>隐藏轨道在SBD中的设置方法</title>
+    <url>/note/58a2765d.html</url>
+    <content><![CDATA[<p>BDinfo里面显示*的叫隐藏轨道，轨道是否隐藏，只出现在mpls中，对于clip来说是没有这个的，clip中所有轨道都是可见，而且必须可见</p>
+<span id="more"></span>
+<p>首先选择mpls，然后在Stream Editor里点击clip那个地方，不要点击到PlayItem，右键选择Select Es并在里面勾选，不需要的轨道去掉勾，对于这个mpls来说不需要出现，就变成隐藏轨道，然后bdinfo中就会*号</p>
+<p><img src="https://i.ibb.co/6Z4zCDp/3212933.jpg" alt="图片"><br><img src="https://i.ibb.co/mDBcWk2/3212953.jpg" alt="图片"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>原盘diy</tag>
+        <tag>Bluray</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自用的群晖vaultwarden docker-compose配置文件</title>
     <url>/note/bf47d139.html</url>
     <content><![CDATA[<p>Vaultwarden（原名 bitwarden_rs）兼容 Bitwarden 全客户端的自托管密码管理服务器，用来替代官方 Bitwarden 云端服务</p>
@@ -396,22 +412,6 @@
         <tag>docker</tag>
         <tag>群晖</tag>
         <tag>密码管理器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>隐藏轨道在SBD中的设置方法</title>
-    <url>/note/58a2765d.html</url>
-    <content><![CDATA[<p>BDinfo里面显示*的叫隐藏轨道，轨道是否隐藏，只出现在mpls中，对于clip来说是没有这个的，clip中所有轨道都是可见，而且必须可见</p>
-<span id="more"></span>
-<p>首先选择mpls，然后在Stream Editor里点击clip那个地方，不要点击到PlayItem，右键选择Select Es并在里面勾选，不需要的轨道去掉勾，对于这个mpls来说不需要出现，就变成隐藏轨道，然后bdinfo中就会*号</p>
-<p><img src="https://i.ibb.co/6Z4zCDp/3212933.jpg" alt="图片"><br><img src="https://i.ibb.co/mDBcWk2/3212953.jpg" alt="图片"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>原盘diy</tag>
-        <tag>Bluray</tag>
       </tags>
   </entry>
 </search>
