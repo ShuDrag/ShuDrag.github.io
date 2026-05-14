@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
 
@@ -25,12 +25,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 链接永久化">
 <meta property="og:url" content="http://example.com/Hexo/1af79f27.html">
-<meta property="og:site_name" content="Moo&#39;s Blog">
+<meta property="og:site_name" content="Mooo&#39;s Blog">
 <meta property="og:description" content="Hexo 开启链接永久化（固定链接）的核心好处">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-09T15:44:05.000Z">
 <meta property="article:modified_time" content="2026-05-09T15:44:05.000Z">
-<meta property="article:author" content="Moo">
+<meta property="article:author" content="Mooo">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
 
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Hexo 链接永久化 | Moo's Blog</title>
+  <title>Hexo 链接永久化 | Mooo's Blog</title>
   
 
 
@@ -78,7 +78,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Moo's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Mooo's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -99,7 +99,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Moo's Blog</h1>
+      <h1 class="site-title">Mooo's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -178,10 +178,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
 
@@ -200,13 +196,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/Hexo/1af79f27.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/105041356?v=4">
-      <meta itemprop="name" content="Moo">
-      <meta itemprop="description" content="learn or earn">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mooo">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Moo's Blog">
+      <meta itemprop="name" content="Mooo's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -253,19 +249,19 @@
         <p>Hexo 开启链接永久化（固定链接）的核心好处  </p>
 <span id="more"></span>
 <ol>
-<li>链接永久不变，永不失效<br>默认 Hexo 链接是：&#x2F;2026&#x2F;05&#x2F;09&#x2F;文章标题&#x2F;一旦改标题、改发布时间、重新排序文章，URL 就会变<br>开启永久化后用自定义固定别名：&#x2F;posts&#x2F;tagcloud-guide&#x2F;以后随便改文章标题、改时间，链接永远不变  </li>
+<li>链接永久不变，永不失效<br>默认 Hexo 链接是：<code>/2026/05/09/文章标题/</code>一旦改标题、改发布时间、重新排序文章，URL 就会变<br>开启永久化后用自定义固定别名：<code>/posts/tagcloud-guide/</code> 以后随便改文章标题、改时间，链接永远不变  </li>
 <li>利于 SEO 搜索引擎收录<br>链接稳定不跳转、不 404，搜索引擎权重不会丢失<br>简洁英文 &#x2F; 拼音链接比中文、日期链接排名更友好<br>避免同一篇文章产生多个重复链接，防止被判定重复内容  </li>
 <li>外部引用不怕崩<br>你在其他文章内链、公众号、知乎、笔记、社交平台、友链、别人博客引用等<br>一旦发出去永远不用改链接，不会出现点进去 404  </li>
 <li>链接简洁美观，不含中文、日期，去掉 &#x2F;年&#x2F;月&#x2F;日&#x2F; 冗余路径，URL 更短、干净、好记，还避免中文 URL 编码乱码</li>
 <li>更换主题、换博客程序不翻车<br>以后换主题、甚至迁移到其他静态博客（VuePress、Hugo），只要保留固定文章别名，全网链接全部不用改  </li>
 <li>避免分页、归档变动导致链接错乱<br>默认按日期 &#x2F; 标题生成，归档分页一变，部分路径容易乱；永久化自定义路径完全不受影响</li>
 </ol>
-<p>步骤一：下载 addrlink 插件</p>
+<p>步骤一：下载<code>addrlink</code> 插件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
 
-<p>步骤二：在 _config.yml文件中修改 permalink</p>
+<p>步骤二：在根目录下 <code>_config.yml</code> 文件中修改 <code>permalink</code></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:category/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-<p>步骤三：配置 categroy_map 将中文分类映射为英文，从而使得出现中文分类时也不会出现中文乱码</p>
+<p>步骤三：配置<code> categroy_map</code> 将中文分类映射为英文，从而使得出现中文分类时也不会出现中文乱码</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncatalog</span> <span class="comment">#uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line">  <span class="string">教程:</span> <span class="string">tutorial</span></span><br><span class="line">  <span class="string">技术:</span> <span class="string">technology</span></span><br><span class="line">  <span class="string">笔记:</span> <span class="string">note</span></span><br><span class="line">  <span class="string">前端:</span> <span class="string">frontend</span></span><br><span class="line">  <span class="string">后端:</span> <span class="string">backend</span></span><br><span class="line">  <span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">  <span class="string">标签云:</span> <span class="string">tag-cloud</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line">  <span class="attr">Hexo:</span> <span class="string">hexo</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>参考：<br>GitHub：<a target="_blank" rel="noopener" href="https://github.com/Rozbo/hexo-abbrlink">https://github.com/Rozbo/hexo-abbrlink</a><br><a target="_blank" rel="noopener" href="https://alex-mcavoy.github.io/hexo/be6aef5a.html">https://alex-mcavoy.github.io/hexo/be6aef5a.html</a></p>
@@ -288,7 +284,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># Hexo</a>
+              <!-- <a href="/tags/hexo/" rel="tag"># Hexo</a> -->
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tags"></i> Hexo</a>
           </div>
 
         
@@ -300,7 +297,10 @@
     <a href="/Hexo/e5f19e6d.html" rel="prev" title="Next 7.0+TagCanvas 标签云">
       <i class="fa fa-chevron-left"></i> Next 7.0+TagCanvas 标签云
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Hexo/ca422904.html" rel="next" title="Next 主题显示当前浏览进度">
+      Next 主题显示当前浏览进度 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -364,17 +364,15 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Moo"
-      src="https://avatars.githubusercontent.com/u/105041356?v=4">
-  <p class="site-author-name" itemprop="name">Moo</p>
-  <div class="site-description" itemprop="description">learn or earn</div>
+  <p class="site-author-name" itemprop="name">Mooo</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -404,6 +402,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -426,7 +428,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Moo</span>
+  <span class="author" itemprop="copyrightHolder">Mooo</span>
 </div>
 
         

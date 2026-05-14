@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
 
@@ -25,7 +25,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="thelounge 安装教程">
 <meta property="og:url" content="http://example.com/tutorial/93695209.html">
-<meta property="og:site_name" content="Moo&#39;s Blog">
+<meta property="og:site_name" content="Mooo&#39;s Blog">
 <meta property="og:description" content="thelounge是一个全平台的IRC客户端，对与玩外站的玩家来说，IRC是必须要用到的工具，下面是在linux下通过的Docker的方式安装：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://images4.imagebam.com/b3/ef/c2/MEPK2EV_o.png">
 <meta property="article:published_time" content="2022-05-01T13:44:43.000Z">
 <meta property="article:modified_time" content="2022-05-01T13:44:43.000Z">
-<meta property="article:author" content="Moo">
+<meta property="article:author" content="Mooo">
 <meta property="article:tag" content="IRC">
 <meta property="article:tag" content="PT">
 <meta property="article:tag" content="VPS">
@@ -58,7 +58,7 @@
   };
 </script>
 
-  <title>thelounge 安装教程 | Moo's Blog</title>
+  <title>thelounge 安装教程 | Mooo's Blog</title>
   
 
 
@@ -89,7 +89,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Moo's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Mooo's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -110,7 +110,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Moo's Blog</h1>
+      <h1 class="site-title">Mooo's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -189,10 +189,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
 
@@ -211,13 +207,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/tutorial/93695209.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/105041356?v=4">
-      <meta itemprop="name" content="Moo">
-      <meta itemprop="description" content="learn or earn">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mooo">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Moo's Blog">
+      <meta itemprop="name" content="Mooo's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -295,9 +291,12 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/pt/" rel="tag"># PT</a>
-              <a href="/tags/vps/" rel="tag"># VPS</a>
-              <a href="/tags/IRC/" rel="tag"># IRC</a>
+              <!-- <a href="/tags/pt/" rel="tag"># PT</a> -->
+              <a href="/tags/pt/" rel="tag"><i class="fa fa-tags"></i> PT</a>
+              <!-- <a href="/tags/vps/" rel="tag"># VPS</a> -->
+              <a href="/tags/vps/" rel="tag"><i class="fa fa-tags"></i> VPS</a>
+              <!-- <a href="/tags/IRC/" rel="tag"># IRC</a> -->
+              <a href="/tags/IRC/" rel="tag"><i class="fa fa-tags"></i> IRC</a>
           </div>
 
         
@@ -376,17 +375,15 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Moo"
-      src="https://avatars.githubusercontent.com/u/105041356?v=4">
-  <p class="site-author-name" itemprop="name">Moo</p>
-  <div class="site-description" itemprop="description">learn or earn</div>
+  <p class="site-author-name" itemprop="name">Mooo</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -416,6 +413,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -438,7 +439,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Moo</span>
+  <span class="author" itemprop="copyrightHolder">Mooo</span>
 </div>
 
         
