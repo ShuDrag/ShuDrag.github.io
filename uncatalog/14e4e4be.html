@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":false,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="为了安装评论功能，把 next 升级到了 8.2 版本，结果之前的很多设置都要再重新搞一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Next8.0 深色代码块设置">
+<meta property="og:url" content="http://example.com/uncatalog/14e4e4be.html">
+<meta property="og:site_name" content="Mooon&#39;s Blog">
+<meta property="og:description" content="为了安装评论功能，把 next 升级到了 8.2 版本，结果之前的很多设置都要再重新搞一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-17T14:18:02.000Z">
+<meta property="article:modified_time" content="2026-05-17T14:18:02.000Z">
+<meta property="article:author" content="Mooon">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="next8.0">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/uncatalog/14e4e4be.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/uncatalog/14e4e4be.html","path":"uncatalog/14e4e4be.html","title":"Next8.0 深色代码块设置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Next8.0 深色代码块设置 | Mooon's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Mooon's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mooon's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%9C%A8%E7%AB%99%E7%82%B9%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-source-data-%E7%9B%AE%E5%BD%95%E5%86%85%E6%96%B0%E5%BB%BA-styles-styl-%E6%96%87%E4%BB%B6-%E5%B0%86%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%E5%85%A8%E9%83%A8%E7%B2%98%E8%B4%B4%E8%BF%9B%E5%8E%BB"><span class="nav-number">1.</span> <span class="nav-text">先在站点根目录下的 source&#x2F;_data&#x2F; 目录内新建 styles.styl 文件, 将下面的代码全部粘贴进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config-next-yml%EF%BC%8C%E6%90%9C%E7%B4%A2-custom-file-path%EF%BC%8C%E7%A1%AE%E4%BF%9D-style-%E9%82%A3%E4%B8%80%E8%A1%8C%E7%9A%84%E6%B3%A8%E9%87%8A%EF%BC%88-%EF%BC%89%E6%98%AF%E8%A2%AB%E5%88%A0%E6%8E%89%E7%9A%84%EF%BC%8C%E6%8C%87%E5%90%91%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E5%86%99%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">打开主题配置文件 _config.next.yml，搜索 custom_file_path，确保 style 那一行的注释（#）是被删掉的，指向我们刚才写的文件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mooon</p>
+  <div class="site-description" itemprop="description">意义源自虚无</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:awesomeptik@gmail.com" title="E-Mail → mailto:awesomeptik@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncatalog/14e4e4be.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mooon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mooon's Blog">
+      <meta itemprop="description" content="意义源自虚无">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Next8.0 深色代码块设置 | Mooon's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Next8.0 深色代码块设置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-17 22:18:02" itemprop="dateCreated datePublished" datetime="2026-05-17T22:18:02+08:00">2026-05-17</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>为了安装评论功能，把 next 升级到了 8.2 版本，结果之前的很多设置都要再重新搞一下  </p>
+<span id="more"></span>
+<p>升级之后代码块始终无法显示出深色背景，下面是让 Gemini 给出的解决方案  </p>
+<h3 id="先在站点根目录下的-source-data-目录内新建-styles-styl-文件-将下面的代码全部粘贴进去"><a href="#先在站点根目录下的-source-data-目录内新建-styles-styl-文件-将下面的代码全部粘贴进去" class="headerlink" title="先在站点根目录下的 source/_data/ 目录内新建 styles.styl 文件,将下面的代码全部粘贴进去"></a>先在站点根目录下的 <code>source/_data/</code> 目录内新建 <code>styles.styl</code> 文件, 将下面的代码全部粘贴进去</h3><figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">=============================================================================</span></span><br><span class="line"><span class="string">//</span>                   <span class="string">NexT</span> <span class="number">8.0</span><span class="string">+</span> <span class="string">全局样式个性化定制与修复文件</span></span><br><span class="line"><span class="string">//</span> <span class="string">=============================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="string">/*</span></span><br><span class="line"> <span class="string">*</span> <span class="number">1</span><span class="string">.</span> <span class="string">下部固定式传统标签云间距优化</span></span><br><span class="line"> <span class="string">*</span> <span class="string">-------------------------------------------------------------------------</span></span><br><span class="line"> <span class="string">*</span> <span class="string">让底部的固定标签之间错落有致，摆脱紧凑感</span></span><br><span class="line"> <span class="string">*/</span></span><br><span class="line"><span class="comment">#my-fixed-tags {</span></span><br><span class="line">  <span class="string">a</span> {</span><br><span class="line">    <span class="attr">display:</span> <span class="string">inline-block</span> <span class="type">!important;</span></span><br><span class="line">    <span class="attr">margin:</span> <span class="string">10px</span> <span class="string">16px</span> <span class="type">!important;</span>    <span class="string">//</span> <span class="string">10px</span> <span class="string">为上下行距，16px</span> <span class="string">为左右标签间距（可根据喜好微调）</span></span><br><span class="line">    <span class="attr">padding:</span> <span class="string">4px</span> <span class="string">10px</span> <span class="type">!important;</span>    <span class="string">//</span> <span class="string">增大标签的鼠标点击防误触区域</span></span><br><span class="line">    <span class="attr">line-height:</span> <span class="number">2.2</span> <span class="type">!important;</span>     <span class="string">//</span> <span class="string">整体行高控制</span></span><br><span class="line">    <span class="attr">transition:</span> <span class="string">all</span> <span class="number">0.</span><span class="string">2s</span> <span class="string">ease;</span>       <span class="string">//</span> <span class="string">悬停动画过渡</span></span><br><span class="line">  }</span><br><span class="line">  <span class="string">a:hover</span> {</span><br><span class="line">    <span class="attr">transform:</span> <span class="string">scale(1.08);</span>          <span class="string">//</span> <span class="string">鼠标悬停时轻微放大交互</span></span><br><span class="line">  }</span><br><span class="line"><span class="string">}</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">/*</span></span><br><span class="line"> <span class="string">*</span> <span class="number">2</span><span class="string">.</span> <span class="string">强行镇压</span> <span class="string">Hexo</span> <span class="string">&amp;</span> <span class="string">NexT</span> <span class="string">冲突：全站大代码块强制深色（Atom</span> <span class="string">One</span> <span class="string">Dark</span> <span class="string">风格）</span></span><br><span class="line"> <span class="string">*</span> <span class="string">-------------------------------------------------------------------------</span></span><br><span class="line"> <span class="string">*/</span></span><br><span class="line"><span class="string">//</span> <span class="string">最外层容器、大背景与基本文字颜色</span></span><br><span class="line"><span class="string">.highlight,</span> <span class="string">pre,</span> <span class="string">code,</span> <span class="string">.highlight-container</span> {</span><br><span class="line">  <span class="attr">background:</span> <span class="comment">#121212 !important;    // 经典暗黑深灰底色</span></span><br><span class="line">  <span class="attr">color:</span> <span class="comment">#abb2bf !important;          // 浅灰色主代码文字</span></span><br><span class="line">  <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span>        <span class="string">//</span> <span class="string">剔除多余的阴影边框</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">=========================================================================</span></span><br><span class="line"><span class="string">//</span> <span class="string">🌟</span> <span class="string">终极地毯式轰炸：强行剥离代码块内部由全局</span> <span class="string">Table</span> <span class="string">继承而来的所有恶心白线</span></span><br><span class="line"><span class="string">//</span> <span class="string">=========================================================================</span></span><br><span class="line"><span class="string">.highlight,</span> <span class="string">.highlight-container</span> {</span><br><span class="line">  <span class="string">table</span>, <span class="string">tr</span>, <span class="string">td</span>, <span class="string">th</span>, <span class="string">tbody</span>, <span class="string">thead</span> {</span><br><span class="line">    <span class="attr">border:</span> <span class="number">0</span> <span class="type">!important;</span>                  <span class="string">//</span> <span class="string">强行给所有表格层级降级为</span> <span class="number">0</span> <span class="string">像素</span></span><br><span class="line">    <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span>                <span class="string">//</span> <span class="string">双重否定，彻底去除边框</span></span><br><span class="line">    <span class="attr">border-bottom:</span> <span class="string">none</span> <span class="type">!important;</span>         <span class="string">//</span> <span class="string">专门绞杀全局表格可能自带的行底线</span></span><br><span class="line">    <span class="attr">border-top:</span> <span class="string">none</span> <span class="type">!important;</span>            <span class="string">//</span> <span class="string">专门绞杀全局表格可能自带的行顶线</span></span><br><span class="line">    <span class="attr">border-left:</span> <span class="string">none</span> <span class="type">!important;</span>           <span class="string">//</span> <span class="string">专门绞杀全局表格可能自带的左侧线</span></span><br><span class="line">    <span class="attr">border-right:</span> <span class="string">none</span> <span class="type">!important;</span>          <span class="string">//</span> <span class="string">专门绞杀全局表格可能自带的右侧线</span></span><br><span class="line">    <span class="attr">border-collapse:</span> <span class="string">collapse</span> <span class="type">!important;</span>   <span class="string">//</span> <span class="string">强行让表格边框合并</span></span><br><span class="line">    <span class="attr">background:</span> <span class="string">transparent</span> <span class="type">!important;</span>     <span class="string">//</span> <span class="string">防止局部背景色穿透产生白条痕迹</span></span><br><span class="line">    <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span>            <span class="string">//</span> <span class="string">彻底清除所有内置阴影</span></span><br><span class="line">    <span class="attr">padding:</span> <span class="number">0</span> <span class="type">!important;</span></span><br><span class="line">    <span class="attr">margin:</span> <span class="number">0</span> <span class="type">!important;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">确保左侧外壳和右侧外壳本身不带有任何全局</span> <span class="string">td</span> <span class="string">继承过来的边框</span></span><br><span class="line"><span class="string">.highlight</span> <span class="string">.gutter,</span> <span class="string">.highlight</span> <span class="string">.code</span> {</span><br><span class="line">  <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  <span class="attr">border-top:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">左侧代码行号（Gutter）区域美化</span></span><br><span class="line"><span class="string">.highlight</span> {</span><br><span class="line">  <span class="string">//</span> <span class="string">核心修复：彻底拔除表格内部所有可能残留的阴影和边框线</span></span><br><span class="line">  <span class="string">pre</span>, <span class="string">code</span> {</span><br><span class="line">    <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">    <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="string">.gutter</span> {</span><br><span class="line">    <span class="attr">background:</span> <span class="comment">#21252b !important;   // 行号背景比代码区稍深，层次更分明</span></span><br><span class="line">    <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span>          <span class="string">//</span> <span class="string">确保整个左侧外壳没有线框</span></span><br><span class="line"></span><br><span class="line">    <span class="string">pre</span> {</span><br><span class="line">      <span class="attr">background:</span> <span class="comment">#21252b !important;</span></span><br><span class="line">      <span class="attr">color:</span> <span class="comment">#5c6370 !important;       // 行号数字设为低调的暗灰色</span></span><br><span class="line">      <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span>         <span class="string">//</span> <span class="string">消除序号自身的二次线框</span></span><br><span class="line">      <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span>     <span class="string">//</span> <span class="string">🌟</span> <span class="string">抹除伪装成线框的内部阴影</span></span><br><span class="line">      <span class="attr">padding-right:</span> <span class="string">10px</span> <span class="type">!important;</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="string">//</span> <span class="string">右侧纯代码（Code）区域</span></span><br><span class="line">  <span class="string">.code</span> {</span><br><span class="line">    <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span>          <span class="string">//</span> <span class="string">确保整个右侧外壳没有线框</span></span><br><span class="line"></span><br><span class="line">    <span class="string">pre</span> {</span><br><span class="line">      <span class="attr">background:</span> <span class="comment">#121212 !important;</span></span><br><span class="line">      <span class="attr">color:</span> <span class="comment">#abb2bf !important;</span></span><br><span class="line">      <span class="attr">padding-left:</span> <span class="string">12px</span> <span class="type">!important;</span>   <span class="string">//</span> <span class="string">缩进留白</span></span><br><span class="line">      <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span>         <span class="string">//</span> <span class="string">消除代码区域自身的二次线框</span></span><br><span class="line">      <span class="attr">box-shadow:</span> <span class="string">none</span> <span class="type">!important;</span>     <span class="string">//</span> <span class="string">🌟</span> <span class="string">抹除伪装成线框的内部阴影</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">代码关键字高亮颜色强行覆盖（保证暗色背景下的绝对清晰度）</span></span><br><span class="line"><span class="string">.highlight</span> {</span><br><span class="line">  <span class="string">.comment</span>, <span class="string">.quote</span> { <span class="attr">color:</span> <span class="comment">#5c6370 !important; font-style: italic; } // 注释：斜体暗灰</span></span><br><span class="line">  <span class="string">.keyword</span>, <span class="string">.selector-tag</span>, <span class="string">.addition</span> { <span class="attr">color:</span> <span class="comment">#c678dd !important; }   // 关键字：柔和紫</span></span><br><span class="line">  <span class="string">.number</span>, <span class="string">.string</span>, <span class="string">.meta</span>, <span class="string">.literal</span> { <span class="attr">color:</span> <span class="comment">#98c379 !important; }    // 字符串/数字：生态绿</span></span><br><span class="line">  <span class="string">.title</span>, <span class="string">.section</span>, <span class="string">.function</span> { <span class="attr">color:</span> <span class="comment">#61afef !important; }          // 函数/标题：天空蓝</span></span><br><span class="line">  <span class="string">.params</span>, <span class="string">.variable</span>, <span class="string">.attr</span> { <span class="attr">color:</span> <span class="comment">#d19a66 !important; }           // 属性/参数：温暖橙</span></span><br><span class="line">  <span class="string">.built_in</span>, <span class="string">.class</span> { <span class="attr">color:</span> <span class="comment">#e6c07b !important; }                    // 内建对象：柠檬黄</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">复制按钮适配深色背景</span></span><br><span class="line"><span class="string">.highlight-container</span> <span class="string">.copy-btn</span> {</span><br><span class="line">  <span class="attr">background:</span> <span class="comment">#3e4452 !important;</span></span><br><span class="line">  <span class="attr">color:</span> <span class="comment">#b2ccd6 !important;</span></span><br><span class="line">  <span class="attr">border:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">/*</span></span><br><span class="line"> <span class="string">*</span> <span class="number">3</span><span class="string">.</span> <span class="string">行内代码（单反引号</span> <span class="string">``）精准剥离与样式恢复</span></span><br><span class="line"> <span class="string">*</span> <span class="string">-------------------------------------------------------------------------</span></span><br><span class="line"> <span class="string">*</span> <span class="string">排除掉大代码块内部的干扰，只对文章段落中用</span> <span class="string">`</span> <span class="string">`</span> <span class="string">包裹的普通中英文词汇生效</span></span><br><span class="line"> <span class="string">*/</span></span><br><span class="line"><span class="string">:not(.highlight)</span> <span class="string">&gt;</span> <span class="string">pre</span>, <span class="string">:not(.highlight)</span> <span class="string">&gt;</span> <span class="string">code</span>, <span class="string">p</span> <span class="string">code</span>, <span class="string">li</span> <span class="string">code</span> {</span><br><span class="line">  <span class="attr">background:</span> <span class="comment">#f5f5f5 !important;      // 安全变回原本经典的浅灰色背景</span></span><br><span class="line">  <span class="attr">color:</span> <span class="comment">#333333 !important;            // 恢复好看的暗粉红文字高亮（可修改为你喜欢的任意颜色）</span></span><br><span class="line">  <span class="attr">padding:</span> <span class="string">3px</span> <span class="string">6px</span> <span class="type">!important;</span>         <span class="string">//</span> <span class="string">内部留白</span></span><br><span class="line">  <span class="attr">margin:</span> <span class="number">0</span> <span class="string">4px</span> <span class="type">!important;</span>            <span class="string">//</span> <span class="string">左右字距外边距</span></span><br><span class="line">  <span class="attr">border:</span> <span class="string">1px</span> <span class="string">solid</span> <span class="comment">#e1e4e8 !important; // 淡淡的浅灰色封闭轮廓线线</span></span><br><span class="line">  <span class="attr">border-radius:</span> <span class="string">4px</span> <span class="type">!important;</span>       <span class="string">//</span> <span class="string">微小圆角</span></span><br><span class="line">  <span class="attr">text-shadow:</span> <span class="string">none</span> <span class="type">!important;</span></span><br><span class="line">  <span class="attr">font-family:</span> <span class="string">consolas</span>, <span class="string">Menlo</span>, <span class="string">monospace</span> <span class="type">!important;</span> <span class="string">//</span> <span class="string">强制定宽极客字体</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="打开主题配置文件-config-next-yml，搜索-custom-file-path，确保-style-那一行的注释（-）是被删掉的，指向我们刚才写的文件"><a href="#打开主题配置文件-config-next-yml，搜索-custom-file-path，确保-style-那一行的注释（-）是被删掉的，指向我们刚才写的文件" class="headerlink" title="打开主题配置文件 _config.next.yml，搜索 custom_file_path，确保 style 那一行的注释（#）是被删掉的，指向我们刚才写的文件"></a>打开主题配置文件 <code>_config.next.yml</code>，搜索 <code>custom_file_path</code>，确保 <code>style</code> 那一行的注释（#）是被删掉的，指向我们刚才写的文件</h3><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span>  <span class="comment"># 🌟 确保这里没有 # 号！</span></span><br></pre></td></tr></tbody></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/next8-0/" rel="tag"><i class="fa fa-tag"></i> next8.0</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Hexo/ca422904.html" rel="prev" title="Next 主题显示当前浏览进度">
+                  <i class="fa fa-angle-left"></i> Next 主题显示当前浏览进度
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Mooon</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://twk.mooon.eu.org/","region":"ap-shanghai","path":"window.location.pathname","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>

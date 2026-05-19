@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":false,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="对 Bluray 进行 Encode，不仅仅是缩小体积，更重要的是进行画质修复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Encode 基础教程">
+<meta property="og:url" content="http://example.com/note/913e78c3.html">
+<meta property="og:site_name" content="Mooon&#39;s Blog">
+<meta property="og:description" content="对 Bluray 进行 Encode，不仅仅是缩小体积，更重要的是进行画质修复">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images4.imagebam.com/34/90/86/ME1D6L6Q_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/27/e6/4a/ME1D6L7A_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/8e/19/9a/ME1D6L7I_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/5f/bd/e2/ME1D6L7Q_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/36/22/52/ME1D6L7T_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/b2/1d/2c/ME1D6L81_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/f5/c9/d9/ME1D6L8B_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/7e/66/25/ME1D6L8E_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/0b/21/92/ME1D6LAS_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/10/8e/64/ME1D6LBU_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/ea/70/1a/ME1D6LD4_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/54/cd/a6/ME1D6LD7_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/58/2b/e3/ME1D6LDB_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/12/32/a4/ME1D6LDO_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/38/3b/47/ME1D6LE0_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/2b/51/fd/ME1D6LE3_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/10/d9/13/ME1D6LE9_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/ec/39/9f/ME1D6LEF_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/bf/0d/06/ME1D6LEI_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/06/39/6e/ME1D6LEM_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/67/ef/64/ME1D6LEN_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/6b/d4/4e/ME1D6LEO_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/34/fd/ae/ME1D6LES_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/bc/46/a7/ME1D6LEU_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/35/a6/dc/ME1D6LEV_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/23/8c/8b/ME1D6LFG_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/a6/51/09/ME1D6LFI_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/f3/a2/d6/ME1D6LFL_o.png">
+<meta property="article:published_time" content="2022-04-24T14:58:39.000Z">
+<meta property="article:modified_time" content="2022-04-24T14:58:39.000Z">
+<meta property="article:author" content="Mooon">
+<meta property="article:tag" content="Demux">
+<meta property="article:tag" content="Encode">
+<meta property="article:tag" content="OCR">
+<meta property="article:tag" content="Remux">
+<meta property="article:tag" content="压制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images4.imagebam.com/34/90/86/ME1D6L6Q_o.png">
+
+
+<link rel="canonical" href="http://example.com/note/913e78c3.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/note/913e78c3.html","path":"note/913e78c3.html","title":"Encode 基础教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Encode 基础教程 | Mooon's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Mooon's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mooon's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">压制基础教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8E%8B%E5%88%B6%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.压制流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9D%E6%AD%A5%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">2.初步要求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8E%8B%E5%88%B6%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.3.</span> <span class="nav-text">3.压制环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%86%E7%A6%BB%E5%8E%9F%E7%9B%98%E7%B4%A0%E6%9D%90%EF%BC%88Demux%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">4.分离原盘素材（Demux）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86"><span class="nav-number">1.5.</span> <span class="nav-text">5.视频处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E9%9F%B3%E9%A2%91%E8%BD%AC%E7%A0%81"><span class="nav-number">1.6.</span> <span class="nav-text">6. 音频转码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%AD%97%E5%B9%95%E5%A4%84%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">7.字幕处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E7%AB%A0%E8%8A%82%E5%A4%84%E7%90%86"><span class="nav-number">1.8.</span> <span class="nav-text">8. 章节处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%B0%81%E8%A3%85"><span class="nav-number">1.9.</span> <span class="nav-text">9. 封装</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mooon</p>
+  <div class="site-description" itemprop="description">意义源自虚无</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:awesomeptik@gmail.com" title="E-Mail → mailto:awesomeptik@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/note/913e78c3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mooon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mooon's Blog">
+      <meta itemprop="description" content="意义源自虚无">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Encode 基础教程 | Mooon's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Encode 基础教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-24 22:58:39" itemprop="dateCreated datePublished" datetime="2022-04-24T22:58:39+08:00">2022-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>对 Bluray 进行 Encode，不仅仅是缩小体积，更重要的是进行<code>画质修复</code></p>
+<span id="more"></span>
+<h1 id="压制基础教程"><a href="#压制基础教程" class="headerlink" title="压制基础教程"></a>压制基础教程</h1><h2 id="1-压制流程"><a href="#1-压制流程" class="headerlink" title="1.压制流程"></a>1.<strong>压制流程</strong></h2><ul>
+<li>利用 eac3to、DGDemux 将原盘分离成视频、音频、字幕、章节等素材；</li>
+<li>利用 VapourSynth 裁剪视频黑边，修复脏线等常见瑕疵；利用 x264_launcher 压制视频；</li>
+<li>将音频转码成合适的格式；</li>
+<li>将图形字幕 OCR，对其他途径得到的字幕检查内容、调整时间轴；</li>
+<li>如有条件补充章节名；</li>
+<li>将上述文件混流成 MKV，即为压制成品。</li>
+</ul>
+<h2 id="2-初步要求："><a href="#2-初步要求：" class="headerlink" title="2.初步要求："></a>2.<strong>初步要求：</strong></h2><ul>
+<li>视频建议码率范围</li>
+</ul>
+<table><tbody><tr><td class="has-text-align-center" data-align="center"><strong>分辨率</strong></td><td class="has-text-align-center" data-align="center"><strong>画幅尺寸</strong></td><td class="has-text-align-center" data-align="center"><strong>码率范围（kbps）</strong></td></tr><tr><td class="has-text-align-center" data-align="center">1080p</td><td class="has-text-align-center" data-align="center">1920*1080</td><td class="has-text-align-center" data-align="center">16000~11000</td></tr><tr><td class="has-text-align-center" data-align="center">720p</td><td class="has-text-align-center" data-align="center">1280*720</td><td class="has-text-align-center" data-align="center">9000~5500</td></tr><tr><td class="has-text-align-center" data-align="center">576p</td><td class="has-text-align-center" data-align="center">1024*576</td><td class="has-text-align-center" data-align="center">4500~2800</td></tr><tr><td class="has-text-align-center" data-align="center">480p</td><td class="has-text-align-center" data-align="center">854*480</td><td class="has-text-align-center" data-align="center">2500~</td></tr></tbody></table>
+
+<ul>
+<li>音轨只选用原音轨和国配，其他不选。同语言多条音轨一般只保留一条，如果原始混流音轨（Original mix）听感较好，亦可保留。</li>
+<li>音轨 5.1 声道或者以上的，建议转换为 E - AC3 (DD+) 或 AC3 (DD)，或者提取 DTS Core，不能直接封装 DTS - HD MA；音轨 2.0 或单声道的 LPCM 需要转换为 FLAC，但是如果 bit depth 为 24bit，需要降低到 16bit；若原盘音频为有损格式则直接提取；评论音轨建议转码成 AAC。</li>
+<li>文件命名规则：<code>IMDB电影名.年份.尺寸.片源.音轨编码.视频编码-组名.mkv</code>，例如：<code>Fist.of.Fury.1991.1080p.BluRay.DD5.1.x264-TayTO.mkv</code>。</li>
+<li>视频 Meta Title 命名：<code>电影名 [年份] 片源 尺寸 – 组名</code>，例如：<code>Fist of Fury [1991] BluRay 1080p –`TayTO`</code></li>
+</ul>
+<h2 id="3-压制环境搭建"><a href="#3-压制环境搭建" class="headerlink" title="3.压制环境搭建"></a>3.<strong>压制环境搭建</strong></h2><p>直接使用猫站绿色版压制环境：<a target="_blank" rel="noopener" href="https://pterclub.com/details.php?id=194375">视频压制环境绿色版</a></p>
+<p><em>本压缩包为猫站压制组新手绿色版压制环境，内含以下软件：<br><strong>eac3to</strong>&nbsp;– eac3to 文件夹下<br><strong>VapourSynth R55 API3 &amp; VapourSynth Editor &amp; 新手必备 VS 插件</strong>&nbsp;– x264_launcher\extra\VapourSynth-64 文件夹下<br><strong>x264 tmod 3075</strong>&nbsp;– x264_launcher\toolset\x64\x264_x64.exe<br><strong>Simple x264 Launcher</strong>&nbsp;– x264_launcher 文件夹下<br><strong>Apple QAAC</strong>&nbsp;– qaac 文件夹下</em></p>
+<p>将里面的 PTer-env 文件夹解压到&nbsp;<strong>不含中文、不含空格</strong>&nbsp;的路径。<br>后文以 C:\Pter-env 为例。<br>该文件夹下<br>eac3to 文件夹是原盘的分离器以及音频的转码器<br>x264_launcher 文件夹是视频压制部分的大环境<br>qaac 文件夹是目前最好的 AAC 音频编码器</p>
+<p>然后把 C:\Pter-env\eac3to 和 C:\Pter-env\qaac 这两个路径加入系统的 Path 环境变量里，</p>
+<p>可参考<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/49711c61197cadba451b7c6f.html">win10 如何添加环境变量 path</a>&nbsp;。</p>
+<h2 id="4-分离原盘素材（Demux）"><a href="#4-分离原盘素材（Demux）" class="headerlink" title="4.分离原盘素材（Demux）"></a>4.<strong>分离原盘素材（Demux）</strong></h2><p><strong>使用 eac3to 完成 Demux （对于 BD 原盘）</strong></p>
+<ul>
+<li>将 eac3to 所在路径加入环境变量</li>
+<li>使用 eac3to 分析原盘, 方法如下：</li>
+</ul>
+<p>1. 在需要存放文件的文件夹内, 使用 shift + 鼠标右键打开 PowerShell;<br>2. 输入命令：eac3to “原盘路径”, 然后按回车.<br>例：eac3to “D:\Blu-ray Disk\Mulan 2009 GBR Blu-ray 1080p AVC DTS - HD MA 5.1-M-Team”<br>结果如图：可知序号 “1)” : 播放列表 “00096.mpls”, 即视频文件 “00097.m2ts” 为需要 demux 的视频.</p>
+<p><img src="https://images4.imagebam.com/34/90/86/ME1D6L6Q_o.png"></p>
+<p>3. 输入命令：eac3to “原盘路径” &nbsp;“1)” , 然后按回车.<br>例：eac3to “D:\Blu-ray Disk\Mulan 2009 GBR Blu-ray 1080p AVC DTS - HD MA 5.1-M-Team” “1)”<br>结果如图：可知该 m2ts 文件包含: 章节, 一条视频轨, 两条中文音频轨, 一条英文字幕.</p>
+<p><img src="https://images4.imagebam.com/27/e6/4a/ME1D6L7A_o.png"></p>
+<p>4. 由上一步结果可知，需要分离的轨道为 1、2、4、5</p>
+<p>5. 输入命令：eac3to “原盘路径” &nbsp;“1)” 1: chapters.txt 2: name1.* 4: name2.* 5: name3.* -progressnumbers -log = eac3tolog.txt, 然后按回车.</p>
+<p>例: eac3to “Mulan 2009 GBR Blu-ray 1080p AVC DTS - HD MA 5.1-M-Team” “1)” 1: chapters.txt 2: video.* 4: audio.* 5: subtitle-eng.* -progressnumbers -log = eac3tolog.txt</p>
+<p>结果如图: 文件夹内 demux 得到的音视频，字幕轨道及章节文件.</p>
+<p><img src="https://images4.imagebam.com/8e/19/9a/ME1D6L7I_o.png"></p>
+<p><strong>提取并转码音轨，这里分几种情况:</strong></p>
+<p><strong>I. 主音轨为 5.1 声道及以上</strong></p>
+<ul>
+<li>1080p 的压制转码为 640 码率的 AC3 或 E - AC3（初级教程不涉及 E - AC3 的转码方法，进组后交流）</li>
+</ul>
+<p>eac3to “蓝光源路径” 1) 3:xxx.ac3&nbsp;&nbsp;或者<br>eac3to “蓝光源路径” 1) 3:xxx.ac3 -640<br>（两种写法都可以，因为 -640 是默认参数，所以可以不写）</p>
+<ul>
+<li>720p 下转码为 640 kb / s 码率的 AC3</li>
+</ul>
+<p>eac3to “蓝光源路径” 1) 3:xxx.ac3 -640</p>
+<p><strong>Ⅱ.主音轨为 1.0 或 2.0 声道</strong></p>
+<ul>
+<li>一般情况下转换为 FLAC</li>
+</ul>
+<p>如果原盘中主音轨是 16bit 则直接转换</p>
+<p>eac3to “蓝光源路径” 1) 3:xxx.flac</p>
+<p>如果原盘中主音轨是 16bit 以上（如 24bit）则要带上 -down16 参数</p>
+<p>eac3to “蓝光源路径” 1) 3:xxx.flac -down16</p>
+<ul>
+<li>FLAC 超过 600kbps 应转为 127 质量的 AAC.（此处为管道命令，会调用外部程序 QAAC，不能与其他命令合写）</li>
+</ul>
+<p>eac3to “蓝光源路径” 1) 3:stdout.wav | qaac -V 127 -i –no-delay -o xxx.m4a –</p>
+<p><strong>Ⅲ.评论音轨</strong></p>
+<p>统一转换为 63 质量的 AAC（此处为管道命令，会调用外部程序 QAAC，不能与其他命令合写）</p>
+<p>eac3to “蓝光源路径” 1) 3:stdout.wav | qaac -V 63 -i –no-delay -o xxx.m4a –</p>
+<p><strong>Ⅳ.其他情况一般为直接提取</strong></p>
+<p>eac3to “蓝光源路径” 1) 3:xxx.*</p>
+<p><strong>使用<a target="_blank" rel="noopener" href="https://www.videohelp.com/software/eac3to">UseEac3to GUI</a> 进行 Demux</strong></p>
+<ul>
+<li>位置 (1) 点击 “Settings – Output Folder” 选择输出文件夹</li>
+<li>位置 (2) 点击 “Input File” 选择相应 m2ts 或者 mpls 文件</li>
+<li>位置 (3) 下拉菜单选择轨道, 并在位置 (4) 下拉菜单选择需要的输出格式, 然后在位置 (5) 点击 “Add” (每选择一次轨道 + 格式都需要点击一次 “Add”)</li>
+<li>位置 (6) 选择 “User Define”</li>
+<li>位置 (7) 点击 “RUN CL”</li>
+<li>等待 Demux 完成</li>
+<li>位置 (8) 点击 “Save Log” 保存 eac3to log</li>
+</ul>
+<p>参考图:</p>
+<p><img src="https://images4.imagebam.com/5f/bd/e2/ME1D6L7Q_o.png"></p>
+<p><strong>使用 DGDemux 完成 Demux （对于 UHD 原盘）</strong></p>
+<p>由于 UHD Seamless Branch Disc (又称肉酱盘）存在 Audio Gap，使用 EAC3TO 进行分流可能会造成音频时间戳与视频流无法匹配的问题，因此建议使用 DGDemux 对 UHD 原盘进行 Demux。</p>
+<ul>
+<li>选择原盘路径：在栏目 1 中点击 Browser, 选择原盘路径</li>
+<li>选择 Demux 后文件存储路径：在栏目 2 中点击 Browser, 选择 Demux 后文件存储路径</li>
+<li>选择相应的播放列表：在栏目 3 中选择要提取的播放列表，通常为时间最长的列表</li>
+<li>选择需要 Demux 的文件流：在栏目 4 中选择需要 Demux 的项目，通常为所有项目</li>
+</ul>
+<p><img src="https://images4.imagebam.com/36/22/52/ME1D6L7T_o.png"></p>
+<p><strong>使用 PTerdemux—— 简易的 Demux 脚本</strong></p>
+<p>无需写 eac3to 代码，自动分离原盘中的视频、音频、章节、字幕轨道，其中音频部分涉及转换格式。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/150481878/pterdemux">https://github.com/150481878/pterdemux</a></p>
+<p>用法：</p>
+<p>1.&nbsp;CMD 进入到 pterdemux.py 所在的目录下</p>
+<p>2. 运行’python pterdemux.py’</p>
+<p><img src="https://images4.imagebam.com/b2/1d/2c/ME1D6L81_o.png"></p>
+<p>3. 拖动原盘目录到 cmd 窗口 (支持将 NAS 中的原盘拖进来)，或者直接输入原盘目录的地址 (注意地址要用引号引起)，回车。</p>
+<p><img src="https://images4.imagebam.com/f5/c9/d9/ME1D6L8B_o.png"></p>
+<p>4. 等待程序运行，结束后会在 cmd 窗口显示并生成 eac3to 的 log 文件。</p>
+<p><img src="https://images4.imagebam.com/7e/66/25/ME1D6L8E_o.png"></p>
+<p>简单的说明：</p>
+<p>(1) 需要安装 python 及 eac3to，并将其加入环境变量。</p>
+<p>(2) 原盘目录不要有中文</p>
+<p>(3) 章节、视频、字幕均为无损提取。</p>
+<p>* 提取的章节后缀名为.txt</p>
+<p>* 提取的视频后缀名保持原格式，为.h264 或.h265</p>
+<p>* 提取的字幕后缀名保持原格式，一般为.sup</p>
+<p>(4) 音频提取按照 PTP 压制标准。</p>
+<p>* 适用于不带评论音轨的原盘提取</p>
+<p>* 1.0 及 2.0 声道转为 FLAC 格式，如果是 24bits，则降为 16bits</p>
+<p>* 5.1 及 7.1 声道转为 AC3，码率为 640kbps</p>
+<h2 id="5-视频处理"><a href="#5-视频处理" class="headerlink" title="5.视频处理"></a>5.<strong>视频处理</strong></h2><p>视频压制的大致流程是，用&nbsp;VapourSynth 软件（后文简称 VS）读取源视频，然后进行裁剪黑边、缩放等等滤镜操作，再把处理后的画面传递给&nbsp;x264&nbsp;压制器进行压制。</p>
+<p>实际操作中，我们先用 VS editor 这个 VS 代码编辑器写好压制脚本，再利用&nbsp;x264 launcher&nbsp;软件调用 x264 进行压制。</p>
+<p>以下讲解基于 VS 的基础压制脚本的写法，我们先打开 vsedit 程序，新建一个空白脚本。</p>
+<p>在压制脚本的最前面，我们要引入必要的库</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import awsmfunc as awf</span><br><span class="line">import havsfunc as haf</span><br><span class="line">from rekt import rektlvls</span><br><span class="line"></span><br><span class="line">core = vs.core</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对于初学者，请确保你的脚本最前面有上述内容，裸压基本只需要引入上述库。</p>
+<p>接下来我们要导入视频素材，在脚本后面输入</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">src = core.lsmas.LWLibavSource(r"C:\Encoding\test\video.h264")</span><br><span class="line"></span><br><span class="line">注意视频源路径这个字符串前面有个 r，不要丢了，这样可以避免 Python 转义 Windows 下的路径分隔符 \</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样我们就导入了视频素材。但只导入还不够，我们还没有把视频画面输出出来，现在在脚本的最后加上</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src.set_output()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>现在整个脚本如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import awsmfunc as awf</span><br><span class="line">import havsfunc as haf</span><br><span class="line">from rekt import rektlvls</span><br><span class="line"></span><br><span class="line">core = vs.core</span><br><span class="line"></span><br><span class="line">src = core.lsmas.LWLibavSource(r"C:\Encoding\test\video.h264")</span><br><span class="line"></span><br><span class="line">src.set_output()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这是一个最简单且完整的压制脚本，我们导入了视频源素材，并输出出来。</p>
+<p>在编辑器界面按 F5 键运行脚本，第一次运行后脚本会生成缓存文件，耗时视硬盘速度，耐心等待。成功后会弹出如下画面</p>
+<p><img src="https://images4.imagebam.com/0b/21/92/ME1D6LAS_o.png"></p>
+<p>建议检查界面左下角的帧率信息，确保与 BDInfo / MediaInfo 所示一致。</p>
+<p><strong>修改帧率</strong></p>
+<p><code>lsmas</code>&nbsp;滤镜有时会解析出错误的帧率，或者因为某些原因需要手动改变帧率，则需要在&nbsp;<code>clip.set_output()</code>&nbsp;之前加上如下命令，再运行脚本，确认帧率是否修改成功。</p>
+<ul>
+<li>修改成 24 (24000 / 1000) FPS</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip = core.std.AssumeFPS(clip, fpsnum=24000, fpsden=1000)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>修改成 23.976 (24000 / 1001) FPS</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip = core.std.AssumeFPS(clip, fpsnum=24000, fpsden=1001)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>裁剪黑边</strong></p>
+<p>屏幕边缘上下左右若有纯黑色部分或者无有效像素信息的部分（注意与后文的脏线做区分），在压制脚本中应裁剪掉。观察上述画面，我们发现该片上下有黑边，这时点击界面右下角这个按钮，启用裁剪助手</p>
+<p><img src="https://images4.imagebam.com/10/8e/64/ME1D6LBU_o.png"></p>
+<p>确保 Crop mode 一项的值为 Relative，通过调整 Zoom 这一项放大画面，调整 top 和 bottom 的值（一般黑边是对称的，两值相同），使得黑边正好被裁掉。若黑边分布在画面左右两侧，同样方式处理。记下来这个裁剪值。</p>
+<p>这里注意两件事：<br>1. 注意该值只能是<strong>偶数</strong>，如果裁剪了偶数黑边后还有单像素黑边，须参照后文缩放章节中对单像素黑边的处理方法<br>2. 有些影片的黑边像素数不是全片统一的，可能一段黑边多一段黑边少，注意检查全片，不要少裁或多裁</p>
+<p>以下是裁剪黑边的代码，放在输出语句之前。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src = core.std.Crop(src, top=xxx, bottom=xxx, left=xxx, right=xxx)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>本文例子中画面左右没有黑边，则 left = xxx 和 right = xxx 这两项可以省略不写，完整脚本如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import awsmfunc as awf</span><br><span class="line">import havsfunc as haf</span><br><span class="line">from rekt import rektlvls</span><br><span class="line"></span><br><span class="line">core = vs.core</span><br><span class="line"></span><br><span class="line">src = core.lsmas.LWLibavSource(r"C:\Encoding\test\video.h264")</span><br><span class="line"></span><br><span class="line">src = core.std.Crop(src, top=138, bottom=138)</span><br><span class="line"></span><br><span class="line">src.set_output()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>按 F5 键运行脚本，可以看到画面已不含黑边。</p>
+<p><strong>缩放</strong></p>
+<p>当源的分辨率是 1080p，想要压 720 或者其他分辨率的时候，需要进行缩放。</p>
+<p>缩放不只可以用来改变画面大小，还可以裁掉单像素黑边，下面以 1080p 原盘为例，讨论三种情况：</p>
+<p><strong>1. 无任何黑边，压制为 720p</strong></p>
+<p>直接用 awf.zresize 函数轻松缩放。只需要改变 preset 参数的值为 720/540/xxx，awf.zresize 函数会根据宽高比自动计算最后缩放成的大小，省心！</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resized = awf.zresize(src, preset=720)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>2. 左右或者上下有单数黑边，最终要压制 1080p</strong></p>
+<p>单数黑边需要先填充 1 个像素，再通过缩放的方式裁剪掉，否则会导致脏线生成</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 左右有单数黑边</span><br><span class="line">filtered = awf.fb(src, left=1, right=1,mode="fillmargins")    # 把单数黑边填充1个相邻的像素</span><br><span class="line">resized = awf.zresize(filtered, left=1, right=1) # 通过缩放的方式裁剪掉原来的单像素黑边</span><br><span class="line"></span><br><span class="line"># 上下有单数黑边</span><br><span class="line">filtered = awf.fb(src, top=1, bottom=1,mode="fillmargins")</span><br><span class="line">resized = awf.zresize(filtered , top=1, bottom=1)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>3. 左右 / 上下各有单像素黑边，最终要压制 720p</strong></p>
+<p>把上面两点结合起来</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 左右各有单像素黑边</span><br><span class="line">filtered = awf.fb(src, left=1, right=1,mode="fillmargins")</span><br><span class="line">resized = awf.zresize(filtered , preset=720, left=1, right=1)</span><br><span class="line"></span><br><span class="line"># 上下各有单像素黑边</span><br><span class="line">filtered2 = awf.fb(filtered , top=1, bottom=1,mode="fillmargins")</span><br><span class="line">resized = awf.zresize(filtered2 , preset=720, top=1, bottom=1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">备注：上面resized = awf.zresize看起来是awsmfunc的一个bug，暂时可以先按下面的代替</span><br><span class="line">resized = awf.zresize(filtered, width=1280, top=1, bottom=1)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后记得把压制脚本的最后的输出对象改为 resized，即</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resized.set_output()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样运行脚本后输出的就是缩放后的画面了</p>
+<p>上面所有的代码就是新手期最需要掌握的了。但在正式压制前，我们要先做好试压工作，看一下压制效果，并观察码率、帧率、尺寸等是否符合要求。</p>
+<p><strong>脏线修复</strong></p>
+<p>1. 通过 FixBrightness 参数来调节列或行的亮度（不推荐新手使用）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fixed = awf.FixBrightnessProtect2(clip,row=[0,clip.height-1],adj_row=[5,5])</span><br><span class="line">fixed = awf.FixBrightnessProtect2(fixed,row=clip.height-1,adj_row=50,prot_val=[0,36])</span><br><span class="line">fixed = awf.FixBrightnessProtect2(fixed,column=[0,fixed.width-1],adj_column=[20,20])</span><br></pre></td></tr></tbody></table></figure>
+
+<p>row 为横向的行数，row=[0,clip.height-1] 则是第一行与最后一行的意思。adj 是前面对应行的调整值，正数调高亮度，负数调低亮度。</p>
+<p>但是这种调整亮度的方式理解起来较为复杂，可以算作一个高阶的用法，这里贴出官方的技术文档，为了照顾新手，我会选择另一种参数来告诉新手如何调节亮度。</p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.com/Ututu/rekt">FixBrightness 官方技术文档</a></p>
+<p>2. 另一种调节亮度的方式（推荐新手使用）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src=haf.FixRowBrightnessProtect2(src,1,+34)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中 1 代表着行数，+34 为增加 34 亮度，亮度的调整范围在 ±100 间。</p>
+<p>3.bbmod 修复脏线：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fixed = awf.bbmod(fixed, top=1, bottom=1, left=1, right=1, thresh=60, blur=999)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>显而易见，top bottom left right 代表着视频的四条边，thresh 和 blur 新手并不用理会。有心思研究的话可以查看技术文档，或者自行调节这两个数值通过对比来感受差异。</p>
+<p><a target="_blank" rel="noopener" href="https://git.concertos.live/AHD/awsmfunc">AHD / awsmfunc 官方技术文档</a></p>
+<p>4.edgefixer 修复脏线：</p>
+<p>edgefixer 对于图像的破坏较大，所以不建议作为修复脏线手段的首选。当然，有些特定情况下，edgefixer 修复脏线效果好的出奇，这就需要各位在实践中自行感受总结了。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fixed = core.edgefixer.Continuity(fixed, bottom=1, left=1)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对于初学者来说，只需填写四边需要修复的边数即可</p>
+<p>至此，脏线的修复也算是告一段落了。值得一提的是，能完美的修复脏线固然是很好的事情，但是新手不必过于纠结脏线的修复，大部分人都感知不到。很多制作垃圾的原盘，脏线异常的恶心人，这种情况下，推荐直接 bbmod + edgefixer，如果效果大差不差的，对于新手入门压制来说也是足够了。</p>
+<p><strong>反交错</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filtered = haf.QTGMC(src,TFF=True, FPSDivisor=2, Preset='Slow', TR2=1, SourceMatch=1)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>抽帧</strong></p>
+<p>抽帧是试压环节中的一步。由于压制一部电影全片耗时往往要好几个小时，我们在试压时可能要测试好几次参数，才能得到合适的码率和满意的透明度，所以我们在试压时会通过抽帧，让总帧数适当减少，节约试压时间。语法如下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sample = awf.SelectRangeEvery(resized, every=3000, length=300, offset=[1000, 5000])  #抽帧</span><br><span class="line">sample .set_output()   #输出sample</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这句的意思对 resized 对象（即之前剪完黑边、缩放后的视频流）去掉电影的前 1000 帧和后 5000 帧（电影开头结尾一般都不是实际画面），剩下的部分每 3000 帧取 300 帧。若想要抽取更少的帧数，可以增大 every，或者减少 length 的数值。offset 参数可按实际片情况进行调整。</p>
+<p>通过试压确定合适的参数后就把这句注释掉，开始正式压制。</p>
+<p><strong>压制</strong></p>
+<p>脚本准备好了，我们就开始压制。打开 x264 launcher，首先点击菜单的 Application – Preferences，检查设置是否如下图所示</p>
+<p><img src="https://images4.imagebam.com/ea/70/1a/ME1D6LD4_o.png"></p>
+<p>若一致，则点击主界面左下角的 Add New Job，按下图设置</p>
+<p><img src="https://images4.imagebam.com/54/cd/a6/ME1D6LD7_o.png"></p>
+<p>第一行选择压制脚本路径，第二行选择压制视频输出的路径和文件名。Quantizer / CRF 这项是压制的关键，可设置范围建议 14-21，可以选 17 或者 18 开始。CRF 越小压制质量越高，但码率也变高；越大码率越低，但质量也越差。我们要通过试压调整 CRF 值，透明度可接受时的最低码率。其他设置与图种保持一致。蓝框位置（编码器自定义参数）是输入压制参数的地方，这里给出一套比较通用的固定参数：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--level 4.1 --vbv-bufsize 78125 --vbv-maxrate 62500 --merange 32 --bframes 16 --deblock -3:-3 --no-fast-pskip --rc-lookahead 250 --qcomp 0.60 --psy-rd 1.02:0.00 --aq-mode 3 --aq-strength 0.80 --me umh --b-adapt 2 --direct auto --subme 11 --trellis 2 --no-dct-decimate --no-mbtree --colormatrix bt709 --colorprim bt709 --ipratio 1.30 --pbratio 1.20</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后可以把这套参数 Save As 成一套预设。最后 Add Job，等压制完成后检查输出文件夹里的 log 文件，或者用 MediaInfo 检查输出视频的码率，也可以参照下文对比图部分对比源和压制，不理想的话调整 CRF，再试压，直到确定最终的 CRF 值，再次压制。</p>
+<p><strong>对比图</strong></p>
+<p>对比源和压制后的透明度，是判断压制质量最直接的手段。</p>
+<p>我们需要对比源和压制的两个视频流，在之前代码的基础上加上导入压制后的视频代码，再给对比图打上标注，最后以交错帧的方式输出源和压制后的逐帧对比图。代码如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import awsmfunc as awf</span><br><span class="line">import havsfunc as haf</span><br><span class="line">from rekt import rektlvls</span><br><span class="line"></span><br><span class="line">core = vs.core</span><br><span class="line"></span><br><span class="line">src = core.lsmas.LWLibavSource(r"C:\Encoding\test\video.h264") #载入源</span><br><span class="line">src = core.std.Crop(src, top=138, bottom=138) #剪裁黑边</span><br><span class="line"></span><br><span class="line">resized = awf.zresize(src, preset=720) #缩放为720p</span><br><span class="line"></span><br><span class="line">encode = core.lsmas.LWLibavSource(r"C:\Encoding\test\test.mkv") #载入压制好的视频</span><br><span class="line"></span><br><span class="line">source = awf.FrameInfo(resized , 'Source') #给源在对比图上打上Source的标签</span><br><span class="line">encode = awf.FrameInfo(encode , 'Encode') #给压制后的视频在对比图上打上Encode的标签</span><br><span class="line"></span><br><span class="line">out = core.std.Interleave([source , encode]) #定义要交错显示的对象，这里是source和encode对比</span><br><span class="line">out.set_output() #输出对比图</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样运行脚本输出画面时，就是以交错的方式显示源的第一帧、压制的第一帧、源的第二帧、压制的第二帧…… 同时画面左上角会有标注。用键盘的←→键可以切换上下帧，界面右下角有保存图片按钮、右键点击或者快捷键 s 可以快速存图，图片格式为 PNG 格式。</p>
+<p>最终压制完成后生成对比图时，截取 6 组以上，包含动、静、明、暗、远、近的画面。</p>
+<p>做对比图的时候 Source 可以选 P 帧或者 B 帧，Encode 只能选 B 帧。</p>
+<p><strong>下面是完整的 VS 脚本：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import awsmfunc as awf</span><br><span class="line">import havsfunc as haf</span><br><span class="line">from rekt import rektlvls</span><br><span class="line"></span><br><span class="line">core = vs.core</span><br><span class="line"></span><br><span class="line">src = core.lsmas.LWLibavSource(r"D:\test\video.h264")#载入源</span><br><span class="line">src = core.std.Crop(src, top=138, bottom=138)#剪裁黑边</span><br><span class="line"></span><br><span class="line">#resized = awf.zresize(src, preset=720) #缩放为720p</span><br><span class="line">resized = awf.zresize(src, preset=1080) #缩放为1080p</span><br><span class="line"></span><br><span class="line">#对比图</span><br><span class="line">#encode = core.lsmas.LWLibavSource(r"D:\test\video720.mkv") #载入压制好的视频</span><br><span class="line"></span><br><span class="line">#source = awf.FrameInfo(resized , 'Source') #给源在对比图上打上Source的标签</span><br><span class="line">#encode = awf.FrameInfo(encode , 'Encode') #给压制后的视频在对比图上打上Encode的标签</span><br><span class="line"></span><br><span class="line">#out = core.std.Interleave([source , encode]) #定义要交错显示的对象，这里是source和encode对比</span><br><span class="line">#out.set_output() #输出对比图</span><br><span class="line"></span><br><span class="line">resized.set_output() #输出缩放</span><br><span class="line"></span><br><span class="line">#抽帧试压</span><br><span class="line">#sample = awf.SelectRangeEvery(resized, every=3000, length=300, offset=[1000, 5000])  #抽帧</span><br><span class="line">#sample .set_output()   #输出抽帧sample</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="6-音频转码"><a href="#6-音频转码" class="headerlink" title="6.音频转码"></a>6. 音频转码</h2><p><strong>转码规范</strong></p>
+<p><img src="https://images4.imagebam.com/58/2b/e3/ME1D6LDB_o.png"></p>
+<p>对于 5.1 及 7.1 声道音频文件可转换为 DD+ 5.1（1024kbps），DD+ 7.1（1536 kbps）。</p>
+<p>目前的方法是使用 Mac 软件 Dolby Media Producer，而且必须是 Mac OS 10.12 及之前版本（因为 10.13 之后 Mac OS 取消了 32 位软件安装，而 Dolby Media Producer 为 32 位软件）。</p>
+<p>可用虚拟机安装 Mac OS 10.12。</p>
+<p><strong>Intel 平台电脑：</strong></p>
+<ol>
+<li>安装虚拟机软件 VMware</li>
+<li>安装 MacOS 10.12 镜像</li>
+<li>安装 Dolby Media Producer</li>
+</ol>
+<p><strong>AMD 平台电脑：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qCP_jDtBSf8&amp;t=372s&amp;ab_channel=OxsarsLP">保姆教程</a>（Youtube 视频，请科学上网）</p>
+<p><strong>使用 AudioMuxer 提取单声道音轨</strong></p>
+<p>选择 AudioMuxer 软件菜单栏 Tools 中的 Audio conversion。</p>
+<p><img src="https://images4.imagebam.com/12/32/a4/ME1D6LDO_o.png"></p>
+<p>选择需要提取的音轨</p>
+<p><img src="https://images4.imagebam.com/38/3b/47/ME1D6LE0_o.png"></p>
+<p>点击 Mono waves，生成一系列单声道&nbsp;<code>wav</code>&nbsp;文件</p>
+<p><img src="https://images4.imagebam.com/2b/51/fd/ME1D6LE3_o.png"></p>
+<p>将导出的一系列单声道音轨拖到虚拟机中备用。</p>
+<p>打开 Dolby Media Producer Encoder SE，新建一个 DPP 文件，new job.</p>
+<p>选择&nbsp;L channel 导入，其他的也会依次导入，点击 encode 即可开始。</p>
+<p><strong>DD + 5.1（6 声道）设置如下：</strong></p>
+<p><img src="https://images4.imagebam.com/10/d9/13/ME1D6LE9_o.png"></p>
+<p><img src="https://images4.imagebam.com/ec/39/9f/ME1D6LEF_o.png"></p>
+<p><img src="https://images4.imagebam.com/bf/0d/06/ME1D6LEI_o.png"></p>
+<p><strong>DD + 7.1（8 声道）设置如下：</strong></p>
+<p><img src="https://images4.imagebam.com/06/39/6e/ME1D6LEM_o.png"></p>
+<p><img src="https://images4.imagebam.com/67/ef/64/ME1D6LEN_o.png"></p>
+<p><img src="https://images4.imagebam.com/6b/d4/4e/ME1D6LEO_o.png"></p>
+<p>Tips：如果音频采样率高于 48khz, 需要先转成 48khz 后再进行转换，否则编码到 100% 后会继续从 0 开始。 例：&nbsp;<code>eac3to XXXX audio.thd -resampleTo48000</code></p>
+<h2 id="7-字幕处理"><a href="#7-字幕处理" class="headerlink" title="7.字幕处理"></a>7.<strong>字幕处理</strong></h2><p>原盘的中、英文 PGS 字幕应 OCR 为 SRT 字幕。</p>
+<p>现在英文 OCR 技术比较成熟，可利用 SubtitleEdit 这个字幕编辑器，用它打开 .sup 格式 字幕，OCR 方式选择 Tesseract 3.02，勾上斜体和音符，开始 OCR，等完成后细心校正，最后另存为 UTF-8 格式 .srt 字幕即可。</p>
+<p>Subtitle Edit 以及字幕处理的教程，可以参考<a target="_blank" rel="noopener" href="https://pterclub.com/forums.php?action=viewtopic&amp;topicid=6163">简明字幕小手册（SubtitleEdit 教程）</a>。</p>
+<p>对于中文字幕，一般是去<a target="_blank" rel="noopener" href="https://zmk.pw/">字幕库</a>、<a target="_blank" rel="noopener" href="https://assrt.net/">射手网</a>、<a target="_blank" rel="noopener" href="https://subhd.tv/">SubHD</a>、<a target="_blank" rel="noopener" href="https://r3sub.com/">R3SUB</a>&nbsp;等网站下载，注意检查时间轴同步情况以及编码格式。如果找不到字幕可以 OCR 源盘里的中文字幕。</p>
+<p>更多字幕网站可以参考<a target="_blank" rel="noopener" href="https://pterclub.com/forums.php?action=viewtopic&amp;forumid=29&amp;topicid=5733">后射手时代，如何寻找、下载字幕</a>&nbsp;。</p>
+<p><strong>快速调整时间轴工具</strong>：<a target="_blank" rel="noopener" href="https://subsync.online/">https://subsync.online/</a></p>
+<p><strong>中文字幕 OCR：</strong></p>
+<ul>
+<li>建议使用<a target="_blank" rel="noopener" href="https://www.cnblogs.com/stronghorse/p/14594337.html/">老马的 IdxSubOcr</a></li>
+<li> 安装 java 运行环境</li>
+<li>安装 MODI：安装 Microsoft Sharepoint Designer 2007，安装时选择自定义，仅选择安装国际字体，国际性支持，以及 Microsoft Office Document Imaging（MODI）</li>
+</ul>
+<p><img src="https://images4.imagebam.com/34/fd/ae/ME1D6LES_o.png"></p>
+<ul>
+<li>解压并执行 IdxSubOCR</li>
+<li>打开字幕文件，选择期望 OCR 的字幕的 sup 或者 idx 文件</li>
+<li>开始 OCR，语言选择简体中文（其它语言需要下载 office2003 安装相对应的语言包）</li>
+<li>结果，按下，逐条纠正。</li>
+</ul>
+<p><img src="https://images4.imagebam.com/bc/46/a7/ME1D6LEU_o.png"></p>
+<ul>
+<li>保存 srt 文件。</li>
+</ul>
+<h2 id="8-章节处理"><a href="#8-章节处理" class="headerlink" title="8.章节处理"></a><strong>8. 章节处理</strong></h2><p>分两种情况</p>
+<p>1. 如果通过播放蓝光原盘的软件发现原盘有命名章节，可以通过 MKVToolNix 的章节编辑器功能或者 [ChapterTool](<a target="_blank" rel="noopener" href="https://github.com/tautcony/ChapterTool">https://github.com/tautcony/ChapterTool</a>) 手动编辑 eac3to 提取的 `.txt` 章节文件，选择正确的语言，加上对应语言的章节命名，另存为 UTF-8 编码的 `.xml` 或者 `.txt` 文件。</p>
+<p>2. 如果没有，那么用 ChapterTool 载入 eac3to 提取的 `.txt` 章节文件，点界面右下角的箭头打开隐藏底栏，勾上不使用章节名这一项，软件会自动生成 Chapter 01、Chapter 02…… 这样的章节名，点击保存，软件会新生成一个 `xxx_1.txt` 的章节文件。</p>
+<p>封装方法：使用 ChapterTool.v2.33.33.33.exe 对章节文件名进行编辑。</p>
+<p>准备一个 txt 文件，内容如下：</p>
+<p><img src="https://images4.imagebam.com/35/a6/dc/ME1D6LEV_o.png"></p>
+<p>用 ChapterTool 打开章节文件，如</p>
+<p><img src="https://images4.imagebam.com/23/8c/8b/ME1D6LFG_o.png"></p>
+<p>点击使用章节名模版，导入之前的 txt 文件，即变为下图所示，保存，新生成的章节文件。</p>
+<p><img src="https://images4.imagebam.com/a6/51/09/ME1D6LFI_o.png"></p>
+<h2 id="9-封装"><a href="#9-封装" class="headerlink" title="9.封装"></a><strong>9. 封装</strong></h2><p>封装软件为 MKVToolNix，<a target="_blank" rel="noopener" href="https://www.fosshub.com/MKVToolNix.html">下载地址</a>。</p>
+<p>打开 MKVToolNix</p>
+<p><img src="https://images4.imagebam.com/f3/a2/d6/ME1D6LFL_o.png"></p>
+<p><strong>输入标签页</strong></p>
+<p>选择位置 (1) “输入”，按照 “视频 – 音频 – 字幕” 的顺序依次拖入文件至位置 (2)，导入前面准备好的视频、音频和字幕</p>
+<p>按视频、主音轨（设为默认）、第二音轨（非必须）、评论音轨（如有添加）、字幕、章节（如有添加）的顺序排序。</p>
+<p>在位置 (3) 处选择相应语言及填写标题。一些常见的英文描述如下：</p>
+<p>音轨<br>国语：Mandarin<br>粤语：Cantonese<br>英语：English<br>评论音轨：Commentary by XXX<br>描述音轨：Descriptive track<br>例如：Commentary by director / producer Jeff Orlowski, lead James Balog, and field &nbsp;coordinators Adam LeWinter and Svavar Jónatansson</p>
+<p>字幕<br>简体：Chinese (Simplified) 或 Simplified Chinese<br>繁体：Chinese (Traditional) 或 Traditional Chinese<br>简英双语：Chinese (Simplified)&amp;English 或 Simplified Chinese &amp; English<br>繁英双语：Chinese (Traditional)&amp;English 或 Traditional Chinese &amp; English<br>英语：English<br>听力障碍提示字幕：SDH（常和语言连用，如 English SDH）</p>
+<p>检查每个轨道的 flag，如默认与否、语言等。视频、主音轨默认项选是，其他音轨和所有字幕默认项选否。视频轨语言选主音轨语言。评论音轨、简繁中文字幕、SDH 字幕的轨道名称项应标注清楚。可参考各大压制组已发布作品</p>
+<p><strong>输出标签页</strong></p>
+<p>在通用→ 文件标题里按照 电影名 年份 &nbsp;尺寸 片源 主音频格式 视频编码格式 – TayTO 的格式，如 One Shot 2021 720p BluRay DD5.1 x264 – TayTO</p>
+<p>输出文件名按照 IMDB 电影名. 年份. 尺寸. 片源. 音轨编码. 视频编码 - XXX (个人或者小组名).mkv 的格式，如 One.Shot.2021.720p.BluRay.DD5.1.x264-TayTO.mkv</p>
+<p>章节 – 章节文件导入自己加了命名的 .xml/.txt 文件，语言改成对应语言，字符集选 UTF-8<br>最后在上图位置 (7) 处选择输出路径，和输出文件的名字，点击开始混流，等待封装完成。</p>
+<p>DONE~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8E%8B%E5%88%B6/" rel="tag"><i class="fa fa-tag"></i> 压制</a>
+              <a href="/tags/Demux/" rel="tag"><i class="fa fa-tag"></i> Demux</a>
+              <a href="/tags/Remux/" rel="tag"><i class="fa fa-tag"></i> Remux</a>
+              <a href="/tags/Encode/" rel="tag"><i class="fa fa-tag"></i> Encode</a>
+              <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/note/6b58148f.html" rel="prev" title="nzbget 的安装使用">
+                  <i class="fa fa-angle-left"></i> nzbget 的安装使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/tutorial/93695209.html" rel="next" title="thelounge 安装教程">
+                  thelounge 安装教程 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Mooon</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://twk.mooon.eu.org/","region":"ap-shanghai","path":"window.location.pathname","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>
