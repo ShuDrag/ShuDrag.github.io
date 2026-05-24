@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":true,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":false,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一直想给静态的 Hexo 配置一个说说的功能，查看了一些教程，都推荐接入 Artitalk 配合 LeanCloud 数据库，但是发现 LeanCloud 停止服务了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地群晖部署 Memos 并嵌入 Hexo 做说说">
+<meta property="og:url" content="http://example.com/Hexo/20952de3.html">
+<meta property="og:site_name" content="Mooon&#39;s Blog">
+<meta property="og:description" content="一直想给静态的 Hexo 配置一个说说的功能，查看了一些教程，都推荐接入 Artitalk 配合 LeanCloud 数据库，但是发现 LeanCloud 停止服务了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images4.imagebam.com/93/d6/3c/ME1D9ZJX_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/cb/d6/c3/ME1D9ZMI_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/49/74/8f/ME1D9ZPR_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/58/e2/7b/ME1D9ZQJ_o.png">
+<meta property="og:image" content="https://images4.imagebam.com/1b/a0/dd/ME1D9ZRD_o.png">
+<meta property="article:published_time" content="2026-05-22T15:17:20.000Z">
+<meta property="article:modified_time" content="2026-05-22T15:17:20.000Z">
+<meta property="article:author" content="Mooon">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Memos">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="群晖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images4.imagebam.com/93/d6/3c/ME1D9ZJX_o.png">
+
+
+<link rel="canonical" href="http://example.com/Hexo/20952de3.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/Hexo/20952de3.html","path":"Hexo/20952de3.html","title":"本地群晖部署 Memos 并嵌入 Hexo 做说说"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>本地群晖部署 Memos 并嵌入 Hexo 做说说 | Mooon's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Mooon's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mooon's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-talk"><a href="/talk/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>说说</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E9%80%9A%E8%BF%87Docker-Container-Manager-%E9%83%A8%E7%BD%B2Memos%E5%92%8Ccloudflare%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">群晖通过 Docker (Container Manager) 部署 Memos 和 cloudflare 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8cloudflare%E9%87%8C%E6%96%B0%E5%BB%BATunnel%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">在 cloudflare 里新建 Tunnel 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E6%96%B0%E5%BB%BA%E8%AF%B4%E8%AF%B4%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">Hexo 新建说说页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%B4%E8%AF%B4"><span class="nav-number">4.</span> <span class="nav-text">开启侧边栏说说</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEsource-talk-index-md"><span class="nav-number">5.</span> <span class="nav-text">配置source&#x2F;talk&#x2F;index.md</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mooon</p>
+  <div class="site-description" itemprop="description">意义源自虚无</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:awesomeptik@gmail.com" title="E-Mail → mailto:awesomeptik@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Hexo/20952de3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mooon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mooon's Blog">
+      <meta itemprop="description" content="意义源自虚无">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="本地群晖部署 Memos 并嵌入 Hexo 做说说 | Mooon's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          本地群晖部署 Memos 并嵌入 Hexo 做说说
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-22 23:17:20" itemprop="dateCreated datePublished" datetime="2026-05-22T23:17:20+08:00">2026-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一直想给静态的 Hexo 配置一个说说的功能，查看了一些教程，都推荐接入 Artitalk 配合 LeanCloud 数据库，但是发现 LeanCloud 停止服务了  </p>
+<span id="more"></span>
+<p>于是又找到了 Memos，摸索了一下，这里做个记录<br>总体思路是通过本地群晖 docker compose 部署 Memos，用 cloudflare 的 Tunnel 功能解决内网穿透与 SSL 证书问题，再通过 Memos 自带的开放 API 异步加载到 Hexo 中  </p>
+<h3 id="群晖通过Docker-Container-Manager-部署Memos和cloudflare服务"><a href="#群晖通过Docker-Container-Manager-部署Memos和cloudflare服务" class="headerlink" title="群晖通过Docker(Container Manager)部署Memos和cloudflare服务"></a>群晖通过 Docker (Container Manager) 部署 Memos 和 cloudflare 服务</h3><p>在 docker 目录下新建<code>memos-suit</code>，再在<code>memos-suite</code>文件夹下新建<code>data</code>用于存放图片</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3.8'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="comment"># 1. Memos 说说主程序</span></span><br><span class="line">  <span class="attr">memos:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">neosmemo/memos:stable</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">memos</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"5230:5230"</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume1/docker/memos-suite/data:/var/opt/memos</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">memos-network</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 2. Cloudflare 隧道客户端</span></span><br><span class="line">  <span class="attr">cloudflared:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">cloudflare/cloudflared:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">cloudflared-memos</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="comment"># 请将下方的 &lt;你的Cloudflare_Tunnel_Token&gt; 替换为你从 Cloudflare 网页上复制出来的那串长 Token</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">tunnel</span> <span class="string">--no-autoupdate</span> <span class="string">run</span> <span class="string">--token</span> <span class="string">&lt;你的Cloudflare_Tunnel_Token&gt;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">memos-network</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">memos</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">memos-network:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></tbody></table></figure>
+<p>部署完之后，用 ip + 端口打开页面进行注册</p>
+<h3 id="在cloudflare里新建Tunnel服务"><a href="#在cloudflare里新建Tunnel服务" class="headerlink" title="在cloudflare里新建Tunnel服务"></a>在 cloudflare 里新建 Tunnel 服务</h3><p>具体步骤见下图<br><img src="https://images4.imagebam.com/93/d6/3c/ME1D9ZJX_o.png"><br><img src="https://images4.imagebam.com/cb/d6/c3/ME1D9ZMI_o.png"><br><img src="https://images4.imagebam.com/49/74/8f/ME1D9ZPR_o.png"><br><img src="https://images4.imagebam.com/58/e2/7b/ME1D9ZQJ_o.png"><br><img src="https://images4.imagebam.com/1b/a0/dd/ME1D9ZRD_o.png"><br>最后绑定域名就可以在外网进行访问</p>
+<h3 id="Hexo新建说说页面"><a href="#Hexo新建说说页面" class="headerlink" title="Hexo新建说说页面"></a>Hexo 新建说说页面</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page talk</span><br></pre></td></tr></tbody></table></figure>
+<p>会在<code>source/talk/index.md</code>生成一个新的 Markdown 文件</p>
+<h3 id="开启侧边栏说说"><a href="#开启侧边栏说说" class="headerlink" title="开启侧边栏说说"></a>开启侧边栏说说</h3><p>在主题设置文件<code>_config.next.yml</code>里找到 menu 设置，增加一条</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">talk:</span> <span class="string">/talk/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-comment-dots</span> <span class="comment">#说说页</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置source-talk-index-md"><a href="#配置source-talk-index-md" class="headerlink" title="配置source/talk/index.md"></a>配置<code>source/talk/index.md</code></h3><p>下面的代码，是通过 Gemini 整合好的终极完整版代码。它包含了所有的精简优化、图片处理、点击放大、微型交互以及极限瘦身的 Twikoo 评论框，兼容 Memos v0.28<br>直接复制以下完整代码粘贴进前面生成的<code>index.md</code>里</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 自言自语</span><br><span class="line">date: 2026-05-22 10:00:00</span><br><span class="line">type: "talk"</span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 1. 引入 simple-lightbox 的样式文件（点击放大效果） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.staticfile.net/simplelightbox/2.14.0/simple-lightbox.min.css"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 这里的 raw 标签能防止 Hexo 解析报错 --&gt;</span></span><br><span class="line">{% raw %}</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"bber-container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"bber"</span>&gt;</span>加载中...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* =======================================================</span></span></span><br><span class="line"><span class="comment"><span class="language-css">   卡片基础与排版样式</span></span></span><br><span class="line"><span class="comment"><span class="language-css">======================================================= */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#bber</span> { <span class="attribute">margin-top</span>: <span class="number">20px</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-item</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">background</span>: <span class="built_in">var</span>(--content-bg-color, <span class="number">#ffffff</span>);</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">var</span>(--body-bg-color, <span class="number">#eee</span>);</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">18px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin-bottom</span>: <span class="number">18px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">15px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.03</span>);</span></span><br><span class="line"><span class="language-css">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-item</span><span class="selector-pseudo">:hover</span> { <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">8px</span> <span class="number">25px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.06</span>); }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-time</span> { <span class="attribute">font-size</span>: <span class="number">0.85em</span>; <span class="attribute">color</span>: <span class="number">#888</span>; <span class="attribute">margin-bottom</span>: <span class="number">10px</span>; <span class="attribute">font-family</span>: monospace; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-content</span> { <span class="attribute">line-height</span>: <span class="number">1.8</span>; <span class="attribute">font-size</span>: <span class="number">0.98em</span>; <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color, <span class="number">#333</span>); }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* 针对正文和附件中图片的通用样式 */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-content</span> <span class="selector-class">.memo-lightbox-group</span> <span class="selector-tag">img</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">cursor</span>: zoom-in;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">transition</span>: opacity <span class="number">0.2s</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-content</span> <span class="selector-class">.memo-lightbox-group</span> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> { <span class="attribute">opacity</span>: <span class="number">0.9</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-content</span> <span class="selector-tag">img</span><span class="selector-class">.inline-img</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* =======================================================</span></span></span><br><span class="line"><span class="comment"><span class="language-css">   附件区域（上传的图片）：朋友圈级智能宫格排版 (Grid)</span></span></span><br><span class="line"><span class="comment"><span class="language-css">======================================================= */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">gap</span>: <span class="number">6px</span>; <span class="comment">/* 强制横向和竖向的间距绝对一致 */</span></span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin-top</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">justify-content</span>: start; <span class="comment">/* 多图整体靠左对齐 */</span></span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span> <span class="selector-tag">a</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">text-decoration</span>: none <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-bottom</span>: none <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">outline</span>: none;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span> <span class="selector-tag">img</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">aspect-ratio</span>: <span class="number">1</span> / <span class="number">1</span>; <span class="comment">/* 多图时强制裁剪为完美的正方形 */</span></span></span><br><span class="line"><span class="language-css">  <span class="attribute">object-fit</span>: cover;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">6px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* 1张图：保持原图真实比例，自适应大小并绝对靠左 */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span><span class="selector-attr">[data-count=<span class="string">"1"</span>]</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">grid-template-columns</span>: max-content; <span class="comment">/* 紧贴图片实际宽度 */</span></span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span><span class="selector-attr">[data-count=<span class="string">"1"</span>]</span> <span class="selector-tag">img</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">aspect-ratio</span>: auto; </span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: auto;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: auto;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">max-height</span>: <span class="number">400px</span>; </span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>; <span class="comment">/* 核心修复：强行抹除 NexT 全局图片居中 */</span></span></span><br><span class="line"><span class="language-css">  <span class="attribute">object-position</span>: left center; </span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* 2张或4张图：经典 2x2 宫格，限制最大宽度 */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span><span class="selector-attr">[data-count=<span class="string">"2"</span>]</span>,</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span><span class="selector-attr">[data-count=<span class="string">"4"</span>]</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">1</span>fr);</span></span><br><span class="line"><span class="language-css">  <span class="attribute">max-width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* 3张、5张及以上：经典 3列 九宫格 */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-resources</span><span class="selector-pseudo">:not</span>(<span class="selector-attr">[data-count=<span class="string">"1"</span>]</span>)<span class="selector-pseudo">:not</span>(<span class="selector-attr">[data-count=<span class="string">"2"</span>]</span>)<span class="selector-pseudo">:not</span>(<span class="selector-attr">[data-count=<span class="string">"4"</span>]</span>) {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);</span></span><br><span class="line"><span class="language-css">  <span class="attribute">max-width</span>: <span class="number">450px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="comment">/* =======================================================</span></span></span><br><span class="line"><span class="comment"><span class="language-css">   Twikoo 终极微型化 (极简卡片模式)</span></span></span><br><span class="line"><span class="comment"><span class="language-css">======================================================= */</span></span></span><br><span class="line"><span class="language-css"><span class="comment">/* 彻底隐藏说说里的 Twikoo Markdown 链接 */</span></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-action</span> <span class="selector-tag">a</span> { <span class="attribute">display</span>: none <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">12px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin-top</span>: <span class="number">8px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">6px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.el-textarea__inner</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">min-height</span>: <span class="number">32px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">32px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-size</span>: <span class="number">12px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">8px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">line-height</span>: <span class="number">1.4</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.el-textarea__inner</span><span class="selector-pseudo">:focus</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">60px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.el-input__inner</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">24px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">line-height</span>: <span class="number">24px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-size</span>: <span class="number">11px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">6px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">4px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-row</span><span class="selector-class">.actions</span> { <span class="attribute">margin-top</span>: <span class="number">5px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.el-button</span> {</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">24px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">8px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-size</span>: <span class="number">11px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">border-radius</span>: <span class="number">4px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-action-icon</span> <span class="selector-tag">svg</span> { <span class="attribute">width</span>: <span class="number">12px</span> <span class="meta">!important</span>; <span class="attribute">height</span>: <span class="number">12px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-avatar</span> { <span class="attribute">width</span>: <span class="number">20px</span> <span class="meta">!important</span>; <span class="attribute">height</span>: <span class="number">20px</span> <span class="meta">!important</span>; <span class="attribute">margin-top</span>: <span class="number">2px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-avatar</span> <span class="selector-class">.tk-avatar-img</span> { <span class="attribute">height</span>: <span class="number">20px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-comment</span> { <span class="attribute">margin-top</span>: <span class="number">8px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-content</span> { <span class="attribute">font-size</span>: <span class="number">12px</span> <span class="meta">!important</span>; <span class="attribute">line-height</span>: <span class="number">1.5</span> <span class="meta">!important</span>; <span class="attribute">margin-top</span>: <span class="number">0</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-extras</span> { <span class="attribute">font-size</span>: <span class="number">10px</span> <span class="meta">!important</span>; <span class="attribute">margin-top</span>: <span class="number">2px</span> <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-comments-title</span>,</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-comments-no</span>,</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-footer</span>,</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.bber-comment-area</span> <span class="selector-class">.tk-sort</span> { <span class="attribute">display</span>: none <span class="meta">!important</span>; }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2. 引入 simple-lightbox 的脚本文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.staticfile.net/simplelightbox/2.14.0/simple-lightbox.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// ==========================================</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1. 请将这里替换为你自己的 Twikoo 环境 ID</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// ==========================================</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">const</span> <span class="variable constant_">TWIKOO_ENV_ID</span> = <span class="string">"请将这里替换为你自己的 Twikoo 环境 ID"</span>; </span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">toggleComment</span>(<span class="params">memoUid</span>) {</span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">const</span> commentArea = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">`comment-<span class="subst">${memoUid}</span>`</span>);</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">if</span> (commentArea.<span class="property">classList</span>.<span class="title function_">contains</span>(<span class="string">'active'</span>)) {</span></span><br><span class="line"><span class="language-javascript">    commentArea.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">'active'</span>);</span></span><br><span class="line"><span class="language-javascript">    commentArea.<span class="property">innerHTML</span> = <span class="string">''</span>; </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">  }</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">'.bber-comment-area'</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">el</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">    el.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">'active'</span>);</span></span><br><span class="line"><span class="language-javascript">    el.<span class="property">innerHTML</span> = <span class="string">''</span>;</span></span><br><span class="line"><span class="language-javascript">  });</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  commentArea.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">'active'</span>);</span></span><br><span class="line"><span class="language-javascript">  commentArea.<span class="property">innerHTML</span> = <span class="string">`&lt;div id="twikoo-container-<span class="subst">${memoUid}</span>"&gt;正在加载 Twikoo...&lt;/div&gt;`</span>;</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">if</span> (<span class="keyword">typeof</span> twikoo !== <span class="string">'undefined'</span>) {</span></span><br><span class="line"><span class="language-javascript">    twikoo.<span class="title function_">init</span>({</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">envId</span>: <span class="variable constant_">TWIKOO_ENV_ID</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">el</span>: <span class="string">`#twikoo-container-<span class="subst">${memoUid}</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">path</span>: <span class="string">`/talk/memo-<span class="subst">${memoUid}</span>`</span> </span></span><br><span class="line"><span class="language-javascript">    }).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">'Twikoo 初始化失败:'</span>, err);</span></span><br><span class="line"><span class="language-javascript">      commentArea.<span class="property">innerHTML</span> = <span class="string">'加载评论失败，请检查环境配置。'</span>;</span></span><br><span class="line"><span class="language-javascript">    });</span></span><br><span class="line"><span class="language-javascript">  } <span class="keyword">else</span> {</span></span><br><span class="line"><span class="language-javascript">    commentArea.<span class="property">innerHTML</span> = <span class="string">'&lt;p style="color:red; font-size:14px;"&gt;等待 Twikoo 脚本加载或未找到相关文件...&lt;/p&gt;'</span>;</span></span><br><span class="line"><span class="language-javascript">  }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">"DOMContentLoaded"</span>, <span class="keyword">function</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// ==========================================</span></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 2. 请将这里替换为你自己的 memos 链接</span></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// ==========================================</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">const</span> memosUrl = <span class="string">"请将这里替换为你自己的memos链接"</span>; </span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">const</span> filterString = <span class="string">`visibility == 'PUBLIC'`</span>;</span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">const</span> apiUrl = <span class="string">`<span class="subst">${memosUrl}</span>/api/v1/memos?pageSize=50&amp;filter=<span class="subst">${<span class="built_in">encodeURIComponent</span>(filterString)}</span>`</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">fetch</span>(apiUrl)</span></span><br><span class="line"><span class="language-javascript">    .<span class="title function_">then</span>(<span class="keyword">async</span> response =&gt; {</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (!response.<span class="property">ok</span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> errText = <span class="keyword">await</span> response.<span class="title function_">text</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`HTTP <span class="subst">${response.status}</span>: <span class="subst">${errText}</span>`</span>);</span></span><br><span class="line"><span class="language-javascript">      }</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> response.<span class="title function_">json</span>();</span></span><br><span class="line"><span class="language-javascript">    })</span></span><br><span class="line"><span class="language-javascript">    .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> memos = data.<span class="property">memos</span> || [];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">'bber'</span>);</span></span><br><span class="line"><span class="language-javascript">      container.<span class="property">innerHTML</span> = <span class="string">''</span>; </span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (memos.<span class="property">length</span> === <span class="number">0</span>) {</span></span><br><span class="line"><span class="language-javascript">        container.<span class="property">innerHTML</span> = <span class="string">'&lt;p style="text-align:center; color:#999;"&gt;暂时没有哔哔赖赖~&lt;/p&gt;'</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">      }</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      memos.<span class="title function_">forEach</span>(<span class="function"><span class="params">memo</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>(memo.<span class="property">createTime</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> createTime = <span class="string">`<span class="subst">${d.getFullYear()}</span>-<span class="subst">${<span class="built_in">String</span>(d.getMonth() + <span class="number">1</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)}</span>-<span class="subst">${<span class="built_in">String</span>(d.getDate()).padStart(<span class="number">2</span>, <span class="string">'0'</span>)}</span>`</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> memoUid = memo.<span class="property">name</span>.<span class="title function_">split</span>(<span class="string">'/'</span>).<span class="title function_">pop</span>() || memo.<span class="property">uid</span>;</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> mediaList = memo.<span class="property">attachments</span> || memo.<span class="property">resources</span> || [];</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> contentHtml = memo.<span class="property">content</span></span></span><br><span class="line"><span class="language-javascript">          .<span class="title function_">replace</span>(<span class="regexp">/!\[.*?\]\(([^)\s]+)[^)]*\)/g</span>, <span class="string">'&lt;a href="$1" class="memo-lightbox-group" style="border-bottom:none !important; text-decoration:none !important;"&gt;&lt;img src="$1" class="inline-img" alt="图片" loading="lazy" /&gt;&lt;/a&gt;'</span>)</span></span><br><span class="line"><span class="language-javascript">          .<span class="title function_">replace</span>(<span class="regexp">/\n/g</span>, <span class="string">'&lt;br&gt;'</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> resourcesHtml = <span class="string">''</span>;</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 核心改动：精准过滤纯图片，获取数量赋给 data-count 以驱动智能网格排版</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> imgList = mediaList.<span class="title function_">filter</span>(<span class="function"><span class="params">res</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> fileType = res.<span class="property">type</span> || res.<span class="property">contentType</span> || res.<span class="property">mimeType</span> || <span class="string">''</span>;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> fileType.<span class="title function_">startsWith</span>(<span class="string">'image/'</span>);</span></span><br><span class="line"><span class="language-javascript">        });</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (imgList.<span class="property">length</span> &gt; <span class="number">0</span>) {</span></span><br><span class="line"><span class="language-javascript">          resourcesHtml += <span class="string">`&lt;div class="bber-resources memo-lightbox-group" data-count="<span class="subst">${imgList.length}</span>"&gt;`</span>; </span></span><br><span class="line"><span class="language-javascript">          imgList.<span class="title function_">forEach</span>(<span class="function"><span class="params">res</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> imgUrl = <span class="string">`<span class="subst">${memosUrl}</span>/file/<span class="subst">${res.name}</span>/<span class="subst">${res.filename}</span>`</span>;</span></span><br><span class="line"><span class="language-javascript">            resourcesHtml += <span class="string">`&lt;a href="<span class="subst">${imgUrl}</span>"&gt;&lt;img src="<span class="subst">${imgUrl}</span>" alt="<span class="subst">${res.filename}</span>" loading="lazy" /&gt;&lt;/a&gt;`</span>;</span></span><br><span class="line"><span class="language-javascript">          });</span></span><br><span class="line"><span class="language-javascript">          resourcesHtml += <span class="string">'&lt;/div&gt;'</span>;</span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> memoDiv = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="language-javascript">        memoDiv.<span class="property">className</span> = <span class="string">'bber-item'</span>;</span></span><br><span class="line"><span class="language-javascript">        memoDiv.<span class="property">innerHTML</span> = <span class="string">`</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;div class="bber-time"&gt;<span class="subst">${createTime}</span>&lt;/div&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;div class="bber-content"&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">            <span class="subst">${contentHtml}</span></span></span></span><br><span class="line"><span class="string"><span class="language-javascript">            <span class="subst">${resourcesHtml}</span></span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;/div&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;div class="bber-footer"&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">            &lt;span class="bber-btn comment-btn" title="留言" onclick="toggleComment('<span class="subst">${memoUid}</span>')" style="margin-left: auto; color: #aaa;"&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">              &lt;svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">                &lt;path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"&gt;&lt;/path&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">              &lt;/svg&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">            &lt;/span&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;/div&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">          &lt;div id="comment-<span class="subst">${memoUid}</span>" class="bber-comment-area"&gt;&lt;/div&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">        `</span>;</span></span><br><span class="line"><span class="language-javascript">        container.<span class="title function_">appendChild</span>(memoDiv);</span></span><br><span class="line"><span class="language-javascript">      });</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">new</span> <span class="title class_">SimpleLightbox</span>(<span class="string">'.bber-content .memo-lightbox-group a'</span>, {</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">overlayOpacity</span>: <span class="number">0.8</span>, <span class="attr">uniqueImages</span>: <span class="literal">true</span>, <span class="attr">showCounter</span>: <span class="literal">true</span>, <span class="attr">scrollZoom</span>: <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">      });</span></span><br><span class="line"><span class="language-javascript">      </span></span><br><span class="line"><span class="language-javascript">    })</span></span><br><span class="line"><span class="language-javascript">    .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> {</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">'获取 Memos 失败:'</span>, error);</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">'bber'</span>).<span class="property">innerHTML</span> = <span class="string">`&lt;p style="text-align:center; color:red; font-size:12px; padding:20px;"&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">        &lt;b&gt;检测到真实报错：&lt;/b&gt;&lt;br&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">        <span class="subst">${error.message}</span>&lt;br&gt;&lt;br&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">        如果是 Failed to fetch，说明是 Cloudflare Worker 没生效（跨域拦截）；&lt;br&gt;</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">        如果是 HTTP 400/404/500 等代码，说明是 v0.28 接口参数或后端报错。</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">      &lt;/p&gt;`</span>;</span></span><br><span class="line"><span class="language-javascript">    });</span></span><br><span class="line"><span class="language-javascript">});</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">{% endraw %}</span><br></pre></td></tr></tbody></table></figure>
+<p>只需要把代码里的<code>TWIKOO_ENV_ID</code>和<code>MEMOS_URL</code>替换成真实数据即可</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Memos/" rel="tag"><i class="fa fa-tag"></i> Memos</a>
+              <a href="/tags/%E7%BE%A4%E6%99%96/" rel="tag"><i class="fa fa-tag"></i> 群晖</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Hexo/14e4e4be.html" rel="prev" title="Next8.0 深色代码块设置">
+                  <i class="fa fa-angle-left"></i> Next8.0 深色代码块设置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Copyright © Mooon. All Rights Reserved.</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://twk.mooon.eu.org/","region":"ap-shanghai","path":"window.location.pathname","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>

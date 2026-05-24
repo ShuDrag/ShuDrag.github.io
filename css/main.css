@@ -502,6 +502,33 @@ figure.highlight::before {
   height: 12px;
   width: 12px;
 }
+.expand-btn {
+  bottom: 0;
+  color: var(--highlight-foreground);
+  cursor: pointer;
+  display: none;
+  left: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+.fold-cover {
+  background-image: linear-gradient(to top, var(--highlight-background) 0, rgba(0,0,0,0) 100%);
+  bottom: 0;
+  display: none;
+  height: 50px;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.highlight-fold {
+  max-height: 500px;
+  overflow-y: hidden !important;
+}
+.highlight-fold .expand-btn,
+.highlight-fold .fold-cover {
+  display: block;
+}
 code,
 kbd,
 figure.highlight,
@@ -1241,7 +1268,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #e32560;
+    background: #b80101;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2933,4 +2960,19 @@ li code {
 .post-body h6 {
   font-weight: bold !important;
   line-height: 1.4 !important;
+}
+/*
+ * 终极隐藏 Twikoo 评论框底部的 Markdown 帮助图标：
+ * 直接屏蔽操作区内的所有超链接 (a 标签) 和可能带外链的元素
+ */
+.tk-action a,
+.tk-action a[target="_blank"],
+.tk-row.actions a,
+.tk-action-link {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important; /* 彻底切断鼠标点击事件 */
 }

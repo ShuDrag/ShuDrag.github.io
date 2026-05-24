@@ -11,15 +11,34 @@
   <rights>All rights reserved 2026, Mooon</rights>
   <subtitle>意义源自虚无</subtitle>
   <title>Mooon's Blog</title>
-  <updated>2026-05-17T14:18:02.000Z</updated>
+  <updated>2026-05-22T15:17:20.000Z</updated>
   <entry>
     <author>
       <name>Mooon</name>
     </author>
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="Memos" scheme="http://example.com/tags/Memos/"/>
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    <id>http://example.com/Hexo/20952de3.html</id>
+    <link href="http://example.com/Hexo/20952de3.html"/>
+    <published>2026-05-22T15:17:20.000Z</published>
+    <summary>
+      <![CDATA[<p>一直想给静态的 Hexo 配置一个说说的功能，查看了一些教程，都推荐接入 Artitalk 配合 LeanCloud 数据库，但是发现 LeanCloud 停止服务了  </p>]]>
+    </summary>
+    <title>本地群晖部署 Memos 并嵌入 Hexo 做说说</title>
+    <updated>2026-05-22T15:17:20.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
     <category term="hexo" scheme="http://example.com/tags/hexo/"/>
     <category term="next8.0" scheme="http://example.com/tags/next8-0/"/>
-    <id>http://example.com/uncatalog/14e4e4be.html</id>
-    <link href="http://example.com/uncatalog/14e4e4be.html"/>
+    <id>http://example.com/Hexo/14e4e4be.html</id>
+    <link href="http://example.com/Hexo/14e4e4be.html"/>
     <published>2026-05-17T14:18:02.000Z</published>
     <summary>
       <![CDATA[<p>为了安装评论功能，把 next 升级到了 8.2 版本，结果之前的很多设置都要再重新搞一下  </p>]]>
@@ -32,7 +51,24 @@
       <name>Mooon</name>
     </author>
     <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
-    <category term="Hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="Twikoo" scheme="http://example.com/tags/Twikoo/"/>
+    <id>http://example.com/Hexo/7f8a245e.html</id>
+    <link href="http://example.com/Hexo/7f8a245e.html"/>
+    <published>2026-05-16T14:52:48.000Z</published>
+    <summary>
+      <![CDATA[<p>博客搭建起来之后，为了配置评论功能，对比了一圈，其中 Twikoo 是适合自己的  </p>]]>
+    </summary>
+    <title>Twikoo 评论系统部署教程</title>
+    <updated>2026-05-16T14:52:48.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="next8.0" scheme="http://example.com/tags/next8-0/"/>
     <id>http://example.com/Hexo/ca422904.html</id>
     <link href="http://example.com/Hexo/ca422904.html"/>
     <published>2026-05-11T15:55:43.000Z</published>
@@ -62,7 +98,8 @@
       <name>Mooon</name>
     </author>
     <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
-    <category term="Hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    <category term="next8.0" scheme="http://example.com/tags/next8-0/"/>
     <id>http://example.com/Hexo/e5f19e6d.html</id>
     <link href="http://example.com/Hexo/e5f19e6d.html"/>
     <published>2026-05-09T14:02:28.000Z</published>
@@ -79,8 +116,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <id>http://example.com/note/5bc9b443.html</id>
     <link href="http://example.com/note/5bc9b443.html"/>
     <published>2025-07-09T13:47:52.000Z</published>
@@ -95,8 +132,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="密码管理器" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/"/>
     <id>http://example.com/note/bf47d139.html</id>
     <link href="http://example.com/note/bf47d139.html"/>
@@ -112,8 +149,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="代理" scheme="http://example.com/tags/%E4%BB%A3%E7%90%86/"/>
     <category term="clash" scheme="http://example.com/tags/clash/"/>
     <id>http://example.com/note/61914325.html</id>
@@ -130,8 +167,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
     <category term="Moviepilot" scheme="http://example.com/tags/Moviepilot/"/>
     <id>http://example.com/note/81d88d66.html</id>
     <link href="http://example.com/note/81d88d66.html"/>
@@ -306,40 +343,5 @@
     </summary>
     <title>thelounge 安装教程</title>
     <updated>2022-05-01T13:44:43.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="压制" scheme="http://example.com/tags/%E5%8E%8B%E5%88%B6/"/>
-    <category term="Demux" scheme="http://example.com/tags/Demux/"/>
-    <category term="Remux" scheme="http://example.com/tags/Remux/"/>
-    <category term="Encode" scheme="http://example.com/tags/Encode/"/>
-    <category term="OCR" scheme="http://example.com/tags/OCR/"/>
-    <id>http://example.com/note/913e78c3.html</id>
-    <link href="http://example.com/note/913e78c3.html"/>
-    <published>2022-04-24T14:58:39.000Z</published>
-    <summary>
-      <![CDATA[<p>对 Bluray 进行 Encode，不仅仅是缩小体积，更重要的是进行<code>画质修复</code></p>]]>
-    </summary>
-    <title>Encode 基础教程</title>
-    <updated>2022-04-24T14:58:39.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="笔记" scheme="http://example.com/categories/note/"/>
-    <category term="PT" scheme="http://example.com/tags/pt/"/>
-    <category term="Usenet" scheme="http://example.com/tags/Usenet/"/>
-    <id>http://example.com/note/6b58148f.html</id>
-    <link href="http://example.com/note/6b58148f.html"/>
-    <published>2021-09-27T05:15:51.000Z</published>
-    <summary>
-      <![CDATA[<p><img src="https://images4.imagebam.com/21/0c/7c/MEPK1RP_o.png" alt="图片"><br>nzbget，Usenet 新闻组的下载工具，需配合 provider 服务商，推荐 newshosting、EWEKA、ninja 这三家</p>]]>
-    </summary>
-    <title>nzbget 的安装使用</title>
-    <updated>2021-09-27T05:15:51.000Z</updated>
   </entry>
 </feed>
