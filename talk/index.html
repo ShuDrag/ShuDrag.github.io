@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://blog.mooon.eu.org/talk/$1">
 <meta property="og:image" content="https://blog.mooon.eu.org/talk/$%7BimgUrl%7D">
 <meta property="article:published_time" content="2026-05-22T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-24T10:29:36.731Z">
+<meta property="article:modified_time" content="2026-05-25T12:48:02.765Z">
 <meta property="article:author" content="Mooon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.mooon.eu.org/talk/$1">
@@ -272,8 +272,8 @@
   border-radius: 8px;
 }
 
-/* 彻底隐藏说说里的 Twikoo Markdown 链接 */
-.bber-comment-area .tk-action a {
+/* 彻底隐藏说说里的 Twikoo Markdown 链接，绝不误伤回复按钮 */
+.bber-comment-area .tk-row.actions a {
   display: none !important;
 }
 
@@ -301,25 +301,22 @@
   border-radius: 6px;
 }
 
-/* 1张图：保持原图真实比例，自适应大小 */
+/* 1张图：保持原图真实比例，自适应大小并绝对靠左，完美解决缩放溢出 */
 .bber-resources[data-count="1"] {
-  grid-template-columns: max-content; /* 让容器紧贴图片的实际宽度 */
+  display: block; /* 核心修复：单张图时取消 grid 网格布局，退回普通流 */
+}
+.bber-resources[data-count="1"] a {
+  display: inline-block; /* 让外壳紧贴图片，并支持自适应缩小 */
+  max-width: 100%; 
 }
 .bber-resources[data-count="1"] img {
   aspect-ratio: auto; 
   width: auto;
-  max-width: 100%;
+  max-width: 100%; /* 限制图片最大只能撑满当前屏幕宽度 */
   height: auto;
   max-height: 400px; 
-  margin: 0 !important; /* 核心修复：强行抹除 NexT 主题自带的图片全局居中效果 */
-  object-position: left center; /* 确保图片内容绝对靠左 */
-}
-.bber-resources[data-count="1"] img {
-  aspect-ratio: auto; /* 单张图取消正方形限制 */
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 400px; /* 单图最高不超过 400px */
+  margin: 0 !important; /* 抹除 NexT 主题自带的图片全局居中 */
+  display: block;
 }
 
 /* 2张或4张图：经典 2x2 宫格，并限制总宽度防止在电脑上变得巨大 */

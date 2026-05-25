@@ -1268,7 +1268,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #44c747;
+    background: #242be5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2961,18 +2961,15 @@ li code {
   font-weight: bold !important;
   line-height: 1.4 !important;
 }
-/*
- * 终极隐藏 Twikoo 评论框底部的 Markdown 帮助图标：
- * 直接屏蔽操作区内的所有超链接 (a 标签) 和可能带外链的元素
+/* * 终极精确：仅隐藏 Twikoo 输入框操作栏中带超链接的图标（Markdown）
+ * 完美保留表情、图床，且绝对不误伤评论列表中的“回复”按钮
  */
-.tk-action a,
-.tk-action a[target="_blank"],
 .tk-row.actions a,
-.tk-action-link {
+.tk-row.actions .tk-action-icon[href],
+.tk-row.actions a[target="_blank"] {
   display: none !important;
   visibility: hidden !important;
   width: 0 !important;
   height: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important; /* 彻底切断鼠标点击事件 */
+  pointer-events: none !important;
 }
