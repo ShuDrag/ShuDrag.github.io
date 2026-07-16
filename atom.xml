@@ -11,7 +11,23 @@
   <rights>All rights reserved 2026, Mooon</rights>
   <subtitle>意义源自虚无</subtitle>
   <title>Mooon's Blog</title>
-  <updated>2026-05-22T15:17:20.000Z</updated>
+  <updated>2026-07-16T15:53:17.596Z</updated>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="教程" scheme="https://blog.mooon.eu.org/categories/tutorial/"/>
+    <category term="PT" scheme="https://blog.mooon.eu.org/tags/pt/"/>
+    <category term="seedbox" scheme="https://blog.mooon.eu.org/tags/seedbox/"/>
+    <id>https://blog.mooon.eu.org/tutorial/d28d25e9.html</id>
+    <link href="https://blog.mooon.eu.org/tutorial/d28d25e9.html"/>
+    <published>2026-07-16T15:27:42.000Z</published>
+    <summary>
+      <![CDATA[<p>PTP 的上传被顶掉了不少，已经不到 1k 了，这几天重新补了些种，由于之前官方图床已经不能用了，现在改换到 Pixhost，截完图自动上传</p>]]>
+    </summary>
+    <title>截图自动上传到图床的方法</title>
+    <updated>2026-07-16T15:53:17.596Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Mooon</name>
@@ -266,8 +282,8 @@
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
     <category term="Usenet" scheme="https://blog.mooon.eu.org/tags/Usenet/"/>
-    <category term="vps" scheme="https://blog.mooon.eu.org/tags/vps/"/>
     <category term="oracle" scheme="https://blog.mooon.eu.org/tags/oracle/"/>
+    <category term="vps" scheme="https://blog.mooon.eu.org/tags/vps/"/>
     <id>https://blog.mooon.eu.org/note/4d240cc4.html</id>
     <link href="https://blog.mooon.eu.org/note/4d240cc4.html"/>
     <published>2024-03-18T06:33:24.000Z</published>
@@ -326,22 +342,5 @@
     </summary>
     <title>星大脚本单独安装截图、制种功能</title>
     <updated>2023-03-09T05:25:13.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="教程" scheme="https://blog.mooon.eu.org/categories/tutorial/"/>
-    <category term="PT" scheme="https://blog.mooon.eu.org/tags/pt/"/>
-    <category term="VPS" scheme="https://blog.mooon.eu.org/tags/vps/"/>
-    <category term="IRC" scheme="https://blog.mooon.eu.org/tags/IRC/"/>
-    <id>https://blog.mooon.eu.org/tutorial/93695209.html</id>
-    <link href="https://blog.mooon.eu.org/tutorial/93695209.html"/>
-    <published>2022-05-01T13:44:43.000Z</published>
-    <summary>
-      <![CDATA[<p><img src="https://images4.imagebam.com/2f/d3/28/MEPK20G_o.png" alt="图片"><br>thelounge 是一个全平台的 IRC 客户端，对与玩外站的玩家来说，IRC 是必须要用到的工具，下面是在 linux 下通过的 Docker 的方式安装：</p>]]>
-    </summary>
-    <title>thelounge 安装教程</title>
-    <updated>2022-05-01T13:44:43.000Z</updated>
   </entry>
 </feed>
