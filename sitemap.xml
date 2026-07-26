@@ -313,21 +313,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <loc>https://blog.mooon.eu.org/tags/pt/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
+    <loc>https://blog.mooon.eu.org/tags/hexo/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/linux/</loc>
+    <loc>https://blog.mooon.eu.org/tags/next8-0/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -369,13 +369,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/pt/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.mooon.eu.org/tags/hexo/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -383,14 +376,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/hexo/</loc>
+    <loc>https://blog.mooon.eu.org/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/next8-0/</loc>
+    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/linux/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -398,13 +398,6 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/Twikoo/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/torrent/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -425,6 +418,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mooon.eu.org/tags/torrent/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.mooon.eu.org/tags/CloudFlare/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -439,13 +439,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/seedbox/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.mooon.eu.org/tags/%E5%8E%9F%E7%9B%98diy/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -454,6 +447,13 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/Bluray/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/seedbox/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -502,13 +502,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.mooon.eu.org/tags/%E4%BB%A3%E7%90%86/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -517,6 +510,13 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/clash/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
