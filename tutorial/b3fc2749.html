@@ -19,26 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.mooon.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":true,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":false,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+    <meta name="description" content="项目介绍CloudFlare-ImgBed 是一个基于 CloudFlare 的开源文件托管解决方案（图床&#x2F;文件床&#x2F;网盘），具有上传、管理、读取、删除等全链路功能，覆盖文件全生命周期，支持鉴权、目录、图片审查、随机图等各项特性（详见功能文档）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://blog.mooon.eu.org/uncatalog/4a17b156.html">
+<meta property="og:title" content="使用 CloudFlare R2 搭建免费图床服务">
+<meta property="og:url" content="https://blog.mooon.eu.org/tutorial/b3fc2749.html">
 <meta property="og:site_name" content="Mooon&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="项目介绍CloudFlare-ImgBed 是一个基于 CloudFlare 的开源文件托管解决方案（图床&#x2F;文件床&#x2F;网盘），具有上传、管理、读取、删除等全链路功能，覆盖文件全生命周期，支持鉴权、目录、图片审查、随机图等各项特性（详见功能文档）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-06T11:36:01.000Z">
-<meta property="article:modified_time" content="2020-09-06T11:36:01.000Z">
+<meta property="article:published_time" content="2025-07-26T10:30:32.000Z">
+<meta property="article:modified_time" content="2025-07-26T10:30:32.000Z">
 <meta property="article:author" content="Mooon">
+<meta property="article:tag" content="CloudFlare">
+<meta property="article:tag" content="图床">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.mooon.eu.org/uncatalog/4a17b156.html">
+<link rel="canonical" href="https://blog.mooon.eu.org/tutorial/b3fc2749.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.mooon.eu.org/uncatalog/4a17b156.html","path":"uncatalog/4a17b156.html","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.mooon.eu.org/tutorial/b3fc2749.html","path":"tutorial/b3fc2749.html","title":"使用 CloudFlare R2 搭建免费图床服务"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Mooon's Blog</title>
+<title>使用 CloudFlare R2 搭建免费图床服务 | Mooon's Blog</title>
   
 
 
@@ -159,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fork-%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">Fork 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Pages-%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">创建 Pages 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A-KV-%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81R2-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8"><span class="nav-number">5.</span> <span class="nav-text">绑定 KV 数据库、R2 对象存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%88%96%E6%95%99%E7%A8%8B%EF%BC%8C%E8%AF%B7%E7%9C%8B%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%9A%84WIKI%EF%BC%9Ahttps-cfbed-sanyue-de"><span class="nav-number">5.1.</span> <span class="nav-text">更多的设置或教程，请看开源项目的 WIKI：https:&#x2F;&#x2F;cfbed.sanyue.de&#x2F;</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -222,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.mooon.eu.org/uncatalog/4a17b156.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.mooon.eu.org/tutorial/b3fc2749.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -235,12 +237,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Mooon's Blog">
+      <meta itemprop="name" content="使用 CloudFlare R2 搭建免费图床服务 | Mooon's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          使用 CloudFlare R2 搭建免费图床服务
         </h1>
 
         <div class="post-meta-container">
@@ -251,7 +253,16 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-09-06 19:36:01" itemprop="dateCreated datePublished" datetime="2020-09-06T19:36:01+08:00">2020-09-06</time>
+      <time title="创建时间：2025-07-26 18:30:32" itemprop="dateCreated datePublished" datetime="2025-07-26T18:30:32+08:00">2025-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tutorial/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
     </span>
 
   
@@ -270,20 +281,33 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>CloudFlare-ImgBed 是一个基于 CloudFlare 的开源文件托管解决方案（图床/文件床/网盘），具有上传、管理、读取、删除等全链路功能，覆盖文件全生命周期，支持鉴权、目录、图片审查、随机图等各项特性（详见功能文档）。</p>
 <span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>1 个域名托管到 CF（作为图片直链、图床程序的访问域名）</li>
+<li>1 个 Github 账户（用于复刻和快速启动图床项目）</li>
+<li>1 个 CloudFlare 账号（用于白嫖下面的服务）</li>
+<li>R2 对象存储（10G 空间内免费，不限出口流量）</li>
+<li>Pages 静态托管（运行图床程序）</li>
+<li>KV 数据库（存储图床设置）</li>
+</ul>
+<p>除 R2 对象存储需要绑卡激活外，其余的 CF 服务都可以白嫖（每天 10 万次请求，达到暂停）。对象存储空间在 10G 内也不会产生费用，具体可以看下 R2 的介绍！</p>
+<h2 id="Fork-项目"><a href="#Fork-项目" class="headerlink" title="Fork 项目"></a>Fork 项目</h2><p>打开 Github 项目地址：<a target="_blank" rel="noopener" href="https://github.com/MarSeventh/CloudFlare-ImgBed">https://github.com/MarSeventh/CloudFlare-ImgBed</a></p>
+<p>点击 Fork 复刻一份到你的仓库，什么都不用改动。</p>
+<h2 id="创建-Pages-项目"><a href="#创建-Pages-项目" class="headerlink" title="创建 Pages 项目"></a>创建 Pages 项目</h2><p>登录 CloudFlare → 〖计算 Workers〗 → 〖Workers 和 Pages〗 → 〖创建〗</p>
+<p>〖pages〗 → 〖导入现有 Git 存储库〗，添加你的 Github 账户，并选择 Fork 的 CloudFlare-ImgBed → 〖开始设置〗</p>
+<p>名称：cloudflare-imgbed（随意，可不改）<br>产生分支：main（默认）<br>框架预设：无<br>构建命令：npm install<br>输出目录：/frontend-dist</p>
+<p>等待几分钟，就可以通过分配的域名访问了（国内 pages.dev 域名会打不开，稍后再设置）。</p>
+<h2 id="绑定-KV-数据库、R2-对象存储"><a href="#绑定-KV-数据库、R2-对象存储" class="headerlink" title="绑定 KV 数据库、R2 对象存储"></a>绑定 KV 数据库、R2 对象存储</h2><p>〖存储与数据〗 → 〖KV〗 → 〖Create Instance〗</p>
+<p>命名空间名称：<code>img_url</code>（建议用这个，创建后什么都不用做）</p>
+<p>到 pages 里面绑定：KV 数据库、R2 对象存储</p>
+<ul>
+<li>变量名：<code>img_url</code>，选择创建的 KV 数据库</li>
+<li>变量名：<code>img_r2</code>，选择你之前设置的 R2 桶</li>
+</ul>
+<p>之后〖重新部署〗，让其生效。</p>
+<p>顺便绑定个图床程序的域名</p>
+<h3 id="更多的设置或教程，请看开源项目的WIKI：https-cfbed-sanyue-de"><a href="#更多的设置或教程，请看开源项目的WIKI：https-cfbed-sanyue-de" class="headerlink" title="更多的设置或教程，请看开源项目的WIKI：https://cfbed.sanyue.de/"></a>更多的设置或教程，请看开源项目的 WIKI：<a target="_blank" rel="noopener" href="https://cfbed.sanyue.de/">https://cfbed.sanyue.de/</a></h3><p>至此教程结束，感谢观看，觉得不错记得点赞~</p>
 
     </div>
 
@@ -292,15 +316,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CloudFlare/" rel="tag"><i class="fa fa-tag"></i> CloudFlare</a>
+              <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"><i class="fa fa-tag"></i> 图床</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/note/5bc9b443.html" rel="prev" title="群晖 Docker 容器 &quot;failed to initialize logging driver database is locked&quot; 解决办法">
+                  <i class="fa fa-angle-left"></i> 群晖 Docker 容器 "failed to initialize logging driver database is locked" 解决办法
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/tutorial/a43721a9.html" rel="next" title="甲骨文创建实例时直接开启 root 登录">
-                  甲骨文创建实例时直接开启 root 登录 <i class="fa fa-angle-right"></i>
+                <a href="/Hexo/e5f19e6d.html" rel="next" title="Next 7.0+ &amp; 8.2+ TagCanvas 标签云设置">
+                  Next 7.0+ & 8.2+ TagCanvas 标签云设置 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
