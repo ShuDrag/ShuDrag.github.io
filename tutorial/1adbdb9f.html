@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Mooon&#39;s Blog">
 <meta property="og:description" content="有时蓝光原盘的音轨或字幕，通过 BDinfo 扫出来的与实际不一样，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.ibb.co/KLfr0LH/40404154934.jpg">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1785572598610_40404154934.jpg">
 <meta property="article:published_time" content="2024-04-04T08:03:36.000Z">
 <meta property="article:modified_time" content="2024-04-04T08:03:36.000Z">
 <meta property="article:author" content="Mooon">
 <meta property="article:tag" content="Bluray">
 <meta property="article:tag" content="原盘diy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.ibb.co/KLfr0LH/40404154934.jpg">
+<meta name="twitter:image" content="https://img.mooon.eu.org/file/1785572598610_40404154934.jpg">
 
 
 <link rel="canonical" href="https://blog.mooon.eu.org/tutorial/1adbdb9f.html">
@@ -285,7 +285,7 @@
     <div class="post-body" itemprop="articleBody"><p>有时蓝光原盘的音轨或字幕，通过 BDinfo 扫出来的与实际不一样，</p>
 <span id="more"></span>
 <p>可以通过字节码工具（HxD64）修改 clpi 文件来恢复其实际语言</p>
-<p><img src="https://i.ibb.co/KLfr0LH/40404154934.jpg" alt="图片"><br>用字节码工具打开原盘<code>\BDMV\CLIPINF</code>文件夹，找出与主视频对应的<code>clpi</code>文件，打开后找到如图所示，<code>“l”</code>是语言，一般指音轨，后面跟的是语言代码，把这个语言代码改为实际语言存盘即可，DONE</p>
+<p><img src="https://img.mooon.eu.org/file/1785572598610_40404154934.jpg" alt="40404154934.jpg"><br>用字节码工具打开原盘<code>\BDMV\CLIPINF</code>文件夹，找出与主视频对应的<code>clpi</code>文件，打开后找到如图所示，<code>“l”</code>是语言，一般指音轨，后面跟的是语言代码，把这个语言代码改为实际语言存盘即可，DONE</p>
 <ul>
 <li><p>clpi 和 m2ts 是一一对应，但 mpls 也对应 m2ts，但不是一一对应，我们想要那一条轨道 (每一条音轨、字幕都称作为一个轨道) 在这个 mpls 中出现，就是我们控制的. Play 键调用的是 mpls 至于调用哪一个，得根据盘来分析</p>
 </li>

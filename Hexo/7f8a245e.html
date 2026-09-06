@@ -26,24 +26,23 @@
 <meta property="og:site_name" content="Mooon&#39;s Blog">
 <meta property="og:description" content="博客搭建起来之后，为了配置评论功能，对比了一圈，其中 Twikoo 是适合自己的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images4.imagebam.com/27/07/d5/ME1DC2LC_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/12/16/22/ME1DC4GN_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/b5/67/52/ME1DC2LE_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/d2/2b/f5/ME1DC2LG_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/e7/7c/66/ME1DC2LH_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/11/ae/a8/ME1DC2LI_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/38/c7/85/ME1DC2LJ_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/78/20/99/ME1DC2LK_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/87/56/79/ME1DC7X8_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/e5/70/d9/ME1DC8O3_o.png">
-<meta property="og:image" content="https://images4.imagebam.com/6a/22/80/ME1DC84I_o.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786371542629_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786371584081_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786371642526_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786371728041_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786371861447_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786372069924_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786372145027_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786372363887_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786372474011_image.png">
+<meta property="og:image" content="https://img.mooon.eu.org/file/1786372568769_image.png">
 <meta property="article:published_time" content="2026-05-16T14:52:48.000Z">
 <meta property="article:modified_time" content="2026-05-16T14:52:48.000Z">
 <meta property="article:author" content="Mooon">
 <meta property="article:tag" content="Twikoo">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images4.imagebam.com/27/07/d5/ME1DC2LC_o.png">
+<meta name="twitter:image" content="https://img.mooon.eu.org/file/1786371542629_image.png">
 
 
 <link rel="canonical" href="https://blog.mooon.eu.org/Hexo/7f8a245e.html">
@@ -307,16 +306,17 @@
 <li>注册 MongoDB 云服务，创建一个免费的集群（Free Tier）</li>
 <li>获取数据库的连接字符串（URI），类似<code>mongodb+srv://user:password@cluster...</code></li>
 </ul>
-<p>进入一个 Projects，在 Database Access 页面点击 add New Database User 创建数据库用户<br><img src="https://images4.imagebam.com/27/07/d5/ME1DC2LC_o.png"><br><img src="https://images4.imagebam.com/12/16/22/ME1DC4GN_o.png"><br>在 Password Authentication 下设置数据库用户名和密码，点击 Auto Generate 自动生成一个强密码并保存<br><img src="https://images4.imagebam.com/b5/67/52/ME1DC2LE_o.png"><br>Built-In Role，Select Role 选择 Atlas Admin，最后点击 Add User<br><img src="https://images4.imagebam.com/d2/2b/f5/ME1DC2LG_o.png"><br>在 IP Access List 页面点击 Add IP Address 添加网络白名单, 输入 0.0.0.0 / 0（允许所有 IP 地址的连接）<br><img src="https://images4.imagebam.com/e7/7c/66/ME1DC2LH_o.png"><br>在 Database 页面点击 Connect，连接方式选择 Drivers，并记录数据库连接字符串，将字符串中的 <username>:<password> 修改为刚刚创建的数据库<code>用户名:密码</code><br><img src="https://images4.imagebam.com/11/ae/a8/ME1DC2LI_o.png"><br><img src="https://images4.imagebam.com/38/c7/85/ME1DC2LJ_o.png"><br><img src="https://images4.imagebam.com/78/20/99/ME1DC2LK_o.png"><br>连接字符串至关重要，它囊括了连接至 MongoDB 数据库的全部必要信息。一旦该字符串不慎泄露，后果将十分严重。<br>因此，务必妥善保管好这一连接字符串，在后续对 Twikoo 进行部署时，还需要将其准确填入到相应的部署平台中<br>到这里 MongDB 的部署就完成了</password></username></p>
+<p>进入一个 Projects，在 Database Access 页面点击 add New Database User 创建数据库用户<br><img src="https://img.mooon.eu.org/file/1786371542629_image.png" alt="image.png"><br><img src="https://img.mooon.eu.org/file/1786371584081_image.png" alt="image.png"><br>在 Password Authentication 下设置数据库用户名和密码，点击 Auto Generate 自动生成一个强密码并保存<br><img src="https://img.mooon.eu.org/file/1786371642526_image.png" alt="image.png"><br>Built-In Role，Select Role 选择 Atlas Admin，最后点击 Add User<br><img src="https://img.mooon.eu.org/file/1786371728041_image.png" alt="image.png"><br>在 IP Access List 页面点击 Add IP Address 添加网络白名单, 输入 0.0.0.0 / 0（允许所有 IP 地址的连接）<br><img src="https://img.mooon.eu.org/file/1786371861447_image.png" alt="image.png"><br>在 Database 页面点击 Connect，连接方式选择 Drivers，并记录数据库连接字符串，将字符串中的 <username>:<password> 修改为刚刚创建的数据库<code>用户名:密码</code><br><img src="https://img.mooon.eu.org/file/1786372069924_image.png" alt="image.png"><br><img src="https://img.mooon.eu.org/file/1786372145027_image.png" alt="image.png"> </password></username></p>
+<p>连接字符串至关重要，它囊括了连接至 MongoDB 数据库的全部必要信息。一旦该字符串不慎泄露，后果将十分严重。<br>因此，务必妥善保管好这一连接字符串，在后续对 Twikoo 进行部署时，还需要将其准确填入到相应的部署平台中<br>到这里 MongDB 的部署就完成了</p>
 <h3 id="一键部署后端-Vercel"><a href="#一键部署后端-Vercel" class="headerlink" title="一键部署后端 (Vercel)"></a>一键部署后端 (Vercel)</h3><ul>
 <li>登录 Vercel，通过 Twikoo 官方提供的 “一键部署” 按钮，将 Twikoo 的后端代码克隆到你的 GitHub 并自动部署到 Vercel<br><a target="_blank" rel="noopener" href="https://vercel.com/import/project?template=https://github.com/twikoojs/twikoo/tree/main/src/server/vercel-min">Twikoo 一键部署</a></li>
-<li>在 Vercel 的项目环境变量（Environment Variables）中，添加一条<code>MONGODB_URI</code>，值为前面 MongoDB 的数据库连接字符串<br><img src="https://images4.imagebam.com/87/56/79/ME1DC7X8_o.png"></li>
-<li>进入 Deployments，进行 Redeploy，等待重新部署完毕<br><img src="https://images4.imagebam.com/e5/70/d9/ME1DC8O3_o.png"></li>
+<li>在 Vercel 的项目环境变量（Environment Variables）中，添加一条<code>MONGODB_URI</code>，值为前面 MongoDB 的数据库连接字符串<br><img src="https://img.mooon.eu.org/file/1786372363887_image.png" alt="image.png"></li>
+<li>进入 Deployments，进行 Redeploy，等待重新部署完毕<br><img src="https://img.mooon.eu.org/file/1786372474011_image.png" alt="image.png"></li>
 <li>等待重新部署完成后，进入 Project，查看 Overview 或者点击 visit，看见下面的提示，说明部署成功</li>
 </ul>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"code": 100,</span><br><span class="line">"message": "Twikoo 云函数运行正常，请参考 https://twikoo.js.org/frontend.html 完成前端的配置",</span><br><span class="line">"version": "1.7.9"</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="绑定域名与获取-envId"><a href="#绑定域名与获取-envId" class="headerlink" title="绑定域名与获取 envId"></a>绑定域名与获取 envId</h3><ul>
-<li>Vercel 部署后会分配一个二级域名（例如 twikoo.vercel.app），可能已经被国内污染了，无法正常访问,<br>可以绑定自己的自定义域名<br><img src="https://images4.imagebam.com/6a/22/80/ME1DC84I_o.png"></li>
+<li>Vercel 部署后会分配一个二级域名（例如 twikoo.vercel.app），可能已经被国内污染了，无法正常访问,<br>可以绑定自己的自定义域名<br><img src="https://img.mooon.eu.org/file/1786372568769_image.png" alt="image.png"></li>
 <li>这个域名就是你在 Hexo 中填写的<code>envId</code></li>
 </ul>
 <h3 id="前端部署在Hexo-NexT主题使用"><a href="#前端部署在Hexo-NexT主题使用" class="headerlink" title="前端部署在Hexo NexT主题使用"></a>前端部署在 Hexo NexT 主题使用</h3><p>需要注意的是 Twikoo 不支持 NexT 8 以下的版本，需要先升级到 NexT 8 然后在 Hexo 项目根目录执行</p>
