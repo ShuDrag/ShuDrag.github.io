@@ -320,6 +320,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mooon.eu.org/tags/pt/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.mooon.eu.org/tags/hexo/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -328,34 +335,6 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/next8-0/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/linux/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/Twikoo/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -397,7 +376,28 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/pt/</loc>
+    <loc>https://blog.mooon.eu.org/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/linux/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/Twikoo/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -405,13 +405,6 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/Usenet/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/torrent/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -426,6 +419,13 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/IRC/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -474,14 +474,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mooon.eu.org/tags/IRC/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
+    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -489,13 +482,6 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/oracle/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.mooon.eu.org/tags/vps/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -517,6 +503,20 @@
   
   <url>
     <loc>https://blog.mooon.eu.org/tags/clash/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mooon.eu.org/tags/torrent/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
