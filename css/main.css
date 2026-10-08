@@ -1268,7 +1268,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #42ffb5;
+    background: #14ff46;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2972,4 +2972,51 @@ li code {
   width: 0 !important;
   height: 0 !important;
   pointer-events: none !important;
+}
+/* 2列统一卡片图集，适配横竖不同比例图片 */
+.img-grid-2 {
+  display: grid;
+/* 桌面2列，屏幕小于420px自动变成单列手机适配 */
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 8px;
+  margin: 15px 0;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.img-grid-2 > div {
+/* 统一预览外框比例，16:9宽屏；想方正改为4/3 */
+  aspect-ratio: 16/9;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.img-grid-2 > div img {
+  max-width: 96%;
+  max-height: 96%;
+/* 图片完整显示不裁切，Next原生放大原图完整 */
+  object-fit: contain;
+}
+/* 3列小图图集（可选） */
+.img-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 6px;
+  margin: 15px 0;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.img-grid-3 > div {
+  aspect-ratio: 4/3;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.img-grid-3 > div img {
+  max-width: 96%;
+  max-height: 96%;
+  object-fit: contain;
 }

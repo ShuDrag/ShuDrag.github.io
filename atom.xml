@@ -11,7 +11,39 @@
   <rights>All rights reserved 2026, Mooon</rights>
   <subtitle>意义源自虚无</subtitle>
   <title>Mooon's Blog</title>
-  <updated>2026-10-01T15:28:54.643Z</updated>
+  <updated>2026-10-06T15:11:40.000Z</updated>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
+    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/75eb353c.html</id>
+    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/75eb353c.html"/>
+    <published>2026-10-06T15:11:40.000Z</published>
+    <summary>
+      <![CDATA[<p>&nbsp;&nbsp;书接上回。<br>离开上一家公司后，我跟着 JO 去了新单位。但在整理照片时我才发觉，那段日子在我的相册里竟然是一片空白 —— 找不到任何一张关于办公环境或同事的随手拍。</p>]]>
+    </summary>
+    <title>关于办公室的回忆（二）</title>
+    <updated>2026-10-06T15:11:40.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
+    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/45fdd9e4.html</id>
+    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/45fdd9e4.html"/>
+    <published>2026-10-05T12:47:57.000Z</published>
+    <summary>
+      <![CDATA[<p>&nbsp;&nbsp;整理 NAS 里的备份照片时，无意中翻到了以前工作时随手拍下的几张办公区旧照。顺着照片的时间线一张张看过去，那些沉封的记忆一点点变得清晰起来，便想着顺手记录下来…</p>]]>
+    </summary>
+    <title>关于办公室的回忆（一）</title>
+    <updated>2026-10-05T12:47:57.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Mooon</name>
@@ -23,10 +55,13 @@
     <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/a21bd795.html"/>
     <published>2026-10-01T13:59:47.000Z</published>
     <summary>
-      <![CDATA[<p> <img src="https://img.mooon.eu.org/file/1790867269738_mobile01-e77bdde08c963e3869705e344b257daf.jpg" alt="mobile01-e77bdde08c963e3869705e344b257daf.jpg"><br>关注显卡很久了，一直迟迟没入手，包括去年做项目时候，因为显卡太过老旧（GTX 1050 Ti），SketchUp 的图都没有办法跑，，</p>]]>
+      <![CDATA[<div align="center">
+<img src="https://img.mooon.eu.org/file/1790867269738_mobile01-e77bdde08c963e3869705e344b257daf.jpg" width="80%" alt="RTX 5080">
+</div>
+关注显卡很久了，一直迟迟没入手，包括去年做项目时候，因为显卡太过老旧（GTX 1050 Ti），SketchUp 的图都没有办法跑，，]]>
     </summary>
-    <title>入手了 5080FE</title>
-    <updated>2026-10-01T15:28:54.643Z</updated>
+    <title>入手 5080FE</title>
+    <updated>2026-10-01T13:59:47.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -307,40 +342,5 @@
     </summary>
     <title>修改 Bluray 音轨或字幕语言不正确的问题</title>
     <updated>2024-04-04T08:03:36.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="Usenet" scheme="https://blog.mooon.eu.org/tags/Usenet/"/>
-    <category term="vps" scheme="https://blog.mooon.eu.org/tags/vps/"/>
-    <category term="oracle" scheme="https://blog.mooon.eu.org/tags/oracle/"/>
-    <id>https://blog.mooon.eu.org/note/4d240cc4.html</id>
-    <link href="https://blog.mooon.eu.org/note/4d240cc4.html"/>
-    <published>2024-03-18T06:33:24.000Z</published>
-    <summary>
-      <![CDATA[<p>为方便发种，需要安装些相应的工具</p>]]>
-    </summary>
-    <title>
-      <![CDATA[甲骨文 ARM 安装荒野无灯 FEB & SABnzb]]>
-    </title>
-    <updated>2024-03-18T06:33:24.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="RSS" scheme="https://blog.mooon.eu.org/tags/rss/"/>
-    <category term="Flexget" scheme="https://blog.mooon.eu.org/tags/Flexget/"/>
-    <id>https://blog.mooon.eu.org/note/865bf2c8.html</id>
-    <link href="https://blog.mooon.eu.org/note/865bf2c8.html"/>
-    <published>2023-05-25T03:35:39.000Z</published>
-    <summary>
-      <![CDATA[<p>菜佬提供的配置，还没验证过，因为长时间不登陆，号已经扬了… 有兴趣的可以尝试一下</p>]]>
-    </summary>
-    <title>Blurbird 的 Flexget 配置写法</title>
-    <updated>2023-05-25T03:35:39.000Z</updated>
   </entry>
 </feed>
