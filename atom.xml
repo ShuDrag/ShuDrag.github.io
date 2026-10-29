@@ -85,9 +85,9 @@
     </author>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
-    <category term="Memos" scheme="https://blog.mooon.eu.org/tags/Memos/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="Memos" scheme="https://blog.mooon.eu.org/tags/Memos/"/>
     <id>https://blog.mooon.eu.org/Hexo/20952de3.html</id>
     <link href="https://blog.mooon.eu.org/Hexo/20952de3.html"/>
     <published>2026-05-22T15:17:20.000Z</published>
@@ -199,8 +199,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <id>https://blog.mooon.eu.org/note/5bc9b443.html</id>
     <link href="https://blog.mooon.eu.org/note/5bc9b443.html"/>
     <published>2025-07-09T13:47:52.000Z</published>
@@ -215,8 +215,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="密码管理器" scheme="https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/"/>
     <id>https://blog.mooon.eu.org/note/bf47d139.html</id>
     <link href="https://blog.mooon.eu.org/note/bf47d139.html"/>
@@ -232,8 +232,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="代理" scheme="https://blog.mooon.eu.org/tags/%E4%BB%A3%E7%90%86/"/>
     <category term="clash" scheme="https://blog.mooon.eu.org/tags/clash/"/>
     <id>https://blog.mooon.eu.org/note/61914325.html</id>
@@ -250,8 +250,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="Moviepilot" scheme="https://blog.mooon.eu.org/tags/Moviepilot/"/>
     <id>https://blog.mooon.eu.org/note/81d88d66.html</id>
     <link href="https://blog.mooon.eu.org/note/81d88d66.html"/>
@@ -278,6 +278,25 @@
     </summary>
     <title>NPS 内网穿透服务搭建</title>
     <updated>2024-12-03T13:48:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
+    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/b6bf4dbf.html</id>
+    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/b6bf4dbf.html"/>
+    <published>2024-10-07T14:30:56.000Z</published>
+    <summary>
+      <![CDATA[<div align="center">
+<img src="https://img.mooon.eu.org/file/1791556319498_IMG_1378_VSCO_1.webp" width="40%" alt="雄安">
+</div>
+成为灵活就业人员之后，偶然的机会，接受了一份为期三个月的驻场深化工作]]>
+    </summary>
+    <title>雄安驻场生活</title>
+    <updated>2026-10-07T14:30:56.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -326,21 +345,5 @@
     </summary>
     <title>拆盘后的 Dolby TrueHD Audio AC3 音轨无法拖进 SBD 的问题</title>
     <updated>2024-04-26T08:24:13.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="教程" scheme="https://blog.mooon.eu.org/categories/tutorial/"/>
-    <category term="原盘diy" scheme="https://blog.mooon.eu.org/tags/%E5%8E%9F%E7%9B%98diy/"/>
-    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/Bluray/"/>
-    <id>https://blog.mooon.eu.org/tutorial/1adbdb9f.html</id>
-    <link href="https://blog.mooon.eu.org/tutorial/1adbdb9f.html"/>
-    <published>2024-04-04T08:03:36.000Z</published>
-    <summary>
-      <![CDATA[<p>有时蓝光原盘的音轨或字幕，通过 BDinfo 扫出来的与实际不一样，</p>]]>
-    </summary>
-    <title>修改 Bluray 音轨或字幕语言不正确的问题</title>
-    <updated>2024-04-04T08:03:36.000Z</updated>
   </entry>
 </feed>
