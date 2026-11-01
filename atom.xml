@@ -23,7 +23,7 @@
     <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/75eb353c.html"/>
     <published>2026-10-06T15:11:40.000Z</published>
     <summary>
-      <![CDATA[<p>&nbsp;&nbsp;书接上回。<br>离开上一家公司后，我跟着 JO 去了新单位。但在整理照片时我才发觉，那段日子在我的相册里竟然是一片空白 —— 找不到任何一张关于办公环境或同事的随手拍。</p>]]>
+      <![CDATA[<p>&nbsp;&nbsp;书接上回。<br>离开上一家公司后，跟着 JO 去了新单位。但在整理照片时我才发觉，那段日子在我的相册里几乎是一片空白 —— 只找到两张工位的照片。</p>]]>
     </summary>
     <title>关于办公室的回忆（二）</title>
     <updated>2026-10-06T15:11:40.000Z</updated>
@@ -85,9 +85,9 @@
     </author>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
-    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
-    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="Memos" scheme="https://blog.mooon.eu.org/tags/Memos/"/>
+    <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <id>https://blog.mooon.eu.org/Hexo/20952de3.html</id>
     <link href="https://blog.mooon.eu.org/Hexo/20952de3.html"/>
     <published>2026-05-22T15:17:20.000Z</published>
@@ -199,8 +199,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <id>https://blog.mooon.eu.org/note/5bc9b443.html</id>
     <link href="https://blog.mooon.eu.org/note/5bc9b443.html"/>
     <published>2025-07-09T13:47:52.000Z</published>
@@ -215,8 +215,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="密码管理器" scheme="https://blog.mooon.eu.org/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8/"/>
     <id>https://blog.mooon.eu.org/note/bf47d139.html</id>
     <link href="https://blog.mooon.eu.org/note/bf47d139.html"/>
@@ -232,8 +232,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="代理" scheme="https://blog.mooon.eu.org/tags/%E4%BB%A3%E7%90%86/"/>
     <category term="clash" scheme="https://blog.mooon.eu.org/tags/clash/"/>
     <id>https://blog.mooon.eu.org/note/61914325.html</id>
@@ -250,8 +250,8 @@
       <name>Mooon</name>
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
+    <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
     <category term="Moviepilot" scheme="https://blog.mooon.eu.org/tags/Moviepilot/"/>
     <id>https://blog.mooon.eu.org/note/81d88d66.html</id>
     <link href="https://blog.mooon.eu.org/note/81d88d66.html"/>
