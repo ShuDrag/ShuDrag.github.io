@@ -16,11 +16,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/chat/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/chat/"/>
     <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
-    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/75eb353c.html</id>
-    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/75eb353c.html"/>
+    <id>https://blog.mooon.eu.org/chat/75eb353c.html</id>
+    <link href="https://blog.mooon.eu.org/chat/75eb353c.html"/>
     <published>2026-10-06T15:11:40.000Z</published>
     <summary>
       <![CDATA[<p>&nbsp;&nbsp;书接上回。<br>离开上一家公司后，跟着 JO 去了新单位。但在整理照片时我才发觉，那段日子在我的相册里几乎是一片空白 —— 只找到两张工位的照片。</p>]]>
@@ -32,11 +32,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/chat/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/chat/"/>
     <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
-    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/45fdd9e4.html</id>
-    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/45fdd9e4.html"/>
+    <id>https://blog.mooon.eu.org/chat/45fdd9e4.html</id>
+    <link href="https://blog.mooon.eu.org/chat/45fdd9e4.html"/>
     <published>2026-10-05T12:47:57.000Z</published>
     <summary>
       <![CDATA[<p>&nbsp;&nbsp;整理 NAS 里的备份照片时，无意中翻到了以前工作时随手拍下的几张办公区旧照。顺着照片的时间线一张张看过去，那些沉封的记忆一点点变得清晰起来，便想着顺手记录下来…</p>]]>
@@ -48,11 +48,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/chat/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/chat/"/>
     <category term="硬件" scheme="https://blog.mooon.eu.org/tags/%E7%A1%AC%E4%BB%B6/"/>
-    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/a21bd795.html</id>
-    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/a21bd795.html"/>
+    <id>https://blog.mooon.eu.org/chat/a21bd795.html</id>
+    <link href="https://blog.mooon.eu.org/chat/a21bd795.html"/>
     <published>2026-10-01T13:59:47.000Z</published>
     <summary>
       <![CDATA[<div align="center">
@@ -62,6 +62,26 @@
     </summary>
     <title>入手 5080FE</title>
     <updated>2026-10-01T13:59:47.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Mooon</name>
+    </author>
+    <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
+    <category term="PT" scheme="https://blog.mooon.eu.org/tags/pt/"/>
+    <category term="影音收藏" scheme="https://blog.mooon.eu.org/tags/%E5%BD%B1%E9%9F%B3%E6%94%B6%E8%97%8F/"/>
+    <category term="NAS" scheme="https://blog.mooon.eu.org/tags/nas/"/>
+    <id>https://blog.mooon.eu.org/note/7d8e4de.html</id>
+    <link href="https://blog.mooon.eu.org/note/7d8e4de.html"/>
+    <published>2026-08-25T14:09:54.000Z</published>
+    <summary>
+      <![CDATA[<div align="center">
+<img src="https://img.mooon.eu.org/file/1795355332261_image.webp" width="80%" alt="online">
+</div>
+6 月初，把手上仅剩的一台付费机器 online 老 3 欧杜甫停掉了，算正式退掉了发种的坑，这台机器 2019 年收来的，是使用时间最长的一台机器...  <br>]]>
+    </summary>
+    <title>PT 之路</title>
+    <updated>2026-08-25T14:09:54.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -83,13 +103,13 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
-    <category term="Memos" scheme="https://blog.mooon.eu.org/tags/Memos/"/>
+    <category term="Memos" scheme="https://blog.mooon.eu.org/tags/memos/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
-    <id>https://blog.mooon.eu.org/Hexo/20952de3.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/20952de3.html"/>
+    <id>https://blog.mooon.eu.org/hexo/20952de3.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/20952de3.html"/>
     <published>2026-05-22T15:17:20.000Z</published>
     <summary>
       <![CDATA[<p>一直想给静态的 Hexo 配置一个说说的功能，查看了一些教程，都推荐接入 Artitalk 配合 LeanCloud 数据库，但是发现 LeanCloud 停止服务了  </p>]]>
@@ -101,11 +121,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
     <category term="next8.0" scheme="https://blog.mooon.eu.org/tags/next8-0/"/>
-    <id>https://blog.mooon.eu.org/Hexo/14e4e4be.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/14e4e4be.html"/>
+    <id>https://blog.mooon.eu.org/hexo/14e4e4be.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/14e4e4be.html"/>
     <published>2026-05-17T14:18:02.000Z</published>
     <summary>
       <![CDATA[<p>为了安装评论功能，把 next 升级到了 8.2 版本，结果之前的很多设置都要再重新搞一下  </p>]]>
@@ -117,11 +137,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
-    <category term="Twikoo" scheme="https://blog.mooon.eu.org/tags/Twikoo/"/>
-    <id>https://blog.mooon.eu.org/Hexo/7f8a245e.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/7f8a245e.html"/>
+    <category term="Twikoo" scheme="https://blog.mooon.eu.org/tags/twikoo/"/>
+    <id>https://blog.mooon.eu.org/hexo/7f8a245e.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/7f8a245e.html"/>
     <published>2026-05-16T14:52:48.000Z</published>
     <summary>
       <![CDATA[<p>博客搭建起来之后，为了配置评论功能，对比了一圈，其中 Twikoo 是适合自己的  </p>]]>
@@ -133,11 +153,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
     <category term="next8.0" scheme="https://blog.mooon.eu.org/tags/next8-0/"/>
-    <id>https://blog.mooon.eu.org/Hexo/ca422904.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/ca422904.html"/>
+    <id>https://blog.mooon.eu.org/hexo/ca422904.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/ca422904.html"/>
     <published>2026-05-11T15:55:43.000Z</published>
     <summary>
       <![CDATA[<p>为 Hexo 的 NEXT 主题添加显示当前进度的效果，只需在<code>config</code>里开启即可</p>]]>
@@ -149,10 +169,10 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="Hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
-    <id>https://blog.mooon.eu.org/Hexo/1af79f27.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/1af79f27.html"/>
+    <id>https://blog.mooon.eu.org/hexo/1af79f27.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/1af79f27.html"/>
     <published>2026-05-09T15:44:05.000Z</published>
     <summary>
       <![CDATA[<p>Hexo 开启链接永久化（固定链接）的核心好处  </p>]]>
@@ -164,11 +184,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.mooon.eu.org/categories/hexo/"/>
     <category term="hexo" scheme="https://blog.mooon.eu.org/tags/hexo/"/>
     <category term="next8.0" scheme="https://blog.mooon.eu.org/tags/next8-0/"/>
-    <id>https://blog.mooon.eu.org/Hexo/e5f19e6d.html</id>
-    <link href="https://blog.mooon.eu.org/Hexo/e5f19e6d.html"/>
+    <id>https://blog.mooon.eu.org/hexo/e5f19e6d.html</id>
+    <link href="https://blog.mooon.eu.org/hexo/e5f19e6d.html"/>
     <published>2026-05-09T14:02:28.000Z</published>
     <summary>
       <![CDATA[<p>Next 7.0+ 主题可以对标签进行自定义设置，在此基础上，可以使用球形标签云的 <code>tagcanvas.js</code> 插件进行样式修改，具体修改步骤如下</p>]]>
@@ -183,7 +203,7 @@
       <name>Mooon</name>
     </author>
     <category term="教程" scheme="https://blog.mooon.eu.org/categories/tutorial/"/>
-    <category term="CloudFlare" scheme="https://blog.mooon.eu.org/tags/CloudFlare/"/>
+    <category term="CloudFlare" scheme="https://blog.mooon.eu.org/tags/cloudflare/"/>
     <category term="图床" scheme="https://blog.mooon.eu.org/tags/%E5%9B%BE%E5%BA%8A/"/>
     <id>https://blog.mooon.eu.org/tutorial/b3fc2749.html</id>
     <link href="https://blog.mooon.eu.org/tutorial/b3fc2749.html"/>
@@ -252,7 +272,7 @@
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
     <category term="群晖" scheme="https://blog.mooon.eu.org/tags/%E7%BE%A4%E6%99%96/"/>
     <category term="docker" scheme="https://blog.mooon.eu.org/tags/docker/"/>
-    <category term="Moviepilot" scheme="https://blog.mooon.eu.org/tags/Moviepilot/"/>
+    <category term="Moviepilot" scheme="https://blog.mooon.eu.org/tags/moviepilot/"/>
     <id>https://blog.mooon.eu.org/note/81d88d66.html</id>
     <link href="https://blog.mooon.eu.org/note/81d88d66.html"/>
     <published>2025-04-15T14:44:39.000Z</published>
@@ -283,11 +303,11 @@
     <author>
       <name>Mooon</name>
     </author>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/%E9%97%B2%E8%81%8A/"/>
-    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/%E9%97%B2%E8%81%8A/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/categories/chat/"/>
+    <category term="闲聊" scheme="https://blog.mooon.eu.org/tags/chat/"/>
     <category term="工作" scheme="https://blog.mooon.eu.org/tags/%E5%B7%A5%E4%BD%9C/"/>
-    <id>https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/b6bf4dbf.html</id>
-    <link href="https://blog.mooon.eu.org/%E9%97%B2%E8%81%8A/b6bf4dbf.html"/>
+    <id>https://blog.mooon.eu.org/chat/b6bf4dbf.html</id>
+    <link href="https://blog.mooon.eu.org/chat/b6bf4dbf.html"/>
     <published>2024-10-07T14:30:56.000Z</published>
     <summary>
       <![CDATA[<div align="center">
@@ -304,7 +324,7 @@
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
     <category term="原盘diy" scheme="https://blog.mooon.eu.org/tags/%E5%8E%9F%E7%9B%98diy/"/>
-    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/Bluray/"/>
+    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/bluray/"/>
     <id>https://blog.mooon.eu.org/note/58a2765d.html</id>
     <link href="https://blog.mooon.eu.org/note/58a2765d.html"/>
     <published>2024-05-04T13:35:33.000Z</published>
@@ -320,7 +340,7 @@
     </author>
     <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
     <category term="原盘diy" scheme="https://blog.mooon.eu.org/tags/%E5%8E%9F%E7%9B%98diy/"/>
-    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/Bluray/"/>
+    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/bluray/"/>
     <id>https://blog.mooon.eu.org/note/edee2d8d.html</id>
     <link href="https://blog.mooon.eu.org/note/edee2d8d.html"/>
     <published>2024-05-04T13:30:24.000Z</published>
@@ -329,21 +349,5 @@
     </summary>
     <title>用 BDedit 挂载 IG 弹出菜单</title>
     <updated>2024-05-04T13:30:24.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mooon</name>
-    </author>
-    <category term="笔记" scheme="https://blog.mooon.eu.org/categories/note/"/>
-    <category term="原盘diy" scheme="https://blog.mooon.eu.org/tags/%E5%8E%9F%E7%9B%98diy/"/>
-    <category term="Bluray" scheme="https://blog.mooon.eu.org/tags/Bluray/"/>
-    <id>https://blog.mooon.eu.org/note/ded8c111.html</id>
-    <link href="https://blog.mooon.eu.org/note/ded8c111.html"/>
-    <published>2024-04-26T08:24:13.000Z</published>
-    <summary>
-      <![CDATA[<p>这里用的拆盘工具是 BD Demuxer Pro 3D UHD v3.2</p>]]>
-    </summary>
-    <title>拆盘后的 Dolby TrueHD Audio AC3 音轨无法拖进 SBD 的问题</title>
-    <updated>2024-04-26T08:24:13.000Z</updated>
   </entry>
 </feed>
